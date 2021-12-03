@@ -59,7 +59,7 @@
     </div>
     <!-- End Main Page Content -->
 
-    <?php include("./php/_footer.php"); ?>
+    <?php include("./res/php/footer.php"); ?>
 </body>
 
 </html>
