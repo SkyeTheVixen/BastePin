@@ -1,7 +1,7 @@
-<?php include("./php/_authcheck.php"); ?>
 <?php $title="Home | VDBP"; ?>
 <?php $currentPage="index"; ?>
-<?php include("./php/_header.php"); ?>
+<?php include("./php/header.php"); ?>
+
 
 <body>
     <!-- Navigation bar -->
