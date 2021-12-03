@@ -1,6 +1,6 @@
 <?php $title="Home | VDBP"; ?>
 <?php $currentPage="index"; ?>
-<?php include("./php/header.php"); ?>
+<?php include("./res/php/header.php"); ?>
 
 
 <body>
