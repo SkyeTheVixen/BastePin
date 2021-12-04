@@ -1,4 +1,4 @@
-<?php $title="Home | VDBP"; ?>
+<?php $title="Premium | VDBP"; ?>
 <?php $currentPage="index"; ?>
 <?php include("res/php/_connect.php"); ?>
 <?php include("res/php/header.php"); ?>
@@ -22,12 +22,12 @@
                 <div class="card text-center border-dark">
                     <div class="card-body">
                         <h5 class="card-title">Free</h5>
-                        <p class="card-text"><ul>
-                            <li>10 Bastes</li>
-                            <li>No Password Protection</li>
-                            <li>Bastes Never Expire</li>
-                            <li>Public Bastes</li>
-                            <li>No Support</li>
+                        <p class="card-text"><ul class="list-unstyled">
+                            <li>- 10 Bastes</li>
+                            <li>- No Password Protection</li>
+                            <li>- Bastes Never Expire</li>
+                            <li>- Public Bastes</li>
+                            <li>- No Support</li>
                         </ul></p>
                         <a href="" class="btn btn-secondary">Continue on Free</a>
                     </div>
@@ -37,12 +37,12 @@
                 <div class="card text-center border-dark">
                     <div class="card-body">
                         <h5 class="card-title">Premium</h5>
-                        <p class="card-text"><ul>
-                            <li>Unlimited Bastes</li>
-                            <li>Password Protection</li>
-                            <li>Baste Expiration</li>
-                            <li>Private and Unlisted Bastes</li>
-                            <li>Priority Support</li>
+                        <p class="card-text"><ul class="list-unstyled">
+                            <li>- Unlimited Bastes</li>
+                            <li>- Password Protection</li>
+                            <li>- Baste Expiration</li>
+                            <li>- Private and Unlisted Bastes</li>
+                            <li>- Priority Support</li>
                         </ul></p>
                         <a href="" class="btn btn-primary">Upgrade to premium</a>
                     </div>
