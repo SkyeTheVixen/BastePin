@@ -85,8 +85,7 @@ $(document).ready(function () {
                     Swal.fire({
                         icon: 'info',
                         title: 'Nice Try',
-                        html: true,
-                        text: "Upgrade to <a href=\"premium\">premium</a> to enable this feature",
+                        html: "Upgrade to <a href=\"premium\">premium</a> to enable this feature",
                         heightAuto: false
                     });
                 } else if (DataResult.statusCode === 202) {
