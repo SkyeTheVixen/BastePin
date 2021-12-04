@@ -13,7 +13,7 @@ $(document).ready(function () {
         }
         $.ajax({
             type: "post",
-            url: "../res/php/auth.php",
+            url: "../php/auth.php",
             data: {
                 txtUser: email,
                 txtPassword: password
@@ -27,8 +27,25 @@ $(document).ready(function () {
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
-                        text: 'You may have entered invalid credentials. Please try again',
-                        heightAuto: false
+                        text: 'Your credentials were invalid.'
+                    });
+                } else if (DataResult.statusCode === 202) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'No user account was found with this email address'
+                    });
+                } else if (DataResult.statusCode === 203) {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Oops...',
+                        text: 'Please enter your email address And/Or Password'
+                    });
+                } else if (DataResult.statusCode === 204) {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Oops...',
+                        text: 'Your Account is Locked. Please contact support.'
                     });
                 }
             }
@@ -60,29 +77,11 @@ $(document).ready(function () {
                         title: 'Success',
                         text: 'Password reset link has been sent to your email address'
                     });
-                } else if (DataResult.statusCode === 201) {
+                }  else if (DataResult.statusCode === 201) {
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
-                        text: 'Your credentials were invalid.'
-                    });
-                } else if (DataResult.statusCode === 202) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'No user account was found with this email address'
-                    });
-                } else if (DataResult.statusCode === 203) {
-                    Swal.fire({
-                        icon: 'warning',
-                        title: 'Oops...',
-                        text: 'Please enter your email address And/Or Password'
-                    });
-                } else if (DataResult.statusCode === 204) {
-                    Swal.fire({
-                        icon: 'warning',
-                        title: 'Oops...',
-                        text: 'Your Account is Locked. Please contact support.'
+                        text: 'Something went wrong, try again.'
                     });
                 }
             },
