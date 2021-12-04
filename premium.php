@@ -10,7 +10,7 @@
 
     <!-- Welcome Greeting -->
     <div class="row mb-5">
-        <div class="col-12 mt-5 align-items-center">
+        <div class="col-12 mt-5 align-items-center text-center">
             <h1>Upgrade to Premium</h1>
         </div>
     </div>
@@ -43,7 +43,9 @@
                             <li>- Baste Expiration</li>
                             <li>- Private and Unlisted Bastes</li>
                             <li>- Priority Support</li>
+                            <li>- Lifetime Support</li>
                         </ul></p>
+                        <p class="card-text">£9.99 One off payment</p>
                         <a href="" class="btn btn-primary">Upgrade to premium</a>
                     </div>
                 </div>
