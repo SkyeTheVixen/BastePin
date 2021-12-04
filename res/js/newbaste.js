@@ -65,12 +65,12 @@ $(document).ready(function () {
     });
 
     $("#bastePasswordRequired").change(function(){
-        console.log("event fired")
         $.ajax({
             type: "post",
             url: "res/php/checkpremium.php",
             cache: false,
             success: function (dataResult) {
+                console.log(dataResult);
                 var DataResult = JSON.parse(dataResult);
                 if (DataResult.premiumStatus === 1) {
                     if(this.checked){
