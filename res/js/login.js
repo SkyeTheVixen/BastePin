@@ -27,25 +27,29 @@ $(document).ready(function () {
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
-                        text: 'Your credentials were invalid.'
+                        text: 'Your credentials were invalid.',
+                        heightAuto: false
                     });
                 } else if (DataResult.statusCode === 202) {
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
-                        text: 'No user account was found with this email address'
+                        text: 'No user account was found with this email address',
+                        heightAuto: false
                     });
                 } else if (DataResult.statusCode === 203) {
                     Swal.fire({
                         icon: 'warning',
                         title: 'Oops...',
-                        text: 'Please enter your email address And/Or Password'
+                        text: 'Please enter your email address And/Or Password',
+                        heightAuto: false
                     });
                 } else if (DataResult.statusCode === 204) {
                     Swal.fire({
                         icon: 'warning',
                         title: 'Oops...',
-                        text: 'Your Account is Locked. Please contact support.'
+                        text: 'Your Account is Locked. Please contact support.',
+                        heightAuto: false
                     });
                 }
             }
