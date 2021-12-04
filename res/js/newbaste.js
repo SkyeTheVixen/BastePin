@@ -74,17 +74,19 @@ $(document).ready(function () {
                 var DataResult = JSON.parse(dataResult);
                 if (DataResult.statusCode === 200) {
                     if(this.checked){
-                        $("#bastePassword").prop("disabled", false)
+                        $("#bastePassword").prop("disabled", false);
+                        $("#bastePassword").removeAttr("disabled");
                     }
                     else{
-                        $("#bastePassword").prop("disabled", true)
+                        $("#bastePassword").attr("disabled", true);
+                        $("#bastePassword").prop("disabled", true);
                     }
                 } else if (DataResult.statusCode === 201) {
                     Swal.fire({
                         icon: 'info',
                         title: 'Nice Try',
                         html: true,
-                        text: 'Upgrade to <a href="premium">premium</a> to enable this feature',
+                        text: "Upgrade to <a href=\"premium\">premium</a> to enable this feature",
                         heightAuto: false
                     });
                 } else if (DataResult.statusCode === 202) {
