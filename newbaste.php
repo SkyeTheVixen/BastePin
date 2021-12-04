@@ -53,10 +53,10 @@
                 <label for="bastePassword">Password?</label>
             </span>
             <span class="input-group-addon">
-                <input id="bastePasswordRequired" type="checkbox" <?php if($user["IsPremium"] == 0) {echo "disabled";}  else{return;}?>>
+                <input id="bastePasswordRequired" type="checkbox" <?php if($user["IsPremium"] == 0) {echo "disabled";}?>>
             </span>
             <input type="password" id="bastePassword" class="form-control"
-                <?php if($user["IsPremium"] == 0) {echo "disabled";} else{return;}?>>
+                <?php if($user["IsPremium"] == 0) {echo "disabled";}?>>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
