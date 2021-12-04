@@ -64,7 +64,7 @@ $(document).ready(function () {
         });
     });
 
-    $("#bastePasswordRequired").checked(function(){
+    $("#bastePasswordRequired").change(function(){
         $.ajax({
             type: "post",
             url: "res/php/checkpremium.php",
