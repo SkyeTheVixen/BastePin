@@ -18,8 +18,13 @@
             $User = $result->fetch_array(MYSQLI_ASSOC);
 			if(password_verify($password, $User["Password"], ))
             {
-                $_SESSION["userID"] = $User["UserID"];
-                echo json_encode(array("statusCode" => 200));
+                if($User["IsLocked"] == 1){
+                    echo json_encode(array("statusCode" => 204));
+                }
+                else{
+                    $_SESSION["userID"] = $User["UserID"];
+                    echo json_encode(array("statusCode" => 200));
+                }
             }
             else{
                 echo json_encode(array("statusCode" => 201));

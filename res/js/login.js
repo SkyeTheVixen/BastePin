@@ -74,9 +74,15 @@ $(document).ready(function () {
                     });
                 } else if (DataResult.statusCode === 203) {
                     Swal.fire({
-                        icon: 'error',
+                        icon: 'warning',
                         title: 'Oops...',
                         text: 'Please enter your email address And/Or Password'
+                    });
+                } else if (DataResult.statusCode === 204) {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Oops...',
+                        text: 'Your Account is Locked. Please contact support.'
                     });
                 }
             },
