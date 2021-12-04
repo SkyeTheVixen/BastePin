@@ -62,5 +62,32 @@ $(document).ready(function () {
                 }
             }
         });
-    })
+    });
+
+    $("#bastePasswordRequired").checked(function(){
+        $.ajax({
+            type: "post",
+            url: "res/php/checkpremium.php",
+            cache: false,
+            success: function (dataResult) {
+                var DataResult = JSON.parse(dataResult);
+                if (DataResult.premiumStatus === 1) {
+                    if(this.checked){
+                        $("#bastePassword").prop("disabled", false)
+                    }
+                    else{
+                        $("#bastePassword").prop("disabled", true)
+                    }
+                } else if (DataResult.premiumStatus === 0) {
+                    Swal.fire({
+                        icon: 'info',
+                        title: 'Nice Try',
+                        text: 'Upgrade to <a href="premium">premium</a> to enable this feature',
+                        heightAuto: false
+                    });
+                }
+            }
+        })
+
+    });
 })
