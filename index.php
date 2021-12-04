@@ -17,7 +17,7 @@
         <div class="col-12 mt-5 align-items-center">
             <h1 class="text-center"><?php echo getGreeting(); ?>, <?php echo $User["FirstName"];?> <?php echo $User["LastName"];?></h1>
         </div>
-        <h2><?php echo $_SESSION["UserID"]; ?></h2>
+        <h2><?php var_dump($_SESSION); ?></h2>
     </div>
     <!-- End Welcome Greeting -->
 
