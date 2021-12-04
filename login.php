@@ -9,7 +9,7 @@
         <div class="row h-100 align-content-center justify-content-center">
             <div class="col-auto loginform w-50 align-items-center shadow">
                 <div class="row pt-4">
-                    <h1 class="text-center w-100">Login to VD Training</h1>
+                    <h1 class="text-center w-100">Login to VD BastePin</h1>
                 </div>
                 <div class="row pb-4">
                     <form id="loginForm" method="POST" autocomplete="off">
@@ -35,62 +35,64 @@
         <!-- End Login Form -->
 
         <!-- Modals -->
-        <div class="modal fade" id="forgotPassModal" tabindex="-1" aria-labelledby="forgotUserModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Forgot Password</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="mb-3">
-                                <label for="emailInput" class="form-label">Email address</label>
-                                <input type="email" required class="form-control" id="emailInput">
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary" id="addUserBtn">Send reset Link</button>
+
+            <!-- <div class="modal fade" id="forgotPassModal" tabindex="-1" aria-labelledby="forgotUserModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Forgot Password</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="emailInput" class="form-label">Email address</label>
+                                    <input type="email" required class="form-control" id="emailInput">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-primary" id="addUserBtn">Send reset Link</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div> -->
+
+            <!-- Password Reset Modal -->
+            <!-- <div class="modal fade" id="passwordResetModal" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Password Reset</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <form id="passResetForm">
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label for="emailInputReset" class="form-label">Email address</label>
+                                    <input type="email" required class="form-control" id="emailInputReset">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-primary" id="sendLinkBtn">Send Link</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div> -->
+            <!-- End Password Reset Modal -->
+
         <!-- End Modals -->
     </div>
     <!-- End Main Page Content -->
 
-    <!-- Password Reset Modal -->
-    <div class="modal fade" id="passwordResetModal" tabindex="-1" aria-labelledby="addUserModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Password Reset</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form id="passResetForm">
-                    <div class="modal-body">
-                        <div class="mb-3">
-                            <label for="emailInputReset" class="form-label">Email address</label>
-                            <input type="email" required class="form-control" id="emailInputReset">
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-primary" id="sendLinkBtn">Send Link</button>
-                    </div>
-                </form>
-
-            </div>
-        </div>
-    </div>
-    <!-- End Password Reset Modal -->
 
 
-    <?php include("./php/_footer.php"); ?>
+
 </body>
 
 </html>

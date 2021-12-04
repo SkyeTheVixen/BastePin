@@ -13,7 +13,7 @@ $(document).ready(function () {
         }
         $.ajax({
             type: "post",
-            url: "../php/auth.php",
+            url: "../res/php/auth.php",
             data: {
                 txtUser: email,
                 txtPassword: password
@@ -64,7 +64,19 @@ $(document).ready(function () {
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
-                        text: 'Please enter your email address'
+                        text: 'Your credentials were invalid.'
+                    });
+                } else if (DataResult.statusCode === 202) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'No user account was found with this email address'
+                    });
+                } else if (DataResult.statusCode === 203) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Please enter your email address And/Or Password'
                     });
                 }
             },
