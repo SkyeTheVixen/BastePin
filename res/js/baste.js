@@ -64,7 +64,7 @@ $(document).ready(function () {
         });
     });
 
-    $("#bastePasswordRequired").change(function(){
+    $("#bastePasswordRequired").click(function(){
         console.log("event fired")
         $.ajax({
             type: "post",
