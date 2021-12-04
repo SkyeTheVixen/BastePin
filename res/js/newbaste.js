@@ -73,7 +73,7 @@ $(document).ready(function () {
                 var DataResult = JSON.parse(dataResult);
                 if (DataResult.statusCode === 200) {
                     if(this.checked){
-                        $("#bastePassword").prop("disabled", 0);
+                        $("#bastePassword").removeProp("disabled");
                         $("#bastePassword").removeAttr("disabled");
                         console.log($("#bastePassword").prop("disabled"));
                         console.log($("#bastePassword").attr("disabled"));
