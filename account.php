@@ -1,3 +1,4 @@
+<?php session_start();?>
 <?php $title="Account | VDBP"; ?>
 <?php $currentPage="account"; ?>
 <?php include("res/php/header.php"); ?>

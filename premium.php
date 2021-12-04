@@ -1,3 +1,4 @@
+<?php session_start();?>
 <?php $title="Premium | VDBP"; ?>
 <?php $currentPage="index"; ?>
 <?php include("res/php/_connect.php"); ?>

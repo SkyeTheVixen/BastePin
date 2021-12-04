@@ -1,3 +1,4 @@
+<?php session_start();?>
 <?php $title="Baste | VDBP"; ?>
 <?php $currentPage="baste"; ?>
 <?php include("res/php/header.php"); ?>
