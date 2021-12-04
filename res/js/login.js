@@ -22,7 +22,9 @@ $(document).ready(function () {
             success: function (dataResult) {
                 var DataResult = JSON.parse(dataResult);
                 if (DataResult.statusCode === 200) {
+                    console.log(dataResult);
                     location.href = "index";
+
                 } else if (DataResult.statusCode === 201) {
                     Swal.fire({
                         icon: 'error',
