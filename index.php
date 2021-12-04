@@ -1,9 +1,9 @@
 <?php $title="Home | VDBP"; ?>
 <?php $currentPage="index"; ?>
-<?php include_once("res/php/_connect.php"); ?>
-<?php include_once("res/php/header.php"); ?>
-<?php include_once("res/php/navbar.php"); ?>
-<?php include_once("res/php/functions.inc.php"); ?>
+<?php include("res/php/_connect.php"); ?>
+<?php include("res/php/header.php"); ?>
+<?php include("res/php/navbar.php"); ?>
+<?php include("res/php/functions.inc.php"); ?>
 <?php $User = GetUser(); ?>
 
 <!-- Main Page Content -->
