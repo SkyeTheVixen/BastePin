@@ -82,6 +82,7 @@ $(document).ready(function () {
                         $("#bastePassword").prop("disabled", true);
                     }
                 } else if (DataResult.statusCode === 201) {
+                    $(this).prop('checked', false);
                     Swal.fire({
                         icon: 'info',
                         title: 'Nice Try',
