@@ -1,6 +1,6 @@
 <?php $title="Home | VDBP"; ?>
 <?php $currentPage="index"; ?>
-<?php include("./res/php/header.php"); ?>
+<?php include("res/php/header.php"); ?>
 
 
 <body>
@@ -25,7 +25,10 @@
                             Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link link-light" href="courses"><i class="fas fa-graduation-cap"></i>Courses</a>
+                        <a href="newbaste" class="nav-link link-light"><i class="fas fa-pencil"></i> New Baste</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link-light" href="text"><i class="fas fa-eye"></i>View Bastes</a>
                     </li>
                     <li class="nav-item">
                         <a href="account/" class="nav-link link-light"><i class="far fa-id-badge"></i> My Account</a>
