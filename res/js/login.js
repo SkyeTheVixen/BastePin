@@ -13,7 +13,7 @@ $(document).ready(function () {
         }
         $.ajax({
             type: "post",
-            url: "res/php/auth.php",
+            url: "../res/php/auth.php",
             data: {
                 txtUser: email,
                 txtPassword: password
