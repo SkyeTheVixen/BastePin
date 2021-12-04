@@ -4,7 +4,7 @@
 <?php include("res/php/header.php"); ?>
 <?php include("res/php/navbar.php"); ?>
 <?php include("res/php/functions.inc.php"); ?>
-<?php $User = GetUser(); ?>
+<?php $User = GetUser($connect); ?>
 <?php $sql = "SELECT * FROM `tblBastes` WHERE `tblBastes`.`Visibility` = ? ORDER BY `tblBastes`.`CreatedAt` DESC LIMIT 5"; ?>
 <?php $query = mysqli_query($connect, $sql); ?>
 
