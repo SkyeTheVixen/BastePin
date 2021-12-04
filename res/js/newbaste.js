@@ -86,6 +86,13 @@ $(document).ready(function () {
                         text: 'Upgrade to <a href="premium">premium</a> to enable this feature',
                         heightAuto: false
                     });
+                } else if (DataResult.statusCode === 202) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'error',
+                        heightAuto: false
+                    });
                 }
             }
         })

@@ -13,7 +13,7 @@ if($result -> num_rows === 1){
     else { echo json_encode(array('statusCode' => 201)); }
 }
 else{
-    echo json_encode(array('statusCode' => 201));
+    echo json_encode(array('statusCode' => 202));
 }
 
 ?>
