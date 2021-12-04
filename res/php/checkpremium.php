@@ -8,7 +8,9 @@ $stmt -> execute();
 $result = $stmt->get_result();
 if($result -> num_rows === 1){
     $User = $result->fetch_array(MYSQLI_ASSOC);
-    echo json_encode(array("premiumStatus" => $User["IsPremium"]));
+    $premium = $User["IsPremium"];
+    if ($premium == 1) { echo json_encode(array('statusCode' => 1));}
+    else { echo json_encode(array('statusCode' => 0)); }
 }
 
 ?>
