@@ -22,7 +22,7 @@
     function GetUser($connect){
         $sql = "SELECT * FROM `tblUsers` WHERE `tblUsers`.`UserID` = ?";
         $stmt = mysqli_prepare($connect, $sql);
-        mysqli_stmt_bind_param($stmt, 's', $_SESSION["userID"]);
+        mysqli_stmt_bind_param($stmt, 's', $_SESSION["UserID"]);
         $stmt -> execute();
         $result = $stmt->get_result();
         if($result -> num_rows === 1){
