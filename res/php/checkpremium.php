@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include_once("_connect.php");
 $sql = "SELECT * FROM `tblUsers` WHERE `tblUsers`.`UserID` = ?";
 $stmt = mysqli_prepare($connect, $sql);

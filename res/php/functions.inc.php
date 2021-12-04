@@ -1,4 +1,5 @@
 <?php
+    session_start();
 
     function GenerateID() {
         $IDData = $IDData ?? random_bytes(16);
