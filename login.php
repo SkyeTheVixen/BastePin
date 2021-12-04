@@ -1,6 +1,6 @@
 <?php $title="Login | VDBP"; ?>
 <?php $currentPage="login"; ?>
-<?php include("res/php/header.php"); ?>
+<?php include_once("res/php/header.php"); ?>
 
 <body>
     <!-- Main Page Content -->

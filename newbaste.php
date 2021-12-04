@@ -1,8 +1,8 @@
 <?php $title="New Baste | VDBP"; ?>
 <?php $currentPage="newbaste"; ?>
-<?php include("res/php/header.php"); ?>
-<?php include("res/php/navbar.php"); ?>
-<?php include("res/php/functions.inc.php"); ?>
+<?php include_once("res/php/header.php"); ?>
+<?php include_once("res/php/navbar.php"); ?>
+<?php include_once("res/php/functions.inc.php"); ?>
 
 
 <!-- Main Page Content -->
