@@ -1,3 +1,4 @@
+<?php session_start();?>
 <?php $title="New Baste | VDBP"; ?>
 <?php $currentPage="newbaste"; ?>
 <?php include_once("res/php/header.php"); ?>
@@ -52,10 +53,10 @@
                 <label for="bastePassword">Password?</label>
             </span>
             <span class="input-group-addon">
-                <input id="bastePasswordRequired" type="checkbox" <?php if($user["IsPremium"] == 0) {echo "";} ?>>
+                <input id="bastePasswordRequired" type="checkbox" <?php if($user["IsPremium"] == 0) {echo "disabled";}  else{return;}?>>
             </span>
             <input type="password" id="bastePassword" class="form-control"
-                <?php if($user["IsPremium"] == 0) {echo "disabled";} ?>>
+                <?php if($user["IsPremium"] == 0) {echo "disabled";} else{return;}?>>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
