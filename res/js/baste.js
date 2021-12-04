@@ -65,6 +65,7 @@ $(document).ready(function () {
     });
 
     $("#bastePasswordRequired").change(function(){
+        console.log("event fired")
         $.ajax({
             type: "post",
             url: "res/php/checkpremium.php",
