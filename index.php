@@ -5,6 +5,9 @@
 <?php include("res/php/navbar.php"); ?>
 <?php include("res/php/functions.inc.php"); ?>
 <?php $User = GetUser(); ?>
+<?php $sql = "SELECT * FROM `tblBastes` WHERE `tblBastes`.`Visibility` = ? ORDER BY `tblBastes`.`CreatedAt` DESC LIMIT 5"; ?>
+<?php $query = mysqli_query($connect, $sql); ?>
+
 
 <!-- Main Page Content -->
 <div class="container">
@@ -20,18 +23,17 @@
     <div class="row">
         <h2 class="text-center">Recent Bastes</h2>
         <div class="row">
-            <?php
-                $visibility = 2;
-                $sql = "SELECT * FROM `tblBastes` WHERE `tblBastes`.`Visibility` = ? ORDER BY `tblBastes`.`CreatedAt` DESC LIMIT 5";
-                $stmt = mysqli_prepare($connect, $sql);
-                mysqli_stmt_bind_param($stmt, 'i', $visibility);
-                $stmt -> execute();
-                $result = $stmt->get_result();
-                while ($baste = $result->fetch_array(MYSQLI_ASSOC)) {
-                    echo '<div class="col-12 col-md-6 col-lg-4"> <div class="card"> <div class="card-body"> <h5 class="card-title">' . $baste["BasteName"] . '</h5> <p class="card-text">' . $baste["CreatedAt"] . '</p> <a href="baste.php?id=' . $baste["BasteID"] . '" class="btn btn-primary">View Baste</a> </div> </div> </div>';
-                }
-                $stmt -> close();
-            ?>
+            <?php while($rows = mysqli_fetch_assoc($query)) { ?>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $rows['BasteName']; ?></h5>
+                            <p class="card-text"><?php echo $rows['CreatedAt']; ?></p>
+                            <a href="baste.php?id=<?php echo $rows['BasteID']; ?>" class="btn btn-primary">View Baste</a>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
         </div>
     </div>
 
