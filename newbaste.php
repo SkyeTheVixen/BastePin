@@ -52,7 +52,7 @@
                 <label for="bastePassword">Password?</label>
             </span>
             <span class="input-group-addon">
-                <input id="bastePasswordRequired" type="checkbox" <?php if($user["IsPremium"] == 0) {echo "disabled";} ?>>
+                <input id="bastePasswordRequired" type="checkbox" <?php if($user["IsPremium"] == 0) {echo "";} ?>>
             </span>
             <input type="password" id="bastePassword" class="form-control"
                 <?php if($user["IsPremium"] == 0) {echo "disabled";} ?>>
