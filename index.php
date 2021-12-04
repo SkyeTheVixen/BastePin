@@ -5,7 +5,7 @@
 <?php include("res/php/navbar.php"); ?>
 <?php include("res/php/functions.inc.php"); ?>
 <?php $User = GetUser($connect); ?>
-<?php $sql = "SELECT * FROM `tblBastes` WHERE `tblBastes`.`Visibility` = 2 ORDER BY `tblBastes`.`CreatedAt` DESC LIMIT 5"; ?>
+<?php $sql = "SELECT * FROM `tblBastes` WHERE `tblBastes`.`Visibility` = 2 ORDER BY `tblBastes`.`CreatedAt` DESC LIMIT 6"; ?>
 <?php $query = mysqli_query($connect, $sql); ?>
 
 
@@ -13,18 +13,18 @@
 <div class="container">
 
     <!-- Welcome Greeting -->
-    <div class="row">
+    <div class="row mb-5">
         <div class="col-12 mt-5 align-items-center">
             <h1 class="text-center"><?php echo getGreeting(); ?>, <?php echo $User["FirstName"];?> <?php echo $User["LastName"];?></h1>
         </div>
     </div>
     <!-- End Welcome Greeting -->
 
-    <div class="row">
+    <div class="row mt-5">
         <h2 class="text-center">Recent Bastes</h2>
         <div class="row">
             <?php while($rows = mysqli_fetch_assoc($query)) { ?>
-                <div class="col-12 col-md-6 col-lg-4">
+                <div class="col-12 col-md-6 col-lg-4 mb-1">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $rows['BasteName']; ?></h5>
