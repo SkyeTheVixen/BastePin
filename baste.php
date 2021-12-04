@@ -1,5 +1,5 @@
-<?php $title="Home | VDBP"; ?>
-<?php $currentPage="text"; ?>
+<?php $title="Baste | VDBP"; ?>
+<?php $currentPage="baste"; ?>
 <?php include("res/php/header.php"); ?>
 <?php include("res/php/navbar.php"); ?>
 <?php include("res/php/functions.inc.php"); ?>
