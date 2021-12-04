@@ -22,14 +22,19 @@
                 <div class="card text-center border-dark h-100">
                     <div class="card-body">
                         <h5 class="card-title">Free</h5>
-                        <p class="card-text"><ul class="list-unstyled">
-                            <li>- 10 Bastes</li>
-                            <li>- No Password Protection</li>
-                            <li>- Bastes Never Expire</li>
-                            <li>- Public Bastes</li>
-                            <li>- No Support</li>
-                        </ul></p>
-                        <a href="" class="btn btn-secondary">Continue on Free</a>
+                        <p class="card-text">
+                            <ul class="list-unstyled">
+                                <li>- 10 Bastes</li>
+                                <li>- No Password Protection</li>
+                                <li>- Bastes Never Expire</li>
+                                <li>- Public Bastes</li>
+                                <li>- No Support</li>
+                            </ul>
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <h5 class="card-title">$0.00</h5>
+                        <a href="premium.php" class="btn btn-secondary">Remain Free</a>
                     </div>
                 </div>
             </div>
@@ -37,16 +42,20 @@
                 <div class="card text-center border-dark h-100">
                     <div class="card-body">
                         <h5 class="card-title">Premium</h5>
-                        <p class="card-text"><ul class="list-unstyled">
-                            <li>- Unlimited Bastes</li>
-                            <li>- Password Protection</li>
-                            <li>- Baste Expiration</li>
-                            <li>- Private and Unlisted Bastes</li>
-                            <li>- Priority Support</li>
-                            <li>- Lifetime Support</li>
-                        </ul></p>
-                        <p class="card-text">£9.99 One off payment</p>
-                        <a href="" class="btn btn-primary">Upgrade to premium</a>
+                        <p class="card-text">
+                            <ul class="list-unstyled">
+                                <li>- Unlimited Bastes</li>
+                                <li>- Password Protection</li>
+                                <li>- Baste Expiration</li>
+                                <li>- Private and Unlisted Bastes</li>
+                                <li>- Priority Support</li>
+                                <li>- Lifetime Support</li>
+                            </ul>
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <h5 class="card-title">$9.99</h5>
+                        <a href="premium.php" class="btn btn-primary">Upgrade to premium</a>
                     </div>
                 </div>
             </div>

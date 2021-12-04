@@ -22,7 +22,7 @@
                     echo json_encode(array("statusCode" => 204));
                 }
                 else{
-                    $_SESSION["userID"] = $User["UserID"];
+                    $_SESSION["UserID"] = $User["UserID"];
                     echo json_encode(array("statusCode" => 200));
                 }
             }
