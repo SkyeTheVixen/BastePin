@@ -9,8 +9,11 @@ $result = $stmt->get_result();
 if($result -> num_rows === 1){
     $User = $result->fetch_array(MYSQLI_ASSOC);
     $premium = $User["IsPremium"];
-    if ($premium == 1) { echo json_encode(array('statusCode' => 1));}
-    else { echo json_encode(array('statusCode' => 0)); }
+    if ($premium == 1) { echo json_encode(array('statusCode' => 200));}
+    else { echo json_encode(array('statusCode' => 201)); }
+}
+else{
+    echo json_encode(array('statusCode' => 201));
 }
 
 ?>

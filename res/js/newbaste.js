@@ -72,14 +72,14 @@ $(document).ready(function () {
             success: function (dataResult) {
                 console.log(dataResult);
                 var DataResult = JSON.parse(dataResult);
-                if (DataResult.premiumStatus === 1) {
+                if (DataResult.statusCode === 200) {
                     if(this.checked){
                         $("#bastePassword").prop("disabled", false)
                     }
                     else{
                         $("#bastePassword").prop("disabled", true)
                     }
-                } else if (DataResult.premiumStatus === 0) {
+                } else if (DataResult.statusCode === 201) {
                     Swal.fire({
                         icon: 'info',
                         title: 'Nice Try',
