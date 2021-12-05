@@ -74,8 +74,10 @@ $(document).ready(function () {
                 if (DataResult.statusCode === 200) {
                     if($("#bastePasswordRequired").prop("checked")){
                         $("#bastePassword").removeAttr("disabled");
+                        $("#bastePassword").attr("required", true);
                     }
                     else{
+                        $("#bastePassword").removeAttr("required");
                         $("#bastePassword").attr("disabled", true);
                     }
                 } else if (DataResult.statusCode === 201) {
@@ -108,10 +110,12 @@ $(document).ready(function () {
                 var DataResult = JSON.parse(dataResult);
                 if (DataResult.statusCode === 200) {
                     if($("#basteExpiresCheck").prop("checked")){
+                        $("#basteExpiresAt").attr("required", true);
                         $("#basteExpiresAt").removeAttr("disabled");
                     }
                     else{
                         $("#basteExpiresAt").attr("disabled", true);
+                        $("#basteExpiresAt").removeAttr("required");
                     }
                 } else if (DataResult.statusCode === 201) {
                     $("#basteExpiresCheck").prop('checked', false);
