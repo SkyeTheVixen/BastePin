@@ -1,10 +1,11 @@
 <?php session_start();?>
 <?php $title="New Baste | VDBP"; ?>
 <?php $currentPage="newbaste"; ?>
-<?php include_once("res/php/header.php"); ?>
-<?php include_once("res/php/_connect.php"); ?>
-<?php include_once("res/php/navbar.php"); ?>
-<?php include_once("res/php/functions.inc.php"); ?>
+<?php include("res/php/_authcheck.php"); ?>
+<?php include("res/php/header.php"); ?>
+<?php include("res/php/_connect.php"); ?>
+<?php include("res/php/navbar.php"); ?>
+<?php include("res/php/functions.inc.php"); ?>
 <?php $user = GetUser($connect); ?>
 
 
@@ -20,7 +21,7 @@
     <!-- End Welcome Greeting -->
 
 
-    <form class="mt-5" action="res/php/newbaste.inc.php" method="POST">
+    <form class="mt-5" method="POST">
 
         <div class="form-group">
             <label for="basteName">Baste Name</label>
@@ -67,7 +68,7 @@
             </span>
             <input type="password" id="bastePassword" class="form-control" disabled>
         </div>
-        
+
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 

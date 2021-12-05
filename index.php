@@ -1,6 +1,7 @@
 <?php session_start();?>
 <?php $title="Home | VDBP"; ?>
 <?php $currentPage="index"; ?>
+<?php include("res/php/_authcheck.php"); ?>
 <?php include("res/php/_connect.php"); ?>
 <?php include("res/php/header.php"); ?>
 <?php include("res/php/navbar.php"); ?>
