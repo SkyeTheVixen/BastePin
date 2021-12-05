@@ -107,9 +107,9 @@ $(document).ready(function () {
             success: function (dataResult) {
                 var DataResult = JSON.parse(dataResult);
                 console.log(DataResult);
-                console.log($(this).prop("checked"));
+                console.log($("#basteExpiresCheck").prop("checked"));
                 if (DataResult.statusCode === 200) {
-                    if($(this).prop("checked")){
+                    if($("#basteExpiresCheck").prop("checked")){
                         console.log("remove");
                         $("#basteExpiresAt").removeAttr("disabled");
                     }
