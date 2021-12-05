@@ -1,6 +1,6 @@
 <?php session_start();?>
 <?php $title="Premium | VDBP"; ?>
-<?php $currentPage="index"; ?>
+<?php $currentPage="premium"; ?>
 <?php include("res/php/_connect.php"); ?>
 <?php include("res/php/header.php"); ?>
 <?php include("res/php/navbar.php"); ?>
@@ -56,13 +56,6 @@
                     </div>
                     <div class="card-footer">
                         <h5 class="card-title">$9.99</h5>
-                        <div class="checkoutbutton">
-                            <div style="padding: 20px;">
-                                <a id="embedded-checkout-modal-checkout-button" target="_blank"
-                                    data-url="https://square.link/u/oe1KLmPG?src=embd"
-                                    href="https://square.link/u/oe1KLmPG?src=embed" >Buy now</a>
-                            </div>
-                        </div>
                         <a href="premium.php" class="btn btn-primary">Upgrade to premium</a>
                     </div>
                 </div>
