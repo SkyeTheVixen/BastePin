@@ -73,18 +73,10 @@ $(document).ready(function () {
                 var DataResult = JSON.parse(dataResult);
                 if (DataResult.statusCode === 200) {
                     if(this.checked){
-                        $("#bastePassword").removeProp("disabled");
                         $("#bastePassword").removeAttr("disabled");
-                        console.log($("#bastePassword").prop("disabled"));
-                        console.log($("#bastePassword").attr("disabled"));
-
                     }
                     else{
                         $("#bastePassword").attr("disabled", true);
-                        $("#bastePassword").prop("disabled", true);
-                        console.log($("#bastePassword").prop("disabled"));
-                        console.log($("#bastePassword").attr("disabled"));
-
                     }
                 } else if (DataResult.statusCode === 201) {
                     $("#bastePasswordRequired").prop('checked', false);
