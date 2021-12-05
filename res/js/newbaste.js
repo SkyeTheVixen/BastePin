@@ -72,7 +72,7 @@ $(document).ready(function () {
             success: function (dataResult) {
                 var DataResult = JSON.parse(dataResult);
                 if (DataResult.statusCode === 200) {
-                    if($(this).prop("checked")){
+                    if($("#bastePasswordRequired").prop("checked")){
                         $("#bastePassword").removeAttr("disabled");
                     }
                     else{
@@ -106,11 +106,8 @@ $(document).ready(function () {
             cache: false,
             success: function (dataResult) {
                 var DataResult = JSON.parse(dataResult);
-                console.log(DataResult);
-                console.log($("#basteExpiresCheck").prop("checked"));
                 if (DataResult.statusCode === 200) {
                     if($("#basteExpiresCheck").prop("checked")){
-                        console.log("remove");
                         $("#basteExpiresAt").removeAttr("disabled");
                     }
                     else{
