@@ -72,7 +72,7 @@ $(document).ready(function () {
             success: function (dataResult) {
                 var DataResult = JSON.parse(dataResult);
                 if (DataResult.statusCode === 200) {
-                    if(this.checked){
+                    if($(this).prop("checked")){
                         $("#bastePassword").removeAttr("disabled");
                     }
                     else{
@@ -107,9 +107,9 @@ $(document).ready(function () {
             success: function (dataResult) {
                 var DataResult = JSON.parse(dataResult);
                 console.log(DataResult);
-                console.log(this.checked);
+                console.log($(this).prop("checked"));
                 if (DataResult.statusCode === 200) {
-                    if(this.checked){
+                    if($(this).prop("checked")){
                         console.log("remove");
                         $("#basteExpiresAt").removeAttr("disabled");
                     }
