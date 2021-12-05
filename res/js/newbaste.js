@@ -106,8 +106,11 @@ $(document).ready(function () {
             cache: false,
             success: function (dataResult) {
                 var DataResult = JSON.parse(dataResult);
+                console.log(DataResult);
+                console.log(this.checked);
                 if (DataResult.statusCode === 200) {
                     if(this.checked){
+                        console.log("remove");
                         $("#basteExpiresAt").removeAttr("disabled");
                     }
                     else{
