@@ -98,4 +98,39 @@ $(document).ready(function () {
         })
 
     });
+
+    $("#basteExpiresCheck").change(function(){
+        $.ajax({
+            type: "post",
+            url: "res/php/checkpremium.php",
+            cache: false,
+            success: function (dataResult) {
+                var DataResult = JSON.parse(dataResult);
+                if (DataResult.statusCode === 200) {
+                    if(this.checked){
+                        $("#basteExpiresAt").removeAttr("disabled");
+                    }
+                    else{
+                        $("#basteExpiresAt").attr("disabled", true);
+                    }
+                } else if (DataResult.statusCode === 201) {
+                    $("#basteExpiresCheck").prop('checked', false);
+                    Swal.fire({
+                        icon: 'info',
+                        title: 'Nice Try',
+                        html: "Upgrade to <a href=\"premium\">premium</a> to enable this feature",
+                        heightAuto: false
+                    });
+                } else if (DataResult.statusCode === 202) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'error',
+                        heightAuto: false
+                    });
+                }
+            }
+        })
+
+    });
 })

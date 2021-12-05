@@ -21,15 +21,19 @@
 
 
     <form class="mt-5" action="res/php/newbaste.inc.php" method="POST">
+
         <div class="form-group">
             <label for="basteName">Baste Name</label>
-            <input type="text" required class="form-control" id="basteName" name="basteName" placeholder="Enter Baste Name">
+            <input type="text" required class="form-control" id="basteName" name="basteName"
+                placeholder="Enter Baste Name">
         </div>
+
         <div class="form-group">
             <label for="basteContents">Baste Contents</label>
             <textarea class="form-control" id="basteContents" required name="basteContents" rows="3"></textarea>
         </div>
-        <div class="form-group" <?php if($user["IsPremium"] == 0) {echo "disabled";} ?>>
+
+        <div class="form-group">
             <label for="basteVisibility">Visibility</label>
             <select class="form-control" id="basteVisibility" name="basteVisibility"
                 <?php if($user["IsPremium"] == 0) {echo "disabled";} ?>>
@@ -38,26 +42,32 @@
                 <option value="0">Private</option>
             </select>
         </div>
-        <div class="form-group" <?php if($user["IsPremium"] == 0) {echo "disabled";} ?>>
-            <span class="input-group-addon">
-                <label for="basteExpiresAt">Expires?</label>
-            </span>
-            <span class="input-group-addon">
-                <input type="checkbox" <?php if($user["IsPremium"] == 0) {echo "disabled";} ?>>
-            </span>
-            <input type="date" id="basteExpiresAt" class="form-control"
-                <?php if($user["IsPremium"] == 0) {echo "disabled";} ?>>
+
+        <div class="form-group">
+            <div class="col-4">
+                <span class="input-group-addon">
+                    <label for="basteExpiresAt">Expires?</label>
+                </span>
+                <span class="input-group-addon">
+                    <input type="checkbox" id="basteExpiresCheck"<?php if($user["IsPremium"] == 0) {echo "disabled";} ?>>
+                </span>
+            </div>
+            <div class="col-8">
+            <input type="date" id="basteExpiresAt" class="form-control" disabled>
+            </div>
         </div>
+
         <div class="form-group">
             <span class="input-group-addon">
                 <label for="bastePassword">Password?</label>
             </span>
             <span class="input-group-addon">
-                <input id="bastePasswordRequired" type="checkbox" <?php if($user["IsPremium"] == 0) {echo "disabled";}?>>
+                <input id="bastePasswordRequired" type="checkbox"
+                    <?php if($user["IsPremium"] == 0) {echo "disabled";}?>>
             </span>
-            <input type="password" id="bastePassword" class="form-control"
-                <?php if($user["IsPremium"] == 0) {echo "disabled";}?>>
+            <input type="password" id="bastePassword" class="form-control" disabled>
         </div>
+        
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 
