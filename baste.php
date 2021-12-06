@@ -5,7 +5,7 @@
 <?php include("res/php/header.php"); ?>
 <?php include("res/php/navbar.php"); ?>
 <?php include("res/php/functions.inc.php"); ?>
-<?php if(isset($_GET["BasteID"])) {$baste = getBaste($connect, $_GET["BasteID"]);} ?>
+<?php if(isset($_GET["BasteID"])) {$baste = getBaste($connect, $_GET["BasteID"]);} else {header("location: ../index");}?>
 
 
 <!-- Main Page Content -->
