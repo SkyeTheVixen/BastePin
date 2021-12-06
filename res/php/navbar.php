@@ -1,9 +1,11 @@
+<?php if($currentPage == "baste" || $currentPage == "account"){$pathHead = "../res/";} else {$pathHead = "res/";}?>
+
 <body>
     <!-- Navigation bar -->
     <nav class="navbar navbar-dark navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand text-light" href="index">
-                <img src="res/img/vdLogoFull.png" alt="VD Training Logo" width="30" height="24"
+                <img src="<?php echo $pathHead;?>img/vdLogoFull.png" alt="VD Training Logo" width="30" height="24"
                     class="d-inline-block align-text-top">
                 BastePin
             </a>
@@ -21,13 +23,13 @@
                         <a href="newbaste" <?php if($currentPage=="newbaste"){ echo "class=\"nav-link link-light active\" aria-current=\"page\""; } else { echo "class=\"nav-link link-light\""; } ?>><i class="fas fa-pencil-alt"></i> New Baste</a>
                     </li>
                     <li class="nav-item">
-                        <a href="text" <?php if($currentPage=="text"){ echo "class=\"nav-link link-light active\" aria-current=\"page\""; } else { echo "class=\"nav-link link-light\""; } ?>><i class="fas fa-eye"></i> View Bastes</a>
+                        <a href="text" <?php if($currentPage=="baste"){ echo "class=\"nav-link link-light active\" aria-current=\"page\""; } else { echo "class=\"nav-link link-light\""; } ?>><i class="fas fa-eye"></i> View Bastes</a>
                     </li>
                     <li class="nav-item">
                         <a href="account/" <?php if($currentPage=="account"){ echo "class=\"nav-link link-light active\" aria-current=\"page\""; } else { echo "class=\"nav-link link-light\""; } ?>><i class="far fa-id-badge"></i> My Account</a>
                     </li>
                     <li class="nav-item right" id="logoutBtn">
-                        <a href="res/php/logout" class="nav-link link-light"><i class="fas fa-door-open"></i>Logout</a>
+                        <a href="<?php echo $pathHead;?>php/logout" class="nav-link link-light"><i class="fas fa-door-open"></i>Logout</a>
                     </li>
                 </ul>
             </div>
