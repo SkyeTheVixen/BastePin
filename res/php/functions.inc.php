@@ -30,4 +30,16 @@
             return $User;
         }
     }
+
+    function GetBaste($connect, $basteID){
+        $sql = "SELECT * FROM `tblBastes` WHERE `tblBastes`.`BasteID` = ?";
+        $stmt = mysqli_prepare($connect, $sql);
+        mysqli_stmt_bind_param($stmt, 's', $basteID);
+        $stmt -> execute();
+        $result = $stmt->get_result();
+        if($result -> num_rows === 1){
+            $Baste = $result->fetch_array(MYSQLI_ASSOC);
+            return $Baste;
+        }
+    }
 ?>
