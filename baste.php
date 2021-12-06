@@ -1,10 +1,10 @@
 <?php session_start();?>
 <?php $title="Baste | VDBP"; ?>
 <?php $currentPage="baste"; ?>
-<?php include("../res/php/_connect.php"); ?>
-<?php include("../res/php/header.php"); ?>
-<?php include("../res/php/navbar.php"); ?>
-<?php include("../res/php/functions.inc.php"); ?>
+<?php include("res/php/_connect.php"); ?>
+<?php include("res/php/header.php"); ?>
+<?php include("res/php/navbar.php"); ?>
+<?php include("res/php/functions.inc.php"); ?>
 <?php if(isset($_GET["BasteID"])) {$baste = getBaste($connect, $_GET["BasteID"]);} else {header("location: index");}?>
 
 
