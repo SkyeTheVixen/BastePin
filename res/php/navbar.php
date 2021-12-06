@@ -1,4 +1,5 @@
 <?php if($currentPage == "baste" || $currentPage == "account"){$pathHead = "../res/";} else {$pathHead = "res/";}?>
+<?php if($currentPage == "baste" || $currentPage == "account"){$pageredirect = "../";} else {$pageredirect = "";}?>
 
 <body>
     <!-- Navigation bar -->
@@ -17,16 +18,16 @@
             <div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a href="index" <?php if($currentPage=="index"){ echo "class=\"nav-link link-light active\" aria-current=\"page\""; } else { echo "class=\"nav-link link-light\""; } ?>><i class="fas fa-home"></i> Home</a>
+                        <a href="<?php echo $pageredirect;?>index" <?php if($currentPage=="index"){ echo "class=\"nav-link link-light active\" aria-current=\"page\""; } else { echo "class=\"nav-link link-light\""; } ?>><i class="fas fa-home"></i> Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="newbaste" <?php if($currentPage=="newbaste"){ echo "class=\"nav-link link-light active\" aria-current=\"page\""; } else { echo "class=\"nav-link link-light\""; } ?>><i class="fas fa-pencil-alt"></i> New Baste</a>
+                        <a href="<?php echo $pageredirect;?>newbaste" <?php if($currentPage=="newbaste"){ echo "class=\"nav-link link-light active\" aria-current=\"page\""; } else { echo "class=\"nav-link link-light\""; } ?>><i class="fas fa-pencil-alt"></i> New Baste</a>
                     </li>
                     <li class="nav-item">
-                        <a href="text" <?php if($currentPage=="baste"){ echo "class=\"nav-link link-light active\" aria-current=\"page\""; } else { echo "class=\"nav-link link-light\""; } ?>><i class="fas fa-eye"></i> View Bastes</a>
+                        <a href="<?php echo $pageredirect;?>baste" <?php if($currentPage=="baste"){ echo "class=\"nav-link link-light active\" aria-current=\"page\""; } else { echo "class=\"nav-link link-light\""; } ?>><i class="fas fa-eye"></i> View Bastes</a>
                     </li>
                     <li class="nav-item">
-                        <a href="account/" <?php if($currentPage=="account"){ echo "class=\"nav-link link-light active\" aria-current=\"page\""; } else { echo "class=\"nav-link link-light\""; } ?>><i class="far fa-id-badge"></i> My Account</a>
+                        <a href="<?php echo $pageredirect;?>account/" <?php if($currentPage=="account"){ echo "class=\"nav-link link-light active\" aria-current=\"page\""; } else { echo "class=\"nav-link link-light\""; } ?>><i class="far fa-id-badge"></i> My Account</a>
                     </li>
                     <li class="nav-item right" id="logoutBtn">
                         <a href="<?php echo $pathHead;?>php/logout" class="nav-link link-light"><i class="fas fa-door-open"></i>Logout</a>
