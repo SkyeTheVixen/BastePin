@@ -10,7 +10,7 @@
 
 <!-- Main Page Content -->
 <div class="container">
-    <p><?php echo isset($_GET["BasteID"]);?></p>
+    <p><?php var_dump(isset($_GET["BasteID"]));?></p>
     <?php if(isset($_GET["BasteID"])) {?>
         <!-- Welcome Greeting -->
         <div class="row">
