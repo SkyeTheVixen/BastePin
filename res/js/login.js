@@ -111,5 +111,5 @@ $(document).ready(function () {
             $("#formcol").addClass("w-35");
             $("#formcol").removeClass("w-100");
         }
-    }).trigger('resize');
-})
+    });
+}).trigger('resize');
