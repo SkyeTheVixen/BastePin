@@ -43,7 +43,7 @@
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo $rows['BasteName']; ?></h5>
                                 <p class="card-text"><?php echo $rows['CreatedAt']; ?></p>
-                                <a href="/<?php echo $rows['BasteID']; ?>" class="btn btn-primary">View Baste</a>
+                                <a href="<?php echo $rows['BasteID']; ?>" class="btn btn-primary">View Baste</a>
                             </div>
                         </div>
                     </div>
