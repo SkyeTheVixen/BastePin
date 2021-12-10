@@ -20,7 +20,7 @@ $(document).ready(function () {
             type: "post",
             url: "res/php/addbaste.php",
             data: {
-                basteTitle: basteTitle,
+                basteName: basteName,
                 basteContents: basteContents,
                 basteVisibility: basteVisibility,
                 expiresAt: basteExpiresAt,

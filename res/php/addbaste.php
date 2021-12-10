@@ -22,7 +22,7 @@ if(!isset($_POST['basteTitle']) || !isset($_POST['basteContents']) || !isset($_P
 
 //Get the Data needed to perform the SQL update
 $basteID = GenerateID();
-$basteTitle = $_POST['basteTitle'];
+$basteName = $_POST['basteName'];
 $basteContents = $_POST['basteContents'];
 $basteVisibility = $_POST['basteVisibility'];
 $basteExpiresAt = $_POST['expiresAt'];
@@ -40,7 +40,7 @@ if($user["BasteCount"] < $user["MaximumBastes"] || $user["MaximumBastes"] == nul
 {
     //Perform the SQL
     $stmt1 = mysqli_prepare($connect, $tblBastesSql);
-    mysqli_stmt_bind_param($stmt1, 'ssssiss', $basteID, $basteTitle, $basteContents, $basteVisibility, $basteExpiresAt, $bastePasswordRequired, $bastePassword, $userID);
+    mysqli_stmt_bind_param($stmt1, 'ssssiss', $basteID, $basteName, $basteContents, $basteVisibility, $basteExpiresAt, $bastePasswordRequired, $bastePassword, $userID);
     $stmt1->execute();
     $stmt1->close();
 
