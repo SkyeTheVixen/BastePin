@@ -107,7 +107,7 @@ $(document).ready(function () {
             $("#formcol").addClass("w-100");
             $("#formcol").removeClass("w-25");
         }
-        else if($("#formcol").hasClass("w-100")){
+        else if($(window).width() > 768 && $("#formcol").hasClass("w-100")){
             $("#formcol").addClass("w-25");
             $("#formcol").removeClass("w-100");
         }
