@@ -81,8 +81,7 @@ $(document).ready(function () {
                         $("#bastePassword").attr("disabled", true);
                     }
                 } else if (DataResult.statusCode === 201) {
-                    $("#bastePasswordRequired").prop('checked', false);
-                    $("#bastePassword").attr("disabled", true);
+                    DisableAll();
                     Swal.fire({
                         icon: 'info',
                         title: 'Nice Try',
@@ -119,8 +118,7 @@ $(document).ready(function () {
                         $("#basteExpiresAt").removeAttr("required");
                     }
                 } else if (DataResult.statusCode === 201) {
-                    $("#basteExpiresCheck").prop('checked', false);
-                    $("#basteExpiresAt").attr("disabled", true);
+                    DisableAll();
                     Swal.fire({
                         icon: 'info',
                         title: 'Nice Try',
@@ -139,4 +137,16 @@ $(document).ready(function () {
         })
 
     });
+
+    function DisableAll(){
+        $("#bastePasswordRequired").prop('checked', false);
+        $("#bastePasswordRequired").attr("disabled", true);
+        $("#basteExpiresCheck").prop('checked', false);
+        $("#basteExpiresCheck").attr("disabled", true);
+        $("#bastePassword").attr("disabled", true);
+        $("#bastePassword").removeAttr("required");
+        $("#basteExpiresAt").attr("disabled", true);
+        $("#basteExpiresAt").removeAttr("required");
+    }
+
 })
