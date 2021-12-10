@@ -102,7 +102,7 @@ $(document).ready(function () {
         });
     });
 
-    $(this).resize(function (event) {
-        console.log(event.innerWidth);
+    $(window).bind('resize', function() {
+        console.log($(window).width());
     });
 })
