@@ -14,9 +14,10 @@ if(!isset($_SESSION['UserID']))
 
 
 //If title, contents or visibility are not set, error out
-if(!isset($_POST['basteTitle']) || !isset($_POST['basteContents']) || !isset($_POST['basteVisibility']))
+if(!isset($_POST['basteName']) || !isset($_POST['basteContents']) || !isset($_POST['basteVisibility']))
 {
     echo json_encode(array('statusCode' => 201));
+    exit;
 }
 
 
