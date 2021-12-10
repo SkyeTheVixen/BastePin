@@ -11,7 +11,7 @@
 
 <!-- Main Page Content -->
 <div class="container">
-    <?php if($_GET["BasteID"] =! "") {?>
+    <?php if(!($_GET["BasteID"] == "")) {?>
         <!-- Welcome Greeting -->
         <div class="row">
             <div class="col-12 mt-5 align-items-center">
