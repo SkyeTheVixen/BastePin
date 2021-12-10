@@ -11,15 +11,29 @@
 
 <!-- Main Page Content -->
 <div class="container">
+
+    <!-- If there is a baste -->
     <?php if(!($_GET["BasteID"] == "")) {?>
-        <!-- Welcome Greeting -->
+        <!-- Page Title -->
         <div class="row">
             <div class="col-12 mt-5 align-items-center">
                 <h1 class="text-center"><?php echo $baste["BasteName"];?></h1>
             </div>
         </div>
-        <!-- End Welcome Greeting -->
-    <?php } else { ?>
+        <!-- End Page Title -->
+
+        <!-- Code Block -->
+        <div class="row">
+            <div class="col-12 mt-5 align-items-center">
+                <code><?php echo htmlspecialchars($baste["BasteContents"]);?></code>
+            </div>
+        </div>
+        <!-- End Code block -->
+
+    <?php } ?>
+
+    <!-- If there is not a baste -->
+    <?php if ($_GET["BasteID"] == "") { ?>
         <div class="row mt-5">
             <h2 class="text-center">Recent Bastes</h2>
             <div class="row">
