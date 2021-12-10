@@ -103,12 +103,12 @@ $(document).ready(function () {
     });
 
     $(window).bind('resize', function() {
-        if($(window).width() < 768 && $("#formcol").hasClass("w-25")){
+        if($(window).width() < 768 && $("#formcol").hasClass("w-35")){
             $("#formcol").addClass("w-100");
-            $("#formcol").removeClass("w-25");
+            $("#formcol").removeClass("w-35");
         }
         else if($(window).width() > 768 && $("#formcol").hasClass("w-100")){
-            $("#formcol").addClass("w-25");
+            $("#formcol").addClass("w-35");
             $("#formcol").removeClass("w-100");
         }
     });

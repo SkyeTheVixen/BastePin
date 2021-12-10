@@ -28,3 +28,8 @@ body{
     50%{background-position:100% 88%}
     100%{background-position:0% 13%}
 }
+
+
+.w-35{
+    width: 35%;
+}
