@@ -82,6 +82,7 @@ $(document).ready(function () {
                     }
                 } else if (DataResult.statusCode === 201) {
                     $("#bastePasswordRequired").prop('checked', false);
+                    $("#bastePassword").attr("disabled", true);
                     Swal.fire({
                         icon: 'info',
                         title: 'Nice Try',
@@ -119,6 +120,7 @@ $(document).ready(function () {
                     }
                 } else if (DataResult.statusCode === 201) {
                     $("#basteExpiresCheck").prop('checked', false);
+                    $("#basteExpiresAt").attr("disabled", true);
                     Swal.fire({
                         icon: 'info',
                         title: 'Nice Try',
