@@ -21,7 +21,7 @@
     <!-- End Welcome Greeting -->
 
 
-    <form class="mt-5" method="POST">
+    <form class="mt-5" method="POST" id="newBasteForm">
 
         <div class="form-group">
             <label for="basteName">Baste Name</label>
