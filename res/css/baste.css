@@ -1,3 +1,7 @@
 .navbar{
     background-color: #0b2033;
 }
+
+div.code {
+    white-space: pre;
+  }
