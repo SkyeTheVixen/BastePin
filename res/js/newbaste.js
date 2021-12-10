@@ -15,7 +15,6 @@ $(document).ready(function () {
                 heightAuto: false
             });
         }
-        console.log("here");
         $.ajax({
             type: "post",
             url: "res/php/addbaste.php",
@@ -29,8 +28,8 @@ $(document).ready(function () {
             },
             cache: false,
             success: function (dataResult) {
+                console.log(dataResult);
                 var DataResult = JSON.parse(dataResult);
-                console.log("here");
                 if (DataResult.statusCode === 200) {
                     location.href = "index";
                 } else if (DataResult.statusCode === 201) {
