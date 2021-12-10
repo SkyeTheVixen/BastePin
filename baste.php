@@ -42,8 +42,9 @@
                     <div class="col-12 col-md-6 col-lg-4 mb-1">
                         <div class="card">
                             <div class="card-body">
+                                <?php $time = strtotime($rows["CreatedAt"]); ?>
                                 <h5 class="card-title"><?php echo $rows['BasteName']; ?></h5>
-                                <p class="card-text"><?php echo $rows['CreatedAt']; ?></p>
+                                <p class="card-text"><?php echo date("d-M-Y", $time) ?></p>
                                 <a href="<?php echo $rows['BasteID']; ?>" class="btn btn-primary">View Baste</a>
                             </div>
                         </div>
