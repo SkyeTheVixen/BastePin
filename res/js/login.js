@@ -102,7 +102,7 @@ $(document).ready(function () {
         });
     });
 
-    window.onresize = function () {
+    $(window).resize(function (event) {
         console.log(window.innerWidth);
-    };
+    });
 })
