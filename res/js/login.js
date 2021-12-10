@@ -103,6 +103,13 @@ $(document).ready(function () {
     });
 
     $(window).bind('resize', function() {
-        console.log($(window).width());
+        if($(window).width() < 768 && $("#formcol").hasClass("w-25")){
+            $("#formcol").addClass("w-100");
+            $("#formcol").removeClass("w-25");
+        }
+        else if($("#formcol").hasClass("w-100")){
+            $("#formcol").addClass("w-25");
+            $("#formcol").removeClass("w-100");
+        }
     });
 })
