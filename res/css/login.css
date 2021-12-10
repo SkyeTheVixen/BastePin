@@ -13,6 +13,10 @@ body{
     border-radius: 5px;
 }
 
+.formcol{
+    width: 35%;
+}
+
 @-webkit-keyframes loginbg {
     0%{background-position:0% 13%}
     50%{background-position:100% 88%}
@@ -30,14 +34,8 @@ body{
 }
 
 
-@media screen and (max-width: 800px) {
+@media only screen and (max-width: 800px) {
     .formcol{
         width: 100%;
-    }
-}
-
-@media screen and (min-width: 800px) {
-    .formcol{
-        width: 35%;
     }
 }
