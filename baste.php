@@ -24,8 +24,8 @@
 
         <!-- Code Block -->
         <div class="row">
-            <div class="col-12 mt-5 align-items-center">
-                <pre><?php echo htmlspecialchars($baste["BasteContents"]);?></pre>
+            <div class="col-6 col-sm-12 mt-5 align-items-center">
+                <pre><code><?php echo htmlspecialchars($baste["BasteContents"]);?></code></pre>
             </div>
         </div>
         <!-- End Code block -->
