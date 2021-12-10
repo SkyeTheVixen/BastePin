@@ -13,7 +13,7 @@ body{
     border-radius: 5px;
 }
 
-.formcol{
+#formcol{
     width: 35%;
 }
 
@@ -35,7 +35,7 @@ body{
 
 
 @media only screen and (max-width: 800px) {
-    .formcol{
+    #formcol{
         width: 100%;
     }
 }
