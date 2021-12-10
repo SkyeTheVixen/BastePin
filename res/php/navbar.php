@@ -24,7 +24,7 @@
                         <a href="<?php echo $pageredirect;?>newbaste" <?php if($currentPage=="newbaste"){ echo "class=\"nav-link link-light active\" aria-current=\"page\""; } else { echo "class=\"nav-link link-light\""; } ?>><i class="fas fa-pencil-alt"></i> New Baste</a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?php echo $pageredirect;?>baste" <?php if($currentPage=="baste"){ echo "class=\"nav-link link-light active\" aria-current=\"page\""; } else { echo "class=\"nav-link link-light\""; } ?>><i class="fas fa-eye"></i> View Bastes</a>
+                        <a href="<?php echo $pageredirect;?>baste/" <?php if($currentPage=="baste"){ echo "class=\"nav-link link-light active\" aria-current=\"page\""; } else { echo "class=\"nav-link link-light\""; } ?>><i class="fas fa-eye"></i> View Bastes</a>
                     </li>
                     <li class="nav-item">
                         <a href="<?php echo $pageredirect;?>account/" <?php if($currentPage=="account"){ echo "class=\"nav-link link-light active\" aria-current=\"page\""; } else { echo "class=\"nav-link link-light\""; } ?>><i class="far fa-id-badge"></i> My Account</a>
