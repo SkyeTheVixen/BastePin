@@ -17,48 +17,108 @@ $(document).ready(function () {
         }
         $.ajax({
             type: "post",
-            url: "res/php/addbaste.php",
-            data: {
-                basteName: basteName,
-                basteContents: basteContents,
-                basteVisibility: basteVisibility,
-                expiresAt: basteExpiresAt,
-                passwordRequired: bastePasswordRequired,
-                bastePassword: bastePassword,
-            },
+            url: "res/php/checkpremium.php",
             cache: false,
             success: function (dataResult) {
-                console.log(dataResult);
                 var DataResult = JSON.parse(dataResult);
-                if (DataResult.statusCode === 200) {
-                    location.href = "index";
-                } else if (DataResult.statusCode === 201) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Your credentials were invalid.',
-                        heightAuto: false
+                if (DataResult.statusCode === 200 && $("#basteExpiresAt").val() != "") {
+                    $.ajax({
+                        type: "post",
+                        url: "res/php/addbaste.php",
+                        data: {
+                            basteName: basteName,
+                            basteContents: basteContents,
+                            basteVisibility: basteVisibility,
+                            expiresAt: basteExpiresAt,
+                            passwordRequired: bastePasswordRequired,
+                            bastePassword: bastePassword,
+                        },
+                        cache: false,
+                        success: function (dataResult) {
+                            console.log(dataResult);
+                            var DataResult = JSON.parse(dataResult);
+                            if (DataResult.statusCode === 200) {
+                                location.href = "index";
+                            } else if (DataResult.statusCode === 201) {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    text: 'Your credentials were invalid.',
+                                    heightAuto: false
+                                });
+                            } else if (DataResult.statusCode === 202) {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    text: 'No user account was found with this email address',
+                                    heightAuto: false
+                                });
+                            } else if (DataResult.statusCode === 203) {
+                                Swal.fire({
+                                    icon: 'warning',
+                                    title: 'Oops...',
+                                    text: 'Please enter your email address And/Or Password',
+                                    heightAuto: false
+                                });
+                            } else if (DataResult.statusCode === 204) {
+                                Swal.fire({
+                                    icon: 'warning',
+                                    title: 'Oops...',
+                                    text: 'Your Account is Locked. Please contact support.',
+                                    heightAuto: false
+                                });
+                            }
+                        }
                     });
-                } else if (DataResult.statusCode === 202) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'No user account was found with this email address',
-                        heightAuto: false
-                    });
-                } else if (DataResult.statusCode === 203) {
-                    Swal.fire({
-                        icon: 'warning',
-                        title: 'Oops...',
-                        text: 'Please enter your email address And/Or Password',
-                        heightAuto: false
-                    });
-                } else if (DataResult.statusCode === 204) {
-                    Swal.fire({
-                        icon: 'warning',
-                        title: 'Oops...',
-                        text: 'Your Account is Locked. Please contact support.',
-                        heightAuto: false
+                }
+                if (DataResult.statusCode === 201) {
+                    $.ajax({
+                        type: "post",
+                        url: "res/php/addbaste.php",
+                        data: {
+                            basteName: basteName,
+                            basteContents: basteContents,
+                            basteVisibility: 2,
+                            expiresAt: null,
+                            passwordRequired: 0,
+                            bastePassword: null,
+                        },
+                        cache: false,
+                        success: function (dataResult) {
+                            console.log(dataResult);
+                            var DataResult = JSON.parse(dataResult);
+                            if (DataResult.statusCode === 200) {
+                                location.href = "index";
+                            } else if (DataResult.statusCode === 201) {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    text: 'Your credentials were invalid.',
+                                    heightAuto: false
+                                });
+                            } else if (DataResult.statusCode === 202) {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    text: 'No user account was found with this email address',
+                                    heightAuto: false
+                                });
+                            } else if (DataResult.statusCode === 203) {
+                                Swal.fire({
+                                    icon: 'warning',
+                                    title: 'Oops...',
+                                    text: 'Please enter your email address And/Or Password',
+                                    heightAuto: false
+                                });
+                            } else if (DataResult.statusCode === 204) {
+                                Swal.fire({
+                                    icon: 'warning',
+                                    title: 'Oops...',
+                                    text: 'Your Account is Locked. Please contact support.',
+                                    heightAuto: false
+                                });
+                            }
+                        }
                     });
                 }
             }
