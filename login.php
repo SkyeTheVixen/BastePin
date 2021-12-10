@@ -7,7 +7,7 @@
     <div class="container-fluid h-100">
         <!-- Login Form -->
         <div class="row h-100 align-content-center justify-content-center">
-            <div id="formcol" class="col-auto loginform w-25 align-items-center shadow">
+            <div id="formcol" class="col-auto loginform align-items-center shadow">
                 <div class="row pt-4">
                     <h1 class="text-center w-100">Login to VD BastePin</h1>
                 </div>
