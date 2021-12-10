@@ -35,7 +35,7 @@ $tblUsersSql = "UPDATE `tblUsers` SET `BasteCount` = `BasteCount` + 1 WHERE `Use
 $tblBastesSql = "INSERT INTO `tblBastes`(`BasteID`, `BasteName`, `BasteContents`, `Visibility`, `ExpiresAt`, `PasswordRequired`, `Password`, `UserID`) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
 
 
-$user = GetUser($userID);
+$user = GetUser($connect, $userID);
 if($user["BasteCount"] < $user["MaximumBastes"] || $user["MaximumBastes"] == null)
 {
     //Perform the SQL
