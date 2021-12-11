@@ -105,7 +105,7 @@ $(document).ready(function () {
                                 Swal.fire({
                                     icon: 'error',
                                     title: 'Oops...',
-                                    text: 'No user account was found with this email address',
+                                    html: 'You\'ve run out of bastes for the free account. Upgrade to <a href="premium">premium</a> to add more.',
                                     heightAuto: false
                                 });
                             } else if (DataResult.statusCode === 203) {
