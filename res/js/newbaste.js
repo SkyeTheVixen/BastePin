@@ -88,7 +88,12 @@ $(document).ready(function () {
                             console.log(dataResult);
                             var DataResult = JSON.parse(dataResult);
                             if (DataResult.statusCode === 200) {
-                                location.href = "index";
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Congratulations!',
+                                    text: 'Baste Added.',
+                                    heightAuto: false
+                                });
                             } else if (DataResult.statusCode === 201) {
                                 Swal.fire({
                                     icon: 'error',
