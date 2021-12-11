@@ -40,6 +40,7 @@ $user = GetUser($connect, $userID);
 if($user["CanBaste"] == 0)
 {
     echo json_encode(array('statusCode' => 203));
+    exit;
 }
 else if($user["BasteCount"] < $user["MaximumBastes"] || $user["MaximumBastes"] == null)
 {
