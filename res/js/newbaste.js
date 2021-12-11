@@ -110,9 +110,9 @@ $(document).ready(function () {
                                 });
                             } else if (DataResult.statusCode === 203) {
                                 Swal.fire({
-                                    icon: 'warning',
+                                    icon: 'error',
                                     title: 'Oops...',
-                                    text: 'Please enter your email address And/Or Password',
+                                    text: 'You don\'t have permission to baste.',
                                     heightAuto: false
                                 });
                             } else if (DataResult.statusCode === 204) {

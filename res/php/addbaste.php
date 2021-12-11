@@ -37,7 +37,11 @@ $tblBastesSql = "INSERT INTO `tblBastes`(`BasteID`, `BasteName`, `BasteContents`
 
 
 $user = GetUser($connect, $userID);
-if($user["BasteCount"] < $user["MaximumBastes"] || $user["MaximumBastes"] == null)
+if($user["CanBaste"] == 0)
+{
+    echo json_encode(array('statusCode' => 203));
+}
+if(($user["BasteCount"] < $user["MaximumBastes"] || $user["MaximumBastes"] == null) && $user["CanBaste"] == 1)
 {
     //Perform the SQL
     $stmt1 = mysqli_prepare($connect, $tblBastesSql);
