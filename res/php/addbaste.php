@@ -41,7 +41,7 @@ if($user["CanBaste"] == 0)
 {
     echo json_encode(array('statusCode' => 203));
 }
-if(($user["BasteCount"] < $user["MaximumBastes"] || $user["MaximumBastes"] == null) && $user["CanBaste"] == 1)
+else if($user["BasteCount"] < $user["MaximumBastes"] || $user["MaximumBastes"] == null)
 {
     //Perform the SQL
     $stmt1 = mysqli_prepare($connect, $tblBastesSql);
