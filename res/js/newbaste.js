@@ -98,7 +98,7 @@ $(document).ready(function () {
                                 Swal.fire({
                                     icon: 'error',
                                     title: 'Oops...',
-                                    text: 'Your credentials were invalid.',
+                                    text: 'Please enter all required fields.',
                                     heightAuto: false
                                 });
                             } else if (DataResult.statusCode === 202) {
@@ -113,13 +113,6 @@ $(document).ready(function () {
                                     icon: 'error',
                                     title: 'Oops...',
                                     text: 'You don\'t have permission to baste.',
-                                    heightAuto: false
-                                });
-                            } else if (DataResult.statusCode === 204) {
-                                Swal.fire({
-                                    icon: 'warning',
-                                    title: 'Oops...',
-                                    text: 'Your Account is Locked. Please contact support.',
                                     heightAuto: false
                                 });
                             }
