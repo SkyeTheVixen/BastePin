@@ -31,6 +31,18 @@
         }
     }
 
+    function GetUserById($connect, $UserID){
+        $sql = "SELECT * FROM `tblUsers` WHERE `tblUsers`.`UserID` = ?";
+        $stmt = mysqli_prepare($connect, $sql);
+        mysqli_stmt_bind_param($stmt, 's', $UserID);
+        $stmt -> execute();
+        $result = $stmt->get_result();
+        if($result -> num_rows === 1){
+            $User = $result->fetch_array(MYSQLI_ASSOC);
+            return $User;
+        }
+    }
+
     function GetBaste($connect, $basteID){
         $sql = "SELECT * FROM `tblBastes` WHERE `tblBastes`.`BasteID` = ?";
         $stmt = mysqli_prepare($connect, $sql);
@@ -41,5 +53,17 @@
             $Baste = $result->fetch_array(MYSQLI_ASSOC);
             return $Baste;
         }
+    }
+
+
+    function byteConvert($bytes)
+    {
+        if ($bytes == 0)
+            return "0.00 B";
+
+        $s = array('B', 'KB', 'MB', 'GB', 'TB', 'PB');
+        $e = floor(log($bytes, 1024));
+
+        return round($bytes/pow(1024, $e), 2).$s[$e];
     }
 ?>

@@ -6,7 +6,7 @@
 <?php include("res/php/navbar.php"); ?>
 <?php include("res/php/functions.inc.php"); ?>
 <?php if(isset($_GET["BasteID"])) {$baste = getBaste($connect, $_GET["BasteID"]);}?>
-<?php $sql = "SELECT * FROM `tblBastes` WHERE `tblBastes`.`Visibility` = 2 ORDER BY `tblBastes`.`CreatedAt` DESC LIMIT 6"; ?>
+<?php $sql = "SELECT * FROM `tblBastes` WHERE `tblBastes`.`Visibility` = 2 ORDER BY `tblBastes`.`CreatedAt` DESC"; ?>
 <?php $query = mysqli_query($connect, $sql); ?>
 
 <!-- Main Page Content -->
@@ -14,6 +14,21 @@
 
     <!-- If there is a baste -->
     <?php if(!($_GET["BasteID"] == "")) {?>
+        <?php
+            $BasteCreatedBy = GetUserById($connect, $baste["UserID"]);
+            switch($baste["visibility"]){
+                case 0:
+                    $visibility = "Public";
+                    break;
+                case 1:
+                    $visibility = "Friends";
+                    break;
+                case 2:
+                    $visibility = "Only Me";
+                    break;
+            }
+            $basteSize = byteConvert(sizeof($baste["BasteContents"]));
+        ?>
         <!-- Page Title -->
         <div class="row">
             <div class="col-12 mt-5 align-items-center">
@@ -27,7 +42,26 @@
             <div class="col-12 col-sm-6 mt-5 align-items-center">
                 <pre><code><?php echo htmlspecialchars($baste["BasteContents"]);?></pre></code>
             </div>
-            <div class="col-12 col-sm-6"></div>
+            <div class="col-12 col-sm-6 mt-5 align-items-center">
+                <h4>Details</h4>
+                <div class="row">
+                    <div class="col-12">
+                        <p><strong>Author:</strong> <?php echo $BasteCreatedBy;?></p>
+                    </div>
+                    <div class="col-12">
+                        <p><strong>Visibility:</strong> <?php echo $visibility;?></p>
+                    </div>
+                    <div class="col-12">
+                        <p><strong>Created:</strong> <?php echo $baste["CreatedAt"];?></p>
+                    </div>
+                    <div class="col-12">
+                        <p><strong>Last Edited At:</strong> <?php echo $baste["UpdatedAt"];?></p>
+                    </div>
+                    <div class="col-12">
+                        <p><strong>Size:</strong> <?php echo $basteSize;?></p>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- End Code block -->
 
@@ -36,7 +70,7 @@
     <!-- If there is not a baste -->
     <?php if ($_GET["BasteID"] == "") { ?>
         <div class="row mt-5">
-            <h2 class="text-center">Recent Bastes</h2>
+            <h2 class="text-center">All Bastes</h2>
             <div class="row">
                 <?php while($rows = mysqli_fetch_assoc($query)) { ?>
                     <div class="col-12 col-md-6 col-lg-4 mb-1">
