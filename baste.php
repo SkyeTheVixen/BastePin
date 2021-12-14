@@ -20,6 +20,9 @@
     <!-- If there is a baste -->
     <?php if(!($_GET["BasteID"] == "")) {?>
         <?php
+            if($baste["visibility"] == 0){
+                return header("Location: ./");
+            }
             $BasteCreatedBy = GetUserById($connect, $baste["UserID"]);
             $BasteCreatedBy = $BasteCreatedBy["FirstName"] . " " . $BasteCreatedBy["LastName"];
             switch($baste["visibility"]){
