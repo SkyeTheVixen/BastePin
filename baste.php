@@ -12,9 +12,6 @@
     mysqli_stmt_bind_param($stmt, 's', $_SESSION["UserID"]);
     $stmt -> execute();
     $result = $stmt->get_result();
-    if($result -> num_rows === 1){
-        $User = $result->fetch_array(MYSQLI_ASSOC); 
-    }
 ?>
 
 <!-- Main Page Content -->
@@ -81,7 +78,7 @@
         <div class="row mt-5">
             <h2 class="text-center">All Bastes</h2>
             <div class="row">
-                <?php while($rows = mysqli_fetch_assoc($query)) { ?>
+                <?php while($rows = mysqli_fetch_assoc($result)) { ?>
                     <div class="col-12 col-md-6 col-lg-4 mb-1">
                         <div class="card">
                             <div class="card-body">
