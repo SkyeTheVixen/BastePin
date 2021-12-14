@@ -21,7 +21,8 @@
     <?php if(!($_GET["BasteID"] == "")) {?>
         <?php
             if($baste["visibility"] == 0 && $baste["UserID"] != $_SESSION["UserID"]) {
-                return header("Location: ../index.php?error=insufficientperms");
+                header("Location: ../index.php?error=insufficientperms");
+                exit;
             }
             $BasteCreatedBy = GetUserById($connect, $baste["UserID"]);
             $BasteCreatedBy = $BasteCreatedBy["FirstName"] . " " . $BasteCreatedBy["LastName"];
