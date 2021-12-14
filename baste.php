@@ -16,6 +16,7 @@
     <?php if(!($_GET["BasteID"] == "")) {?>
         <?php
             $BasteCreatedBy = GetUserById($connect, $baste["UserID"]);
+            $BasteCreatedBy = $BasteCreatedBy["FirstName"] . " " . $BasteCreatedBy["LastName"];
             switch($baste["visibility"]){
                 case 0:
                     $visibility = "Public";
