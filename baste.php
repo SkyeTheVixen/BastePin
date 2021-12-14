@@ -6,8 +6,16 @@
 <?php include("res/php/navbar.php"); ?>
 <?php include("res/php/functions.inc.php"); ?>
 <?php if(isset($_GET["BasteID"])) {$baste = getBaste($connect, $_GET["BasteID"]);}?>
-<?php $sql = "SELECT * FROM `tblBastes` WHERE `tblBastes`.`Visibility` = 2 ORDER BY `tblBastes`.`CreatedAt` DESC"; ?>
-<?php $query = mysqli_query($connect, $sql); ?>
+<?php 
+    $sql = "SELECT * FROM `tblBastes` WHERE `tblBastes`.`Visibility` = 2 OR `tblBastes`.`UserID` = ? ORDER BY `tblBastes`.`CreatedAt` DESC";
+    $stmt = mysqli_prepare($connect, $sql);
+    mysqli_stmt_bind_param($stmt, 's', $_SESSION["UserID"]);
+    $stmt -> execute();
+    $result = $stmt->get_result();
+    if($result -> num_rows === 1){
+        $User = $result->fetch_array(MYSQLI_ASSOC); 
+    }
+?>
 
 <!-- Main Page Content -->
 <div class="container">
@@ -22,10 +30,10 @@
                     $visibility = "Public";
                     break;
                 case 1:
-                    $visibility = "Friends";
+                    $visibility = "Unlisted";
                     break;
                 case 2:
-                    $visibility = "Only Me";
+                    $visibility = "Public";
                     break;
             }
             $basteSize = byteConvert(mb_strlen($baste["BasteContents"]));
