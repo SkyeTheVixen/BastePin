@@ -28,7 +28,7 @@
                     $visibility = "Only Me";
                     break;
             }
-            $basteSize = byteConvert(sizeof($baste["BasteContents"]));
+            $basteSize = byteConvert(mb_strlen($baste["BasteContents"]));
         ?>
         <!-- Page Title -->
         <div class="row">
