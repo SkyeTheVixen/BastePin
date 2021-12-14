@@ -56,12 +56,14 @@
     }
 
 
-    function byteConvert($bytes)
+    function byteConvert($size, $unit="")
     {
-        if ($bytes > 0) {
-            $base = floor(log($bytes) / log(1024));
-            $units = array("B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"); //units of measurement
-            return number_format(($bytes / pow(1024, floor($base))), 3) . " $units[$base]";
-          } else return "0 B";
+        if((!$unit && $size >= 1<<30) || $unit == "GB")
+            return number_format($size/(1<<30),2)."GB";
+        if((!$unit && $size >= 1<<20) || $unit == "MB")
+            return number_format($size/(1<<20),2)."MB";
+        if((!$unit && $size >= 1<<10) || $unit == "KB")
+            return number_format($size/(1<<10),2)."KB";
+        return number_format($size)." bytes";
     }
 ?>
