@@ -78,7 +78,7 @@
         <div class="row mt-5">
             <h2 class="text-center">All Bastes</h2>
             <div class="row">
-                <?php while($rows = mysqli_fetch_assoc($result)) { ?>
+                <?php while($rows = $result -> fetch_array(MYSQLI_ASSOC)) { ?>
                     <div class="col-12 col-md-6 col-lg-4 mb-1">
                         <div class="card">
                             <div class="card-body">
