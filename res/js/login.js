@@ -50,7 +50,14 @@ $(document).ready(function () {
                     Swal.fire({
                         icon: 'warning',
                         title: 'Oops...',
-                        text: 'Your Account is Locked. Please contact support.',
+                        html: 'Your Account is Locked. Please Please <a href="mailto:webmaster@vixendev.com">contact support</a>.',
+                        heightAuto: false
+                    });
+                } else if (DataResult.statusCode === 205) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        html: 'You\'ve been IP blocked for 5 minutes due to multiple incorrect login attempts. Please <a href="mailto:webmaster@vixendev.com">contact support</a>.',
                         heightAuto: false
                     });
                 }
