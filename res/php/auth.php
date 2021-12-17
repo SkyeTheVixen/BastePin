@@ -2,7 +2,7 @@
     //Set up PHP File
     session_start();
     include_once("_connect.php");
-    $mysqli = new $connect;
+    $mysqli = $connect;
 
     //Create ID string based off IP And remote Address
     $id = "{$_SERVER['SERVER_NAME']}~login:{$_SERVER['REMOTE_ADDR']}";
