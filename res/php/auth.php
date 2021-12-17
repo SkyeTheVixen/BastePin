@@ -19,19 +19,33 @@
     if($result -> num_rows === 1){
         $row = $result -> fetch_array(MYSQLI_ASSOC);
         $stmt->close();
-        //If user IP has been blocked
-        if ($row["Blocked"] == 1) {
-            echo json_encode(array("statusCode" => 205));
-            return;
-        }
-        else if($row["Tries"] >= 3){
+        if($row["Tries"] >= 3){
             $mysqli -> autocommit(false);
-            $sql = "UPDATE `tblBFA` SET `Tries` = 0, `Blocked` = 1 WHERE `ID` = ?";
+            $sql = "UPDATE `tblBFA` SET `Tries` = 0, `Blocked` = 1, `BlockedUntil` = (now() + INTERVAL 5 MINUTE) WHERE `ID` = ?";
             $stmt = $mysqli -> prepare($sql);
             $stmt -> bind_param('s', $id);
             $stmt -> execute();
             $mysqli -> commit();
             $stmt -> close();
+            $mysqli -> close();
+            echo json_encode(array("statusCode" => 205));
+            return;
+        }
+        //If user IP has been blocked but the ban has been lifted
+        if ($row["Blocked"] == 1 && $row["BlockedUntil"] < date("Y-m-d H:i:s")){
+            $mysqli -> autocommit(false);
+            $sql = "DELETE FROM `tblBFA` WHERE `tblBFA`.`ID` = ?";
+            $stmt = $mysqli -> prepare($sql);
+            $stmt -> bind_param('s', $id);
+            $stmt -> execute();
+            $mysqli -> commit();
+            $stmt -> close();
+        }
+        //If user IP has been blocked
+        else if ($row["Blocked"] == 1 && !($row["BlockedUntil"] < date("Y-m-d H:i:s"))) {
+            $mysqli -> close();
+            echo json_encode(array("statusCode" => 205));
+            return;
         }
     }
 
