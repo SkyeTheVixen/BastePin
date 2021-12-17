@@ -28,7 +28,7 @@
     <?php if(!($_GET["BasteID"] == "")) {?>
         <?php
             if($baste["visibility"] == 0 && $baste["UserID"] != $_SESSION["UserID"]) {
-                echo "<script> window.location.href='../index?er=1'</script>";
+                echo "<script> window.location.href='../index?er=insufperm'</script>";
             }
             $BasteCreatedBy = GetUserById($connect, $baste["UserID"]);
             $BasteCreatedBy = $BasteCreatedBy["FirstName"] . " " . $BasteCreatedBy["LastName"];

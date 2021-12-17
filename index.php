@@ -11,7 +11,9 @@
 <?php $query = mysqli_query($connect, $sql); ?>
 <?php
     if(isset($_GET["er"])) {
-        echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'You did not have sufficient permission to view that baste', heightAuto: false });</script>"; 
+        if($_GET["er"] == "insufperm") {
+            echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'You did not have sufficient permission to view that baste', heightAuto: false });</script>"; 
+        }
     }
 ?>
 
