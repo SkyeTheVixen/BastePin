@@ -1,6 +1,7 @@
 <?php if($currentPage == "baste" || $currentPage == "account"){$pathHead = "../res/";} else {$pathHead = "res/";}?>
 <?php if($currentPage == "baste" || $currentPage == "account"){$pageredirect = "../";} else {$pageredirect = "";}?>
-
+<div class="row"></div>
+<div class="row"></div>
 </body>
 <footer class="py-3 mt-3 bg-dark">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
