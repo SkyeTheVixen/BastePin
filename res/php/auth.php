@@ -10,7 +10,7 @@
     //SQL Query
     $mysqli -> autocommit(false);
     $sql = "SELECT * FROM `tblBFA` WHERE `ID` = ?";
-    $stmt = $mysqli -> prepare($connect, $sql);
+    $stmt = $mysqli -> prepare($sql);
     $stmt -> bind_param($stmt, 's', $id);
     $stmt -> execute();
     $result = $stmt->get_result();
@@ -31,9 +31,9 @@
             }
             
             //SQL Query
-            $mysqli->autocommit(false);
+            $mysqli -> autocommit(false);
             $sql = "SELECT * FROM `tblUsers` WHERE `tblUsers`.`Email` = ?";
-            $stmt = $mysqli ->prepare($connect, $sql);
+            $stmt = $mysqli ->prepare($sql);
             $stmt -> bind_param($stmt, 's', $email);
             $stmt -> execute();
             $result = $stmt->get_result();
@@ -60,7 +60,7 @@
                     //Return invalid credentials
                     $mysqli -> autocommit(false);
                     $sql = "UPDATE `tblBFA` SET `Tries` = `Tries` + 1 WHERE `ID` = ?";
-                    $stmt = $mysqli -> prepare($connect, $sql);
+                    $stmt = $mysqli -> prepare($sql);
                     $stmt -> bind_param($stmt, 's', $id);
                     $stmt -> execute();
                     $mysqli -> commit();
