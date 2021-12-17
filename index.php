@@ -44,7 +44,7 @@
             <?php } ?>
         </div>
         <div class="row mt-5">
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-6">
                 <div class="embed-responsive embed-responsive-16by9">
                     <iframe class="embed-responsive-item" width=100% src="https://www.youtube-nocookie.com/embed/5GJWxDKyk3A?controls=0" alloq="encrypted-media;" allowfullscreen></iframe>
                 </div>
