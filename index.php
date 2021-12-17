@@ -45,7 +45,9 @@
         </div>
         <div class="row mt-5">
             <div class="col-6 col-sm-12">
-            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/5GJWxDKyk3A?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/5GJWxDKyk3A?controls=0" alloq="encrypted-media;" allowfullscreen></iframe>
+                </div>
             </div>
             <div class="col-6 col-sm-12">
                 <!-- Sidebar -->
