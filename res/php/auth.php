@@ -11,7 +11,7 @@
     $mysqli -> autocommit(false);
     $sql = "SELECT * FROM `tblBFA` WHERE `ID` = ?";
     $stmt = $mysqli -> prepare($sql);
-    $stmt -> bind_param($stmt, 's', $id);
+    $stmt -> bind_param('s', $id);
     $stmt -> execute();
     $result = $stmt->get_result();
     $mysqli -> commit();
@@ -34,7 +34,7 @@
             $mysqli -> autocommit(false);
             $sql = "SELECT * FROM `tblUsers` WHERE `tblUsers`.`Email` = ?";
             $stmt = $mysqli ->prepare($sql);
-            $stmt -> bind_param($stmt, 's', $email);
+            $stmt -> bind_param('s', $email);
             $stmt -> execute();
             $result = $stmt->get_result();
             $mysqli->commit();
@@ -61,7 +61,7 @@
                     $mysqli -> autocommit(false);
                     $sql = "UPDATE `tblBFA` SET `Tries` = `Tries` + 1 WHERE `ID` = ?";
                     $stmt = $mysqli -> prepare($sql);
-                    $stmt -> bind_param($stmt, 's', $id);
+                    $stmt -> bind_param('s', $id);
                     $stmt -> execute();
                     $mysqli -> commit();
                     $stmt -> close();
@@ -89,8 +89,8 @@
         else if($result["Tries"] >= 3){
             $mysqli -> autocommit(false);
             $sql = "UPDATE `tblBFA` SET `Tries` = 0, `Blocked` = 1 WHERE `ID` = ?";
-            $stmt = $mysqli -> prepare($connect, $sql);
-            $stmt -> bind_param($stmt, 's', $id);
+            $stmt = $mysqli -> prepare($sql);
+            $stmt -> bind_param('s', $id);
             $stmt -> execute();
             $mysqli -> commit();
             $stmt -> close();
