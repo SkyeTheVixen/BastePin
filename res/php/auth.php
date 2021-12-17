@@ -25,7 +25,7 @@
             echo json_encode(array("statusCode" => 205));
             exit();
         }
-        else if($result["Tries"] >= 3){
+        else if($row["Tries"] >= 3){
             $mysqli -> autocommit(false);
             $sql = "UPDATE `tblBFA` SET `Tries` = 0, `Blocked` = 1 WHERE `ID` = ?";
             $stmt = $mysqli -> prepare($sql);
