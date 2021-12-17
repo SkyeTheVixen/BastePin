@@ -17,9 +17,10 @@
     $mysqli -> commit();
 
     if($result -> num_rows === 1){
+        $row = $result -> fetch_array(MYSQLI_ASSOC);
         $stmt->close();
         //If user IP has been blocked
-        if ($result["Blocked"] == 1) {
+        if ($row["Blocked"] == 1) {
             header("HTTP/1.1 429 Too Many Requests");
             echo json_encode(array("statusCode" => 205));
             exit();
