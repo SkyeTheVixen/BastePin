@@ -12,14 +12,13 @@
             header("Location: expired");
         }
     }
-    else
-    {
-        $sql = "SELECT * FROM `tblBastes` WHERE `tblBastes`.`Visibility` = 2 OR `tblBastes`.`UserID` = ? ORDER BY `tblBastes`.`CreatedAt` DESC";
-        $stmt = mysqli_prepare($connect, $sql);
-        mysqli_stmt_bind_param($stmt, 's', $_SESSION["UserID"]);
-        $stmt -> execute();
-        $result = $stmt->get_result();
-    }
+?>
+<?php
+    $sql = "SELECT * FROM `tblBastes` WHERE `tblBastes`.`Visibility` = 2 OR `tblBastes`.`UserID` = ? ORDER BY `tblBastes`.`CreatedAt` DESC";
+    $stmt = mysqli_prepare($connect, $sql);
+    mysqli_stmt_bind_param($stmt, 's', $_SESSION["UserID"]);
+    $stmt -> execute();
+    $result = $stmt->get_result();
 ?>
 
 <!-- Main Page Content -->
