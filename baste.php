@@ -5,13 +5,21 @@
 <?php include("res/php/header.php"); ?>
 <?php include("res/php/navbar.php"); ?>
 <?php include("res/php/functions.inc.php"); ?>
-<?php if(isset($_GET["BasteID"])) {$baste = getBaste($connect, $_GET["BasteID"]);}?>
 <?php 
-    $sql = "SELECT * FROM `tblBastes` WHERE `tblBastes`.`Visibility` = 2 OR `tblBastes`.`UserID` = ? ORDER BY `tblBastes`.`CreatedAt` DESC";
-    $stmt = mysqli_prepare($connect, $sql);
-    mysqli_stmt_bind_param($stmt, 's', $_SESSION["UserID"]);
-    $stmt -> execute();
-    $result = $stmt->get_result();
+    if(isset($_GET["BasteID"])) {
+        $baste = getBaste($connect, $_GET["BasteID"]);
+        if($baste["ExpiresAt"] > date("Y-m-d H:i:s")){
+            header("Location: expired");
+        }
+    }
+    else
+    {
+        $sql = "SELECT * FROM `tblBastes` WHERE `tblBastes`.`Visibility` = 2 OR `tblBastes`.`UserID` = ? ORDER BY `tblBastes`.`CreatedAt` DESC";
+        $stmt = mysqli_prepare($connect, $sql);
+        mysqli_stmt_bind_param($stmt, 's', $_SESSION["UserID"]);
+        $stmt -> execute();
+        $result = $stmt->get_result();
+    }
 ?>
 
 <!-- Main Page Content -->
