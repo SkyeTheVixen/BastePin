@@ -42,6 +42,7 @@
             //If the email exists in the db, then proceed as normal
             if($result -> num_rows === 1){
                 $User = $result->fetch_array(MYSQLI_ASSOC);
+                $stmt -> close();
                 //If password matches
                 if(password_verify($password, $User["Password"], ))
                 {
@@ -72,7 +73,6 @@
                 //Return invalid credentials
                 echo json_encode(array("statusCode" => 202));
             }
-            $stmt -> close();
         }
         else{
             echo json_encode(array("statusCode" => 203));
