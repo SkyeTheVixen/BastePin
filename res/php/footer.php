@@ -2,8 +2,8 @@
 <?php if($currentPage == "baste" || $currentPage == "account"){$pageredirect = "../";} else {$pageredirect = "";}?>
 
 </body>
-<footer class="py-3 my-3">
-    <ul class="nav bg-dark justify-content-center border-bottom pb-3 mb-3">
+<footer class="py-3 my-3 bg-dark">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
         <li class="nav-item">
             <a href="<?php echo $pageredirect;?>index" class="nav-link text-light px-2 text-muted">Home</a>
         </li>
