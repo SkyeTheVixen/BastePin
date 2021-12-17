@@ -9,7 +9,11 @@
 <?php $User = GetUser($connect); ?>
 <?php $sql = "SELECT * FROM `tblBastes` WHERE `tblBastes`.`Visibility` = 2 ORDER BY `tblBastes`.`CreatedAt` DESC LIMIT 6"; ?>
 <?php $query = mysqli_query($connect, $sql); ?>
-
+<?php
+    if(isset($_GET["er"])) {
+        echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'You did not have sufficient permission to view that baste', heightAuto: false });</script>"; 
+    }
+?>
 
 <!-- Main Page Content -->
 <div class="container">

@@ -50,7 +50,7 @@ $(document).ready(function () {
                     Swal.fire({
                         icon: 'warning',
                         title: 'Oops...',
-                        html: 'Your Account is Locked. Please Please <a href="mailto:webmaster@vixendev.com">contact support</a>.',
+                        html: 'Your Account is Locked. Please <a href="mailto:webmaster@vixendev.com">contact support</a>.',
                         heightAuto: false
                     });
                 } else if (DataResult.statusCode === 205) {
