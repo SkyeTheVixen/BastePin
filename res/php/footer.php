@@ -3,9 +3,9 @@
 
 </body>
 <footer class="py-3 my-3">
-    <ul class="nav navbar-dark justify-content-center border-bottom pb-3 mb-3">
+    <ul class="nav bg-dark justify-content-center border-bottom pb-3 mb-3">
         <li class="nav-item">
-            <a href="<?php echo $pageredirect;?>index" class="nav-link px-2 text-muted">Home</a>
+            <a href="<?php echo $pageredirect;?>index" class="nav-link text-light px-2 text-muted">Home</a>
         </li>
         <li class="nav-item">
             <a href="<?php echo $pageredirect;?>newbaste" class="nav-link px-2 text-muted">New Baste</a>
