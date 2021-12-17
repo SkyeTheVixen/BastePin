@@ -18,7 +18,7 @@
             <a href="<?php echo $pageredirect;?>account/" class="nav-link px-2 text-muted">My Account</a>
         </li>
     </ul>
-    <p class="text-center text-muted">© 2021 Vixendev</p>
+    <p class="text-center text-muted pb-3">© 2021 Vixendev</p>
 </footer>
 
 </html>
