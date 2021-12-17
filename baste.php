@@ -9,7 +9,7 @@
     if(isset($_GET["BasteID"])) {
         $baste = getBaste($connect, $_GET["BasteID"]);
         if($baste["ExpiresAt"] < date("Y-m-d H:i:s")){
-            echo "<script>window.location.href=\"expired\"</script>";
+            echo "<script>window.location.href=\"../expired\"</script>";
         }
     }
 ?>
