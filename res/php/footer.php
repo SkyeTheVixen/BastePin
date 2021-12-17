@@ -3,7 +3,7 @@
 <div class="row mb-5"></div>
 <div class="row mb-5"></div>
 </body>
-<footer class="py-3 mt-3 bg-dark">
+<footer class="py-3 mt-3 bg-dark" style="bottom: 0; position: fixed;">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
         <li class="nav-item">
             <a href="<?php echo $pageredirect;?>index" class="nav-link text-light px-2 text-muted">Home</a>
