@@ -21,9 +21,8 @@
         $stmt->close();
         //If user IP has been blocked
         if ($row["Blocked"] == 1) {
-            header("HTTP/1.1 429 Too Many Requests");
             echo json_encode(array("statusCode" => 205));
-            exit();
+            return;
         }
         else if($row["Tries"] >= 3){
             $mysqli -> autocommit(false);
