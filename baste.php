@@ -8,7 +8,7 @@
 <?php 
     if(isset($_GET["BasteID"])) {
         $baste = getBaste($connect, $_GET["BasteID"]);
-        if($baste["ExpiresAt"] > date("Y-m-d H:i:s")){
+        if($baste["ExpiresAt"] < date("Y-m-d H:i:s")){
             header("Location: expired");
         }
     }
