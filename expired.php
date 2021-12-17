@@ -10,7 +10,7 @@
 <div class="container">  
     <!-- Page Title -->
     <div class="row mt-5">
-        <div class="col-12 mt-5 align-items-center">
+        <div class="col-12 mt-5 align-items-center text-center">
             <h1 class="text-center">Baste Expired</h1>
             <h3 class="text-center">Unfortunately, this baste has expired</h3>
             <button class="btn btn-primary mt-5" onclick="window.location.href='index.php'">Go Back</button>
