@@ -7,7 +7,7 @@
 <?php include("res/php/navbar.php"); ?>
 <?php include("res/php/functions.inc.php"); ?>
 <?php $User = GetUser($connect); ?>
-<?php $sql = "SELECT * FROM `tblBastes` WHERE `tblBastes`.`Visibility` = 2 ORDER BY `tblBastes`.`CreatedAt` DESC LIMIT 6"; ?>
+<?php $sql = "SELECT * FROM `tblBastes` WHERE `tblBastes`.`Visibility` = 2 ORDER BY `tblBastes`.`CreatedAt` DESC LIMIT 3"; ?>
 <?php $query = mysqli_query($connect, $sql); ?>
 <?php
     if(isset($_GET["er"])) {
@@ -29,8 +29,8 @@
     <!-- End Welcome Greeting -->
 
     <div class="row mt-5">
-        <h2 class="text-center">Recent Bastes</h2>
-        <div class="row">
+        <h2 class="text-center">Recent Public Bastes</h2>
+        <div class="row mb-3">
             <?php while($rows = mysqli_fetch_assoc($query)) { ?>
                 <div class="col-12 col-md-6 col-lg-4 mb-1">
                     <div class="card">
@@ -42,6 +42,14 @@
                     </div>
                 </div>
             <?php } ?>
+        </div>
+        <div class="row mt-5">
+            <div class="col-8">
+            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/5GJWxDKyk3A?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="col-4">
+                <!-- Sidebar -->
+            </div>
         </div>
     </div>
 
