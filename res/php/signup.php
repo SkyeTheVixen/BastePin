@@ -21,6 +21,20 @@
         $Email = mysqli_real_escape_string($connect, $_POST["Email"]);
         $Password = password_hash($Password, 1, array('cost' => 10));
         
+        //Check if any records already exist
+        $mysqli -> autocommit(false);
+        $sql = "SELECT * FROM `tblUsers` WHERE `tblUsers`.`Email` = ?";
+        $stmt = $mysqli ->prepare($sql);
+        $stmt -> bind_param('s', $email);
+        $stmt -> execute();
+        $result = $stmt->get_result();
+        $mysqli->commit();
+
+        //If the email exists in the db, then error out
+        if($result -> num_rows === 1){
+            echo json_encode(array("statusCode" => 203));
+            exit();
+        }
         $sql = "INSERT INTO `tblUsers` (`UserID`, `FirstName`, `LastName`, `Email`, `Password`, CanBaste, IsAdmin, IsPremium, IsLocked, BasteCount, MaximumBastes) VALUES (?, ?, ?, ?, ?, 0, 0, 0, 1, 0, 0)";
         $mysqli -> autocommit(false);
         $stmt = $mysqli -> prepare($sql);

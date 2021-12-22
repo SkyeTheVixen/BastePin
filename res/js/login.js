@@ -139,6 +139,13 @@ $(document).ready(function () {
                         text: 'Your passwords do not match',
                         heightAuto: false
                     });
+                } else if (DataResult.statusCode === 203) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'This email address is already in use',
+                        heightAuto: false
+                    });
                 }
             }
         });
