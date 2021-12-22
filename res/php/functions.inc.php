@@ -1,4 +1,12 @@
 <?php
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\SMTP;
+    use PHPMailer\PHPMailer\Exception;
+    if(file_exists("./vendor/autoload.php")){
+        require './vendor/autoload.php';
+    }else{
+        require '../vendor/autoload.php';
+    }
 
     function GenerateID() {
         $IDData = $IDData ?? random_bytes(16);
@@ -32,7 +40,7 @@
     }
 
     function GetProfile($connect){
-        $sql = "SELECT `tblUsers`.`UserID`, `tblUsers`.`FirstName`, `tblUsers`.`LastName`, `tblUsers`.`Email`, `tblUsers`.`CanBaste`, `tblUsers`.`IsAdmin`, `tblUsers`.`IsPremium`, `tblUsers`.`IsLocked`, `tblUsers`.`BasteCount`, `tblUsers`.`MaximumBastes`, `tblProfile`.`Company`, `tblProfile`.`Location`, `tblProfile`.`Website`, `tblProfile`.`Twitter`, `tblProfile`.`Github`, `tblProfile`.`LinkedIn` FROM `tblUsers` INNER JOIN `tblProfile` ON `tblUsers`.`UserID` = `tblProfile`.`UserID` WHERE `tblUsers`.`UserID` = ?";
+        $sql = "SELECT `tblUsers`.`UserID`, `tblUsers`.`FirstName`, `tblUsers`.`LastName`, `tblUsers`.`Email`, `tblUsers`.`CanBaste`, `tblUsers`.`IsAdmin`, `tblUsers`.`IsPremium`, `tblUsers`.`IsLocked`, `tblUsers`.`BasteCount`, `tblUsers`.`MaximumBastes`, `tblProfile`.`Company`, `tblProfile`.`Location`, `tblProfile`.`Website`, `tblProfile`.`Twitter`, `tblProfile`.`Github` FROM `tblUsers` INNER JOIN `tblProfile` ON `tblUsers`.`UserID` = `tblProfile`.`UserID` WHERE `tblUsers`.`UserID` = ?";
         $stmt = mysqli_prepare($connect, $sql);
         mysqli_stmt_bind_param($stmt, 's', $_SESSION["UserID"]);
         $stmt -> execute();
@@ -40,6 +48,35 @@
         if($result -> num_rows === 1){
             $User = $result->fetch_array(MYSQLI_ASSOC);
             return $User;
+        }
+    }
+
+    function sendMail($email, $userName,  $subject, $message, $altMessage){
+        include_once("res/php/_pass.php");
+        $mail = new PHPMailer(true);
+        try {
+            //Server settings
+            $mail->isSMTP();
+            $mail->Host       = 'mail.vixendev.com';
+            $mail->SMTPAuth   = true;
+            $mail->Username   = 'no-reply@vixendev.com';
+            $mail->Password   = $mailPass;
+            $mail->Port       = 465;
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+
+            //Recipients
+            $mail->setFrom('no-reply@vixendev.com', 'Vixendev');
+            $mail->addAddress($email, $userName);
+
+            //Content
+            $mail->isHTML(true);
+            $mail->Subject = $subject;
+            $mail->Body    = $message;
+            $mail->AltBody = $altMessage;
+
+            $mail->send();
+        } catch (Exception $e) {
+            file_put_contents("errorlog.txt", "Message could not be sent. Mailer Error: {$mail->ErrorInfo}");
         }
     }
 

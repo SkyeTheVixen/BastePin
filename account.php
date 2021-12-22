@@ -40,7 +40,6 @@
                 <h5>Website: <?php echo htmlspecialchars($user["Website"]);?></h5>
                 <h5>Location: <?php echo htmlspecialchars($user["Location"]);?></h5>
                 <h5>Github: <a href="https://github.com/<?php echo htmlspecialchars($user["Github"]);?>"><?php echo htmlspecialchars($user["Github"]);?></a></h5>
-                <h5>Linkedin: <a href="https://linkedin.com/<?php echo htmlspecialchars($user["LinkedIn"]);?>"><?php echo htmlspecialchars($user["LinkedIn"]);?></a></h5>
                 <h5>Twitter: @<a href="https://twitter.com/<?php echo htmlspecialchars($user["Twitter"]);?>"><?php echo htmlspecialchars($user["Twitter"]);?></a></h5>
         </div>
     </div>

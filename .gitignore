@@ -9,3 +9,5 @@ application.windows64
 application.macosx
 Planning/
 res/php/_connect.php
+Vendor/
+res/php/_pass.php
