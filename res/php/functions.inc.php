@@ -52,7 +52,7 @@
     }
 
     function sendMail($email, $userName,  $subject, $message, $altMessage){
-        include_once("res/php/_pass.php");
+        include_once("_pass.php");
         $mail = new PHPMailer(true);
         try {
             //Server settings
