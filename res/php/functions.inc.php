@@ -32,7 +32,7 @@
     }
 
     function GetProfile($connect){
-        $sql = "SELECT * FROM `tblUsers` INNER JOIN `tblProfile` ON `tblUsers`.`UserID` = `tblProfile`.`UserID` WHERE `tblUsers`.`UserID` = ?";
+        $sql = "SELECT `tblUsers`.`UserID`, `tblUsers`.`FirstName`, `tblUsers`.`LastName`, `tblUsers`.`Email`, `tblUsers`.`CanBaste`, `tblUsers`.`IsAdmin`, `tblUsers`.`IsPremium`, `tblUsers`.`IsLocked`, `tblUsers`.`BasteCount`, `tblUsers`.`MaximumBastes`, `tblProfile`.`Company`, `tblProfile`.`Location`, `tblProfile`.`Website`, `tblProfile`.`Twitter`, `tblProfile`.`Github`, `tblProfile`.`LinkedIn` FROM `tblUsers` INNER JOIN `tblProfile` ON `tblUsers`.`UserID` = `tblProfile`.`UserID` WHERE `tblUsers`.`UserID` = ?";
         $stmt = mysqli_prepare($connect, $sql);
         mysqli_stmt_bind_param($stmt, 's', $_SESSION["UserID"]);
         $stmt -> execute();
