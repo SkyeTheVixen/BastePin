@@ -7,7 +7,7 @@
     if(isset($_GET["activationCode"])){
         $user = GetUserByID($connect, $_GET["activationCode"]);
         if($user["IsLocked"] == 0){
-            header("Location: login?er='prevActivation'");
+            header("Location: login?er=prevActivation");
             exit();
         }
         else{
@@ -16,12 +16,12 @@
             $stmt -> bind_param('s', $_GET["activationCode"]);
             $stmt -> execute();
             $stmt -> close();
-            header("Location: login?er='activationSuccess'");
+            header("Location: login?er=activationSuccess");
             exit();
         }
     }
     else{
-        header("Location: login?er='noactivcode'");
+        header("Location: login?er=noactivcode");
     }
 
 ?>
