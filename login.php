@@ -73,12 +73,12 @@
             </div> -->
 
         <!-- Password Reset Modal -->
-        <div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="addUserModalLabel"
+        <div class="modal fade" id="forgotPassModal" tabindex="-1" aria-labelledby="addUserModalLabel"
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Forgot Password?</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form id="passResetForm">
@@ -100,13 +100,13 @@
         <!-- End Password Reset Modal -->
 
 
-        <!-- Password Reset Modal -->
-        <div class="modal fade" id="passwordResetModal" tabindex="-1" aria-labelledby="addUserModalLabel"
+        <!-- Sign Up Modal -->
+        <div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="addUserModalLabel"
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Password Reset</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form id="signupForm">
