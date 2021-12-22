@@ -31,6 +31,18 @@
         }
     }
 
+    function GetProfile($connect){
+        $sql = "SELECT * FROM `tblUsers` INNER JOIN `tblProfile` ON `tblUsers`.`UserID` = `tblProfile`.`UserID` WHERE `tblUsers`.`UserID` = ?";
+        $stmt = mysqli_prepare($connect, $sql);
+        mysqli_stmt_bind_param($stmt, 's', $_SESSION["UserID"]);
+        $stmt -> execute();
+        $result = $stmt->get_result();
+        if($result -> num_rows === 1){
+            $User = $result->fetch_array(MYSQLI_ASSOC);
+            return $User;
+        }
+    }
+
     function GetUserById($connect, $UserID){
         $sql = "SELECT * FROM `tblUsers` WHERE `tblUsers`.`UserID` = ?";
         $stmt = mysqli_prepare($connect, $sql);

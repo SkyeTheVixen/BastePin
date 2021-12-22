@@ -6,7 +6,7 @@
 <?php include("res/php/header.php"); ?>
 <?php include("res/php/navbar.php"); ?>
 <?php include("res/php/functions.inc.php"); ?>
-<?php $user = getUser($connect); ?>
+<?php $user = getProfile($connect); ?>
 
 
 <!-- Main Page Content -->
