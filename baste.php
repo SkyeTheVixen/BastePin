@@ -34,7 +34,7 @@
             $BasteCreatedBy = $BasteCreatedBy["FirstName"] . " " . $BasteCreatedBy["LastName"];
             switch($baste["visibility"]){
                 case 0:
-                    $visibility = "Public";
+                    $visibility = "Private";
                     break;
                 case 1:
                     $visibility = "Unlisted";
