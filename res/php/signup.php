@@ -19,7 +19,7 @@
         $FirstName = mysqli_real_escape_string($connect, $_POST["FirstName"]);
         $LastName = mysqli_real_escape_string($connect, $_POST["LastName"]);
         $Email = mysqli_real_escape_string($connect, $_POST["Email"]);
-
+        $Password = password_hash($Password, 1, array('cost' => 10));
         $sql = "INSERT INTO `tblUsers` (`UserID`, `FirstName`, `LastName`, `Email`, `Password`, CanBaste, IsAdmin, IsPremium, IsLocked, BasteCount, MaximumBastes) VALUES (?, ?, ?, ?, ?, 0, 0, 0, 1, 0, 0)";
         $mysqli -> autocommit(false);
         $stmt = $mysqli -> prepare($sql);
