@@ -27,16 +27,38 @@ $basteName = $_POST['basteName'];
 $basteContents = $_POST['basteContents'];
 $basteVisibility = $_POST['basteVisibility'];
 $basteExpiresAt = $_POST['expiresAt'];
+$bastePasswordRequired = $_POST['passwordRequired'];
 $userID = $_SESSION['UserID'];
 $bastePassword = $_POST['bastePassword'];
 
 
 //Generate the Template SQL Data
 $tblUsersSql = "UPDATE `tblUsers` SET `BasteCount` = `BasteCount` + 1 WHERE `UserID` = ?;";
-$tblBastesSql = "INSERT INTO `tblBastes`(`BasteID`, `BasteName`, `BasteContents`, `Visibility`, `ExpiresAt`, `PasswordRequired`, `Password`, `UserID`) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+$tblBastesSql = "INSERT INTO `tblBastes`(`BasteID`, `BasteName`, `BasteContents`, `Visibility`, `ExpiresAt`, `PasswordRequired`, `Password`, `UserID`) VALUES (?,?,?,?,?,?,?,?);";
 
 
 $user = GetUser($connect, $userID);
+
+if($user['IsPremium'] == 1){
+    if($basteExpiresAt != ""){
+        $basteExpiresAt = date("Y-m-d H:i:s", strtotime("+1 month"));
+    }
+    else{
+        $basteExpiresAt = null;
+    }
+    if($bastePasswordRequired == "true"){
+        $bastePassword = password_hash($bastePassword, 1, array('cost' => 10));
+    }
+    else{
+        $bastePassword = null;
+    }
+}
+else{
+    $basteExpiresAt = null;
+    $bastePasswordRequired = 0;
+    $bastePassword = null;
+}
+
 if($user["CanBaste"] == 0)
 {
     echo json_encode(array('statusCode' => 203));
