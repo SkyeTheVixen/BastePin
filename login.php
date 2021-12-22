@@ -126,7 +126,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn btn-primary" id="sendLinkBtn">Join</button>
+                            <button type="submit" class="btn btn-primary" id="joinBtn">Join</button>
                         </div>
                     </form>
 
