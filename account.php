@@ -27,7 +27,7 @@
                     <h1><?php echo $user["FirstName"]." ".$user["LastName"]; ?></h1>
                 </div>
                 <div class="col-4">
-                    <img src="https://proficon.stablenetwork.uk/api/identicon/<?php echo $user["UserID"];?>.svg" alt="Profile Icon" />
+                    <img src="https://proficon.stablenetwork.uk/api/identicon/<?php echo $user["UserID"];?>.svg" alt="Profile Icon" class="h-25"/>
                 </div>
 
         </div>

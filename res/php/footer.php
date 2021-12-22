@@ -2,7 +2,6 @@
 <?php if($currentPage == "baste" || $currentPage == "account"){$pageredirect = "../";} else {$pageredirect = "";}?>
 <div class="row mb-5"></div>
 <div class="row mb-5"></div>
-</body>
 <footer class="py-3 mt-3 bg-dark" style="bottom: 0;">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
         <li class="nav-item">
@@ -20,5 +19,7 @@
     </ul>
     <p class="text-center text-muted pb-3">© 2021 Vixendev</p>
 </footer>
+</body>
+
 
 </html>
