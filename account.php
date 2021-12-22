@@ -35,7 +35,7 @@
                 <h5>Name: <?php echo htmlspecialchars($user["FirstName"]." ".$user["LastName"]);?></h5>
                 <h5>Email: <?php echo htmlspecialchars($user["Email"]);?></h5>
                 <h5>Premium status: <?php echo htmlspecialchars($user["IsPremium"]) ? 'Premium': 'Free';?></h5>
-                <h5>Baste Count: <?php echo htmlspecialchars($user["BasteCount"]);?>/<?php echo htmlspecialchars($user["MaximumBastes"]);?></h5>
+                <h5>Baste Count: <?php echo htmlspecialchars($user["BasteCount"]);?>/<?php echo htmlspecialchars($user["MaximumBastes"])?:'Infinity';?></h5>
                 <h5>Company: <?php echo htmlspecialchars($user["Company"]);?></h5>
                 <h5>Website: <?php echo htmlspecialchars($user["Website"]);?></h5>
                 <h5>Location: <?php echo htmlspecialchars($user["Location"]);?></h5>
