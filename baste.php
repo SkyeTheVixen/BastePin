@@ -32,7 +32,7 @@
             }
             $BasteCreatedBy = GetUserById($connect, $baste["UserID"]);
             $BasteCreatedBy = $BasteCreatedBy["FirstName"] . " " . $BasteCreatedBy["LastName"];
-            switch($baste["visibility"]){
+            switch($baste["Visibility"]){
                 case 0:
                     $visibility = "Private";
                     break;
