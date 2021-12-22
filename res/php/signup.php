@@ -28,6 +28,15 @@
         $stmt -> execute();
         $mysqli -> commit();
         $stmt -> close();
+
+        $sql = "INSERT INTO `tblProfile` (`UserID`) VALUES (?)";
+        $mysqli -> autocommit(false);
+        $stmt = $mysqli -> prepare($sql);
+        $stmt -> bind_param('s', $UserID);
+        $stmt -> execute();
+        $mysqli -> commit();
+        $stmt -> close();
+
         $fullName = $FirstName . " " . $LastName;
         $subject = "Bastepin | Confirm Your Email Address";
         $message = "https://skytest.xyz/Bastepin/activate.php?activationCode=" . $UserID;
