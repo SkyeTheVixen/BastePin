@@ -66,7 +66,7 @@
         <div class="row">
             <div class="row">
                 <div class="col-12 align-items-right text-right">
-                    <a href="../edit/<?php echo $basteID; ?>"><i class="fas fa-pen"></i></a>
+                    <a href="../editbaste/<?php echo $basteID; ?>"><i class="fas fa-pen"></i></a>
                 </div>
             </div>
             <div class="row">
