@@ -54,7 +54,7 @@
         </div>
         <!-- End Page Title -->
 
-        <!-- Code Block -->
+        <!-- Code Block and details -->
         <div class="row">
             <div class="col-12 col-sm-6 mt-5 align-items-center">
                 <pre><code><?php echo htmlspecialchars($baste["BasteContents"]);?></pre></code>
@@ -80,7 +80,30 @@
                 </div>
             </div>
         </div>
-        <!-- End Code block -->
+        <!-- End Code block and details -->
+        
+        <div class="row">
+            <div class="col-12 col-sm-6">
+                <h3>Comments</h3>
+            </div>
+            <div class="col-12 col-sm-6">
+                <h3>Other Bastes</h3>
+                <?php while($rows = $result -> fetch_array(MYSQLI_ASSOC)) { ?>
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-lg-4 mb-1">
+                            <div class="card">
+                                <div class="card-body">
+                                    <?php $time = strtotime($rows["CreatedAt"]); ?>
+                                    <h5 class="card-title"><?php echo htmlspecialchars($rows['BasteName']); ?></h5>
+                                    <p class="card-text"><?php echo date("d M Y @ H:i", $time) ?></p>
+                                    <a href="<?php echo $rows['BasteID']; ?>" class="btn btn-primary">View Baste</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php } ?>
+            </div>
+        </div>
 
     <?php } ?>
 
