@@ -47,7 +47,7 @@
     <div class="row mt-5">
         <h2 class="text-center">Recent Public Bastes</h2>
         <div class="row mb-3">
-            <?php while($rows = mysqli_fetch_assoc($query)) { ?>
+            <?php while($rows = $result -> fetch_array(MYSQLI_ASSOC)) { ?>
                 <div class="col-12 col-md-6 col-lg-4 mb-1">
                     <div class="card">
                         <div class="card-body">
