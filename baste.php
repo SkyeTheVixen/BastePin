@@ -1,13 +1,18 @@
-<?php session_start();?>
-<?php $title="Baste | VDBP"; ?>
-<?php $currentPage="baste"; ?>
-<?php include("res/php/_connect.php"); ?>
-<?php include("res/php/header.php"); ?>
-<?php include("res/php/navbar.php"); ?>
-<?php include("res/php/functions.inc.php"); ?>
+<!-- Header stuff -->
+<?php 
+    session_start();
+    $title="Baste | VDBP";
+    $currentPage="baste";
+    include("res/php/_connect.php");
+    include("res/php/header.php");
+    include("res/php/navbar.php");
+    include("res/php/functions.inc.php");
+    $mysqli = $connect;
+?>
+
 <?php 
     if(isset($_GET["BasteID"])) {
-        $basteID = mysqli_real_escape_string($connect, $_GET["BasteID"]);
+        $basteID = $mysqli -> real_escape_string($_GET["BasteID"]);
         $baste = getBaste($connect, $basteID);
         if($baste["ExpiresAt"] < date("Y-m-d H:i:s") && $baste["ExpiresAt"] != "0000-00-00 00:00:00" && $baste["ExpiresAt"] != "" && $baste["ExpiresAt"] != NULL) {
             echo "<script>window.location.href=\"../expired\"</script>";
@@ -15,11 +20,14 @@
     }
 ?>
 <?php
+    $mysqli -> autocommit(FALSE);
     $sql = "SELECT * FROM `tblBastes` WHERE `tblBastes`.`Visibility` = 2 OR `tblBastes`.`UserID` = ? ORDER BY `tblBastes`.`CreatedAt` DESC";
-    $stmt = mysqli_prepare($connect, $sql);
+    $stmt = $mysqli -> prepare($sql);
     mysqli_stmt_bind_param($stmt, 's', $_SESSION["UserID"]);
     $stmt -> execute();
     $result = $stmt->get_result();
+    $mysqli -> commit();
+    $stmt -> close();
 ?>
 
 <!-- Main Page Content -->
@@ -88,7 +96,18 @@
             </div>
             <div class="col-12 col-sm-6">
                 <h3>Other Bastes</h3>
-                <?php while($rows = $result -> fetch_array(MYSQLI_ASSOC)) { ?>
+                
+                <?php 
+                    $mysqli -> autocommit(FALSE);
+                    $sql = "SELECT * FROM `tblBastes` WHERE `tblBastes`.`Visibility` = 2 OR `tblBastes`.`UserID` = ? ORDER BY `tblBastes`.`CreatedAt` DESC LIMIT 3";
+                    $stmt = $mysqli -> prepare($sql);
+                    mysqli_stmt_bind_param($stmt, 's', $_SESSION["UserID"]);
+                    $stmt -> execute();
+                    $result = $stmt->get_result();
+                    $mysqli -> commit();
+                    $stmt -> close();
+                    while($rows = $result -> fetch_array(MYSQLI_ASSOC)) { 
+                ?>
                     <div class="row">
                         <div class="col-12 col-md-6 col-lg-4 mb-1">
                             <div class="card">
