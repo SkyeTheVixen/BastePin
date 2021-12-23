@@ -13,7 +13,7 @@
         <div class="col-12 mt-5 align-items-center text-center">
             <h1 class="text-center">Baste Expired</h1>
             <h3 class="text-center">Unfortunately, this baste has expired</h3>
-            <button class="btn btn-primary mt-5" onclick="window.location.href='index.php'">Go Back</button>
+            <button class="btn btn-primary mt-5" onclick="window.location.href='index'">Go Home</button>
         </div>
     </div>
     <!-- End Page Title -->
