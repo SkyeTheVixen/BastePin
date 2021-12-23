@@ -65,8 +65,8 @@
         <!-- Code Block and details -->
         <div class="row">
             <div class="row">
-                <div class="col-12 align-items-right">
-                    <a href="/edit"><i class="fas fa-pen"></i></a>
+                <div class="col-12 align-items-right text-right">
+                    <a href="edit"><i class="fas fa-pen"></i></a>
                 </div>
             </div>
             <div class="row">
