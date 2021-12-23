@@ -1,5 +1,5 @@
-<?php if($currentPage == "baste" || $currentPage == "account"){$pathHead = "../res/";} else {$pathHead = "res/";}?>
-<?php if($currentPage == "baste" || $currentPage == "account"){$pageredirect = "../";} else {$pageredirect = "";}?>
+<?php if($currentPage == "baste" || $currentPage == "account" || $currentPage == "editbaste"){$pathHead = "../res/";} else {$pathHead = "res/";}?>
+<?php if($currentPage == "baste" || $currentPage == "account" || $currentPage == "editbaste"){$pageredirect = "../";} else {$pageredirect = "";}?>
 
 <body style="min-height: 100%;">
     <!-- Navigation bar -->
