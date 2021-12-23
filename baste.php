@@ -64,6 +64,12 @@
 
         <!-- Code Block and details -->
         <div class="row">
+            <div class="row">
+                <div class="col-12 align-items-right">
+                    <a href="/edit"><i class="fas fa-pencil"></i></a>
+                </div>
+            </div>
+            <div class="row">
             <div class="col-12 col-sm-6 mt-5 align-items-center">
                 <pre><code><?php echo htmlspecialchars($baste["BasteContents"]);?></pre></code>
             </div>
@@ -87,6 +93,8 @@
                     </div>
                 </div>
             </div>
+            </div>
+            
         </div>
         <!-- End Code block and details -->
 
