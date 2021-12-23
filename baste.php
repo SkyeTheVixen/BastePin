@@ -96,19 +96,18 @@
             </div>
             <div class="col-12 col-sm-6">
                 <h3>Other Bastes</h3>
-                
-                <?php 
-                    $mysqli -> autocommit(FALSE);
-                    $sql = "SELECT * FROM `tblBastes` WHERE `tblBastes`.`Visibility` = 2 OR `tblBastes`.`UserID` = ? ORDER BY `tblBastes`.`CreatedAt` DESC LIMIT 3";
-                    $stmt = $mysqli -> prepare($sql);
-                    mysqli_stmt_bind_param($stmt, 's', $_SESSION["UserID"]);
-                    $stmt -> execute();
-                    $result = $stmt->get_result();
-                    $mysqli -> commit();
-                    $stmt -> close();
-                    while($rows = $result -> fetch_array(MYSQLI_ASSOC)) { 
-                ?>
-                    <div class="row">
+                <div class="row">
+                    <?php 
+                        $mysqli -> autocommit(FALSE);
+                        $sql = "SELECT * FROM `tblBastes` WHERE `tblBastes`.`Visibility` = 2 OR `tblBastes`.`UserID` = ? ORDER BY `tblBastes`.`CreatedAt` DESC LIMIT 3";
+                        $stmt = $mysqli -> prepare($sql);
+                        mysqli_stmt_bind_param($stmt, 's', $_SESSION["UserID"]);
+                        $stmt -> execute();
+                        $result = $stmt->get_result();
+                        $mysqli -> commit();
+                        $stmt -> close();
+                        while($rows = $result -> fetch_array(MYSQLI_ASSOC)) { 
+                    ?>
                         <div class="col-12 col-md-6 col-lg-4 mb-1">
                             <div class="card">
                                 <div class="card-body">
@@ -119,8 +118,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                <?php } ?>
+                    <?php } ?>
+                </div>
             </div>
         </div>
 
