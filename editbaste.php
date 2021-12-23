@@ -1,6 +1,6 @@
 <?php session_start();?>
-<?php $title="New Baste | VDBP"; ?>
-<?php $currentPage="newbaste"; ?>
+<?php $title="Edit Baste | VDBP"; ?>
+<?php $currentPage="editbaste"; ?>
 <?php include("res/php/_authcheck.php"); ?>
 <?php include("res/php/header.php"); ?>
 <?php include("res/php/_connect.php"); ?>
