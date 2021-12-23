@@ -17,7 +17,7 @@
     $mysqli -> autocommit(FALSE);
     $sql = "SELECT * FROM `tblBastes` WHERE `tblBastes`.`Visibility` = 2 OR `tblBastes`.`UserID` = ? ORDER BY `tblBastes`.`CreatedAt` DESC LIMIT 3"; 
     $stmt = $mysqli -> prepare($sql);
-    mysqli_stmt_bind_param($stmt, 's', $_SESSION["UserID"]);
+    $stmt -> bind_param('s', $_SESSION["UserID"]);
     $stmt -> execute();
     $result = $stmt->get_result();
     $mysqli -> commit();
