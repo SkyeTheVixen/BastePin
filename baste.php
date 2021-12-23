@@ -89,7 +89,12 @@
             </div>
         </div>
         <!-- End Code block and details -->
-        
+
+        <!-- Spacing -->
+        <div class="row my-3"></div>
+        <!-- End Spacing -->
+
+        <!-- Comments and other bastes -->
         <div class="row">
             <div class="col-12 col-sm-6">
                 <h3>Comments</h3>
@@ -122,6 +127,7 @@
                 </div>
             </div>
         </div>
+        <!-- End Comments and other bastes -->
 
     <?php } ?>
 
