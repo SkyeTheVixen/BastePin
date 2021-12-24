@@ -3,5 +3,6 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^account/(.*)$ ./account.php?username=$1
 RewriteRule ^baste/(.*)$ ./baste.php?BasteID=$1
 RewriteRule ^editbaste/(.*)$ ./editbaste.php?BasteID=$1
+RewriteRule ^delbaste/(.*)$ ./delbaste.php?BasteID=$1
 RewriteRule ^([^\.]+)$ $1.php [NC,L]
 RewriteRule ^([^\.]+)$ $1.html [NC,L]

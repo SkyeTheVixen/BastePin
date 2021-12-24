@@ -65,9 +65,12 @@
         <!-- Code Block and details -->
         <div class="row">
             <div class="row">
+                <?php if($baste["UserID"] == $_SESSION["UserID"]){ ?>
                 <div class="col-12 align-items-right text-right">
                     <a href="../editbaste/<?php echo $basteID; ?>"><i class="fas fa-pen"></i></a>
+                    <a href="../deletebaste/<?php echo $basteID; ?>"><i class="fas fa-trash"></i></a>
                 </div>
+                <?php } ?>
             </div>
             <div class="row">
             <div class="col-12 col-sm-6 mt-5 align-items-center">
