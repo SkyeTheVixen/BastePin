@@ -20,9 +20,7 @@
     $UserID = $row["UserID"];
     $mysqli -> commit();
     $stmt -> close();
-    $mysqli -> close();
 
-    $mysqli = $connect;
     $mysqli -> autocommit(false);
     $sql2 = "INSERT INTO `tblPasswordResets` (`UserID`, `Token`, 'Expiry') VALUES (?, ?, (now() + INTERVAL 30 MINUTE))";
     $stmt = $mysqli -> prepare($sql2);
