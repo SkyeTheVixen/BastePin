@@ -15,10 +15,10 @@
     $stmt = $mysqli -> prepare($sql);
     $stmt -> bind_param('s', $email);
     $stmt -> execute();
+    $mysqli -> commit();
     $result = $stmt->get_result();
     $row = $result->fetch_array(MYSQLI_ASSOC);
     $UserID = $row["UserID"];
-    $mysqli -> commit();
     $stmt -> close();
 
     $mysqli -> autocommit(false);
