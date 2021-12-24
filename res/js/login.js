@@ -162,7 +162,7 @@ $(document).ready(function () {
         }
         $.ajax({
             type: "post",
-            url: "../php/passreset.php",
+            url: "res/php/passreset.php",
             data: {
                 email: email
             },
