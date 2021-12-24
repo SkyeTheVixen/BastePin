@@ -20,7 +20,7 @@
     $row = $result->fetch_array(MYSQLI_ASSOC);
     $UserID = $row["UserID"];
     var_dump($row);
-    $sql = "INSERT INTO `tblPasswordResets` (`UserID`, `Token`, 'Expiry') VALUES (?, ?, (now() + INTERVAL 30 MINUTE))";
+    $sql = "INSERT INTO `tblPasswordResets`(`UserID`, `Token`, `Expiry`) VALUES (?,?,(now() + INTERVAL 30 MINUTE))";
     $mysqli -> autocommit(false);
     $stmt = $mysqli -> prepare($sql);
     $stmt -> bind_param('ss', $UserID, $token);
