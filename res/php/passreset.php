@@ -19,11 +19,10 @@
     $result = $stmt->get_result();
     $row = $result->fetch_array(MYSQLI_ASSOC);
     $UserID = $row["UserID"];
-    $stmt -> close();
 
+    $sql = "INSERT INTO `tblPasswordResets` (`UserID`, `Token`, 'Expiry') VALUES (?, ?, (now() + INTERVAL 30 MINUTE))";
     $mysqli -> autocommit(false);
-    $sql2 = "INSERT INTO `tblPasswordResets` (`UserID`, `Token`, 'Expiry') VALUES (?, ?, (now() + INTERVAL 30 MINUTE))";
-    $stmt = $mysqli -> prepare($sql2);
+    $stmt = $mysqli -> prepare($sql);
     $stmt -> bind_param('ss', $UserID, $token);
     $stmt -> execute();
     $mysqli -> commit();
