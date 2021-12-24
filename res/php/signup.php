@@ -1,5 +1,4 @@
 <?php
-    session_start();
     include_once("_connect.php");
     include_once("functions.inc.php");
     $mysqli = $connect;

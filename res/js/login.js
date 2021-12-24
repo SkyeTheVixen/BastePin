@@ -124,7 +124,6 @@ $(document).ready(function () {
                         text: 'We\'ve sent you an email with a link to confirm your account, please check your spam if it does not arrive. If you havent received it after 5 minutes, please contact support with your name and email address and we will endeavour to sort it for you.',
                         heightAuto: false
                     });
-
                 } else if (DataResult.statusCode === 201) {
                     Swal.fire({
                         icon: 'error',
@@ -163,7 +162,7 @@ $(document).ready(function () {
         }
         $.ajax({
             type: "post",
-            url: "../php/passReset.php",
+            url: "../php/passreset.php",
             data: {
                 email: email
             },
