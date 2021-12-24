@@ -157,7 +157,8 @@ $(document).ready(function () {
             return Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Please enter your email address'
+                text: 'Please enter your email address',
+                heightAuto: false
             });
         }
         $.ajax({
@@ -173,13 +174,15 @@ $(document).ready(function () {
                     Swal.fire({
                         icon: 'success',
                         title: 'Success',
-                        text: 'Password reset link has been sent to your email address'
+                        text: 'Password reset link has been sent to your email address',
+                        heightAuto: false
                     });
                 }  else if (DataResult.statusCode === 201) {
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
-                        text: 'Something went wrong, try again.'
+                        text: 'Something went wrong, try again.',
+                        heightAuto: false
                     });
                 }
             },
@@ -188,7 +191,8 @@ $(document).ready(function () {
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
-                    text: 'Something went wrong! Please try again'
+                    text: 'Something went wrong! Please try again',
+                    heightAuto: false
                 });
             }
         });
