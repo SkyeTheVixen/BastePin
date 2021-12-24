@@ -2,7 +2,7 @@
     include_once("res/php/_connect.php");
     include_once("res/php/_authcheck.php");
     include_once("res/php/functions.inc.php");
-    $referrer = $_SERVER['HTTP_REFERER'];
+    $referrer = $_SERVER['HTTP_REFERER'] ?? "index.php";
     if(!isset($_GET["BasteID"])) {
         header("Location: $referrer?er=nobastedel");
     }
