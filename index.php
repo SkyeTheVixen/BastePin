@@ -28,7 +28,9 @@
 <?php
     if(isset($_GET["er"])) {
         if($_GET["er"] == "insufperm") {
-            echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'You did not have sufficient permission to view that baste', heightAuto: false });</script>"; 
+            echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'You did not have sufficient permission to do that', heightAuto: false });</script>"; 
+        } else if($_GET["er"] == "nobastedel") {
+            echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'There was no baste to delete', heightAuto: false });</script>"; 
         }
     }
 ?>

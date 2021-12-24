@@ -8,7 +8,16 @@
 <?php include("res/php/functions.inc.php"); ?>
 <?php $user = GetUser($connect); ?>
 <?php $baste = GetBaste($connect, $_GET["BasteID"]);?>
-
+<!-- If there is an error -->
+<?php
+    if(isset($_GET["er"])) {
+        if($_GET["er"] == "insufperm") {
+            echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'You did not have sufficient permission to do that', heightAuto: false });</script>"; 
+        } else if($_GET["er"] == "nobastedel") {
+            echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'There was no baste to delete', heightAuto: false });</script>"; 
+        }
+    }
+?>
 <!-- Main Page Content -->
 <div class="container">
 

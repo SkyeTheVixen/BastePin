@@ -9,7 +9,16 @@
     include("res/php/functions.inc.php");
     $mysqli = $connect;
 ?>
-
+<!-- If there is an error -->
+<?php
+    if(isset($_GET["er"])) {
+        if($_GET["er"] == "insufperm") {
+            echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'You did not have sufficient permission to do that', heightAuto: false });</script>"; 
+        } else if($_GET["er"] == "nobastedel") {
+            echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'There was no baste to delete', heightAuto: false });</script>"; 
+        }
+    }
+?>
 <?php 
     if(isset($_GET["BasteID"])) {
         $basteID = $mysqli -> real_escape_string($_GET["BasteID"]);
