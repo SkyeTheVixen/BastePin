@@ -31,7 +31,7 @@
     $subject = "Bastepin | Password Reset";
     $message = "https://skytest.xyz/Bastepin/newpass.php?token=" . $token;
     $altMessage = "https://skytest.xyz/Bastepin/newpass.php?token=" . $token;
-    sendMail($Email, $fullName, $subject, $message, $altMessage);
+    sendMail($email, $fullName, $subject, $message, $altMessage);
     echo json_encode(array("statusCode" => 200));
     $mysqli -> close();
 
