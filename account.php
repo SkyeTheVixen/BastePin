@@ -22,12 +22,12 @@
 
     <div class="row">
         <div class="col-12">
-            <div class="row">
+            <div class="row h-25">
                 <div class="col-8">
                     <h1><?php echo htmlspecialchars($user["FirstName"]." ".$user["LastName"]); ?></h1>
                 </div>
                 <div class="col-4">
-                    <img src="https://proficon.stablenetwork.uk/api/identicon/<?php echo $user["UserID"];?>.svg" alt="Profile Icon" class="h-25"/>
+                    <img src="https://proficon.stablenetwork.uk/api/identicon/<?php echo $user["UserID"];?>.svg" alt="Profile Icon" class="h-50"/>
                 </div>
         </div>
         <div class="row">
@@ -41,6 +41,14 @@
                 <h5>Location: <?php echo htmlspecialchars($user["Location"]);?></h5>
                 <h5>Github: <a href="https://github.com/<?php echo htmlspecialchars($user["Github"]);?>"><?php echo htmlspecialchars($user["Github"]);?></a></h5>
                 <h5>Twitter: @<a href="https://twitter.com/<?php echo htmlspecialchars($user["Twitter"]);?>"><?php echo htmlspecialchars($user["Twitter"]);?></a></h5>
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <a href="<?php echo $pageredirect; ?>editaccount" class="btn btn-primary">Edit Profile</a>
+                        <?php if($user["IsPremium"] == 0) {?>
+                            <a href="<?php echo $pageredirect; ?>premium" class="btn btn-primary">Upgrade to premium?</a>
+                        <?php } ?>
+                    </div>
+                </div>
         </div>
     </div>
 </div>
