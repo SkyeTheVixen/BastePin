@@ -21,7 +21,7 @@ $(document).ready(function () {
             cache: false,
             success: function (dataResult) {
                 var DataResult = JSON.parse(dataResult);
-                if (DataResult.statusCode === 200 && $("#basteExpiresAt").val() != "") {
+                if (DataResult.statusCode === 200) {
                     $.ajax({
                         type: "post",
                         url: "res/php/addbaste.php",

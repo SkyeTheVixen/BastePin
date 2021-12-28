@@ -41,7 +41,7 @@ $user = GetUser($connect, $userID);
 
 if($user['IsPremium'] == 1){
     if($basteExpiresAt != ""){
-        $basteExpiresAt = date("Y-m-d H:i:s", strtotime("+1 month"));
+        $basteExpiresAt = date("Y-m-d H:i:s", strtotime($basteExpiresAt));
     }
     else{
         $basteExpiresAt = null;
