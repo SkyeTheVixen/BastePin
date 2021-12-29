@@ -30,7 +30,7 @@
 ?>
 <?php
     $mysqli -> autocommit(FALSE);
-    $sql = "SELECT * FROM `tblBastes` WHERE (`tblBastes`.`ExpiresAt` > NOW() OR `tblBastes`.`ExpiresAt` = NULL) ORDER BY `tblBastes`.`CreatedAt` DESC";
+    $sql = "SELECT * FROM `tblBastes` WHERE `tblBastes`.`ExpiresAt` > NOW() OR `tblBastes`.`ExpiresAt` = NULL ORDER BY `tblBastes`.`CreatedAt` DESC";
     $stmt = $mysqli -> prepare($sql);
     mysqli_stmt_bind_param($stmt, 's', $_SESSION["UserID"]);
     $stmt -> execute();
