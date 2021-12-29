@@ -17,7 +17,7 @@ $(document).ready(function () {
         }
         $.ajax({
             type: "post",
-            url: "res/php/checkpremium.php",
+            url: "../res/php/checkpremium.php",
             cache: false,
             success: function (dataResult) {
                 console.log(dataResult);
@@ -127,7 +127,7 @@ $(document).ready(function () {
     $("#bastePasswordRequired").change(function(){
         $.ajax({
             type: "post",
-            url: "res/php/checkpremium.php",
+            url: "../res/php/checkpremium.php",
             cache: false,
             success: function (dataResult) {
                 var DataResult = JSON.parse(dataResult);
@@ -164,7 +164,7 @@ $(document).ready(function () {
     $("#basteExpiresCheck").change(function(){
         $.ajax({
             type: "post",
-            url: "res/php/checkpremium.php",
+            url: "../res/php/checkpremium.php",
             cache: false,
             success: function (dataResult) {
                 var DataResult = JSON.parse(dataResult);
