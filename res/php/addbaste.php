@@ -65,6 +65,7 @@ else if($user["BasteCount"] < $user["MaximumBastes"] || $user["MaximumBastes"] =
     $mysqli->commit();
     $stmt1->close();
 
+    $mysqli->autocommit(false);
     $stmt2 = $mysqli->prepare($tblUsersSql);
     $stmt2->bind_param('s', $userID);
     $stmt2->execute();
