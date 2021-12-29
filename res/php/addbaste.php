@@ -60,7 +60,7 @@ else if($user["BasteCount"] < $user["MaximumBastes"] || $user["MaximumBastes"] =
     //Perform the SQL
     $mysqli->autocommit(false);
     $stmt1 = $mysqli->prepare($tblBastesSql);
-    $stmt1->prepare('ssssssss', $basteID, $basteName, $basteContents, $basteVisibility, $basteExpiresAt, $bastePasswordRequired, $bastePassword, $userID);
+    $stmt1->bind_param('ssssssss', $basteID, $basteName, $basteContents, $basteVisibility, $basteExpiresAt, $bastePasswordRequired, $bastePassword, $userID);
     $stmt1->execute();
     $mysqli->commit();
     $stmt1->close();
