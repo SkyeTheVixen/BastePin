@@ -20,8 +20,9 @@ $(document).ready(function () {
             url: "res/php/checkpremium.php",
             cache: false,
             success: function (dataResult) {
+                console.log(dataResult);
                 var DataResult = JSON.parse(dataResult);
-                if (DataResult.statusCode === 200 && $("#basteExpiresAt").val() != "") {
+                if (DataResult.statusCode === 200) {
                     $.ajax({
                         type: "post",
                         url: "../res/php/edit.php",
