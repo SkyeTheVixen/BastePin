@@ -1,5 +1,5 @@
-<?php if($currentPage == "baste" || $currentPage == "account"){$pathHead = "../res/";} else {$pathHead = "res/";}?>
-<?php if($currentPage == "baste" || $currentPage == "account"){$pageredirect = "../";} else {$pageredirect = "";}?>
+<?php if($currentPage == "baste" || $currentPage == "profile" || $currentPage == "account"){$pathHead = "../res/";} else {$pathHead = "res/";}?>
+<?php if($currentPage == "baste" || $currentPage == "profile"  || $currentPage == "account"){$pageredirect = "../";} else {$pageredirect = "";}?>
 <div class="row mb-5"></div>
 <div class="row mb-5"></div>
 <footer class="py-3 mt-3 bg-dark" style="bottom: 0;">

@@ -1,4 +1,4 @@
-<?php if($currentPage == "baste" || $currentPage == "account" || $currentPage == "editbaste"){$pathHead = "../res/";} else {$pathHead = "res/";}?>
+<?php if($currentPage == "baste" || $currentPage == "account"  || $currentPage == "profile" || $currentPage == "editbaste"){$pathHead = "../res/";} else {$pathHead = "res/";}?>
 
 
 

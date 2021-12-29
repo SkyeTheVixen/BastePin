@@ -42,22 +42,12 @@
         <div class="row">
             <div class="col-12">
                 <h5>Name: <?php echo htmlspecialchars($user["FirstName"]." ".$user["LastName"]);?></h5>
-                <h5>Email: <?php echo htmlspecialchars($user["Email"]);?></h5>
-                <h5>Premium status: <?php echo htmlspecialchars($user["IsPremium"]) ? 'Premium': 'Free';?></h5>
-                <h5>Baste Count: <?php echo htmlspecialchars($user["BasteCount"]);?> / <?php echo htmlspecialchars($user["MaximumBastes"])?:'Infinity';?></h5>
+                <h5>Baste Count: <?php echo htmlspecialchars($user["BasteCount"]);?></h5>
                 <h5>Company: <?php echo htmlspecialchars($user["Company"]);?></h5>
                 <h5>Website: <?php echo htmlspecialchars($user["Website"]);?></h5>
                 <h5>Location: <?php echo htmlspecialchars($user["Location"]);?></h5>
                 <h5>Github: <a href="https://github.com/<?php echo htmlspecialchars($user["Github"]);?>"><?php echo htmlspecialchars($user["Github"]);?></a></h5>
                 <h5>Twitter: @<a href="https://twitter.com/<?php echo htmlspecialchars($user["Twitter"]);?>"><?php echo htmlspecialchars($user["Twitter"]);?></a></h5>
-                <div class="row mt-3">
-                    <div class="col-12">
-                        <a href="<?php echo $pageredirect; ?>editaccount" class="btn btn-primary">Edit Profile</a>
-                        <?php if($user["IsPremium"] == 0) {?>
-                            <a href="<?php echo $pageredirect; ?>premium" class="btn btn-primary">Upgrade to premium?</a>
-                        <?php } ?>
-                    </div>
-                </div>
         </div>
     </div>
 </div>
