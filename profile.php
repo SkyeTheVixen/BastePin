@@ -1,15 +1,17 @@
-<?php session_start();?>
-<?php $title="Profile | VDBP"; ?>
-<?php $currentPage="profile"; ?>
-<?php include("res/php/_connect.php"); ?>
-<?php include("res/php/_authcheck.php"); ?>
-<?php include("res/php/header.php"); ?>
-<?php include("res/php/navbar.php"); ?>
-<?php include("res/php/functions.inc.php"); ?>
-<?php $userID = mysqli_real_escape_string($connect, $_GET["UserID"])?>
-<?php $user = getProfileById($connect, $userID); ?>
-<!-- If there is an error -->
-<?php
+<?php 
+    session_start();
+    $title="Profile | VDBP";
+    $currentPage="profile";
+    include("res/php/_connect.php");
+    include("res/php/_authcheck.php");
+    include("res/php/header.php");
+    include("res/php/navbar.php");
+    include("res/php/functions.inc.php");
+    $mysqli = $connect;
+    $userID = mysqli_real_escape_string($connect, $_GET["UserID"]);
+    $user = getProfileById($connect, $userID);
+
+    // If there is an error
     if(isset($_GET["er"])) {
         if($_GET["er"] == "insufperm") {
             echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'You did not have sufficient permission to do that', heightAuto: false });</script>"; 
@@ -17,10 +19,7 @@
             echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'There was no baste to delete', heightAuto: false });</script>"; 
         }
     } 
-?>
 
-<?php
-    $mysqli = $connect;
     $mysqli -> autocommit(FALSE);
     $sql = "SELECT * FROM `tblBastes` WHERE  `tblBastes`.`Visibility` = 2 AND `tblBastes`.`UserID` = ? ORDER BY `tblBastes`.`CreatedAt` DESC";
     $stmt = $mysqli -> prepare($sql);
