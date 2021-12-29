@@ -30,7 +30,7 @@ $mysqli = $connect;
     $bastePassword = $_POST['bastePassword'];
 
     //Generate the Template SQL Data
-    $tblBastesSql = "UPDATE `tblBastes` SET `BasteName`=?,`BasteContents`=?,`Visibility`=?,`ExpiresAt`=?,`PasswordRequired`=?,`Password`=? WHERE `tblBastes`.`BasteID` = ?; AND `tblBastes`.`UserID` = ?;";
+    $tblBastesSql = "UPDATE `tblBastes` SET `BasteName`=?,`BasteContents`=?,`Visibility`=?,`ExpiresAt`=?,`PasswordRequired`=?,`Password`=? WHERE `tblBastes`.`BasteID` = ? AND `tblBastes`.`UserID` = ?;";
     $user = GetUser($connect, $userID);
 
     if($user['IsPremium'] == 1){
