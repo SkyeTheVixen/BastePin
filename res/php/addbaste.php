@@ -67,14 +67,18 @@ if($user["CanBaste"] == 0)
 else if($user["BasteCount"] < $user["MaximumBastes"] || $user["MaximumBastes"] == null)
 {
     //Perform the SQL
-    $stmt1 = mysqli_prepare($connect, $tblBastesSql);
-    mysqli_stmt_bind_param($stmt1, 'ssssssss', $basteID, $basteName, $basteContents, $basteVisibility, $basteExpiresAt, $bastePasswordRequired, $bastePassword, $userID);
+    $mysqli = $connect;
+    $mysqli->autocommit(false);
+    $stmt1 = $mysqli->prepare($tblBastesSql);
+    $stmt1->prepare('ssssssss', $basteID, $basteName, $basteContents, $basteVisibility, $basteExpiresAt, $bastePasswordRequired, $bastePassword, $userID);
     $stmt1->execute();
+    $mysqli->commit();
     $stmt1->close();
 
-    $stmt2 = mysqli_prepare($connect, $tblUsersSql);
-    mysqli_stmt_bind_param($stmt2, 's', $userID);
+    $stmt2 = $mysqli->prepare($tblUsersSql);
+    $stmt2->bind_param('s', $userID);
     $stmt2->execute();
+    $mysqli->commit();
     $stmt2->close();
 
     echo json_encode(array('statusCode' => 200));
