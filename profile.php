@@ -8,8 +8,8 @@
     include("res/php/navbar.php");
     include("res/php/functions.inc.php");
     $mysqli = $connect;
-    $userID = mysqli_real_escape_string($connect, $_GET["UserID"]);
-    $user = getProfileById($connect, $userID);
+    $userID = $mysqli->real_escape_string($connect, $_GET["UserID"]);
+    $user = getProfileById($$mysqli, $userID);
 
     // If there is an error
     if(isset($_GET["er"])) {

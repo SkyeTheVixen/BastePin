@@ -55,8 +55,7 @@
         }
     }
 
-    function GetProfileByID($connect, $UserID){
-        $mysqli = $connect;
+    function GetProfileByID($mysqli, $UserID){
         $UserID = $mysqli->real_escape_string($UserID);
         $mysqli -> autocommit(false);
         $sql = "SELECT `tblUsers`.`UserID`, `tblUsers`.`FirstName`, `tblUsers`.`LastName`, `tblUsers`.`Email`, `tblUsers`.`CanBaste`, `tblUsers`.`IsAdmin`, `tblUsers`.`IsPremium`, `tblUsers`.`IsLocked`, `tblUsers`.`BasteCount`, `tblUsers`.`MaximumBastes`, `tblProfile`.`Company`, `tblProfile`.`Location`, `tblProfile`.`Website`, `tblProfile`.`Twitter`, `tblProfile`.`Github` FROM `tblUsers` INNER JOIN `tblProfile` ON `tblUsers`.`UserID` = `tblProfile`.`UserID` WHERE `tblUsers`.`UserID` = ?";
@@ -68,12 +67,10 @@
             $User = $result->fetch_array(MYSQLI_ASSOC);
             $mysqli -> commit();
             $stmt->close();
-            $mysqli->close();
             return $User;
         }
         $mysqli -> rollback();
         $stmt->close();
-        $mysqli->close();
     }
 
     function sendMail($email, $userName,  $subject, $message, $altMessage){
