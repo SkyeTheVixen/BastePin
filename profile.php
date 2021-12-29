@@ -32,15 +32,6 @@
 
 <!-- Main Page Content -->
 <div class="container">
-
-    <!-- Welcome Greeting -->
-    <div class="row">
-        <div class="col-12 mt-5 align-items-center">
-            <h1 class="text-center">Account</h1>
-        </div>
-    </div>
-    <!-- End Welcome Greeting -->
-
     <div class="row">
         <div class="col-12">
             <div class="row h-25">
