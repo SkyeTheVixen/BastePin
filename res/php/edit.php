@@ -34,7 +34,7 @@ $mysqli = $connect;
     $user = GetUser($connect, $userID);
 
     if($user['IsPremium'] == 1){
-        $basteExpiresAt = ($basteExpiresAt == "")? NULL: date("Y-m-d H:i:s", strtotime($basteExpiresAt));
+        $basteExpiresAt = ($basteExpiresAt == "")? NULL : date("Y-m-d H:i:s", strtotime($basteExpiresAt));
         $bastePassword = ($bastePassword == "") ? NULL : password_hash($bastePassword, 1, array('cost' => 10));
         $bastePasswordRequired = ($bastePassword == "") ? 0 : 1;
     }
