@@ -1,0 +1,75 @@
+<?php
+//Imports
+session_start();
+include_once('_connect.php');
+include_once('functions.inc.php');
+$mysqli = $connect;
+
+
+//If user is not logged in, return to login page
+if(!isset($_SESSION['UserID']))
+{
+    header("Location: ../login");
+    exit;
+}
+
+
+//If title, contents or visibility are not set, error out
+if(!isset($_POST['basteName']) || !isset($_POST['basteContents']) || !isset($_POST['basteVisibility']))
+{
+    echo json_encode(array('statusCode' => 201));
+    exit;
+}
+
+
+//Get the Data needed to perform the SQL update
+$basteID = GenerateID();
+$basteName = $_POST['basteName'];
+$basteContents = $_POST['basteContents'];
+$basteVisibility = $_POST['basteVisibility'];
+$basteExpiresAt = $_POST['expiresAt'];
+$bastePasswordRequired = $_POST['passwordRequired'];
+$userID = $_SESSION['UserID'];
+$bastePassword = $_POST['bastePassword'];
+
+echo json_encode(array('basteID' => $basteID));
+echo json_encode(array('basteName' => $basteName));
+echo json_encode(array('Visibility' => $basteVisibility));
+echo json_encode(array('ExpiresAt' => $basteExpiresAt));
+echo json_encode(array('Password' => $bastePassword));
+echo json_encode(array('passwordRequired' => $bastePasswordRequired));
+// //Generate the Template SQL Data
+// $tblUsersSql = "UPDATE `tblUsers` SET `BasteCount` = `BasteCount` + 1 WHERE `UserID` = ?;";
+// $tblBastesSql = "INSERT INTO `tblBastes`(`BasteID`, `BasteName`, `BasteContents`, `Visibility`, `ExpiresAt`, `PasswordRequired`, `Password`, `UserID`) VALUES (?,?,?,?,?,?,?,?);";
+
+
+// $user = GetUser($connect, $userID);
+
+// if($user['IsPremium'] == 1){
+//     $basteExpiresAt = date("Y-m-d H:i:s", strtotime($basteExpiresAt)) ?? null;
+//     if($bastePasswordRequired == "true"){
+//         $bastePassword = password_hash($bastePassword, 1, array('cost' => 10));
+//     }
+//     else{
+//         $bastePassword = null;
+//     }
+// }
+// else{
+//     $basteExpiresAt = null;
+//     $bastePasswordRequired = 0;
+//     $bastePassword = null;
+// }
+
+//     //Perform the SQL
+//     $stmt1 = mysqli_prepare($connect, $tblBastesSql);
+//     mysqli_stmt_bind_param($stmt1, 'ssssssss', $basteID, $basteName, $basteContents, $basteVisibility, $basteExpiresAt, $bastePasswordRequired, $bastePassword, $userID);
+//     $stmt1->execute();
+//     $stmt1->close();
+
+//     $stmt2 = mysqli_prepare($connect, $tblUsersSql);
+//     mysqli_stmt_bind_param($stmt2, 's', $userID);
+//     $stmt2->execute();
+//     $stmt2->close();
+
+//     echo json_encode(array('statusCode' => 200));
+?>

@@ -24,7 +24,7 @@ $(document).ready(function () {
                 if (DataResult.statusCode === 200 && $("#basteExpiresAt").val() != "") {
                     $.ajax({
                         type: "post",
-                        url: "res/php/addbaste.php",
+                        url: "../res/php/edit.php",
                         data: {
                             basteName: basteName,
                             basteContents: basteContents,
@@ -74,7 +74,7 @@ $(document).ready(function () {
                 if (DataResult.statusCode === 201) {
                     $.ajax({
                         type: "post",
-                        url: "res/php/addbaste.php",
+                        url: "../res/php/edit.php",
                         data: {
                             basteName: basteName,
                             basteContents: basteContents,
