@@ -32,7 +32,7 @@
 
 <!-- Main Page Content -->
 <div class="container">
-    <div class="row">
+    <div class="row my-3">
         <div class="col-12">
             <div class="row h-25">
                 <div class="col-8">
