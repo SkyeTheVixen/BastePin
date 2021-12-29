@@ -89,7 +89,7 @@
                 <h4>Details</h4>
                 <div class="row">
                     <div class="col-12">
-                        <p><strong>Author:</strong> <?php echo htmlspecialchars($BasteCreatedBy);?></p>
+                        <p><strong>Author:</strong> <a href="../profile/<?php echo $baste["UserID"]?>"><?php echo htmlspecialchars($BasteCreatedBy);?></a></p>
                     </div>
                     <div class="col-12">
                         <p><strong>Visibility:</strong> <?php echo htmlspecialchars($visibility);?></p>

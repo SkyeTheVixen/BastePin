@@ -42,7 +42,7 @@
         <div class="row">
             <div class="col-12">
                 <h5>Name: <?php echo htmlspecialchars($user["FirstName"]." ".$user["LastName"]);?></h5>
-                <h5>Baste Count: <?php echo htmlspecialchars($user["BasteCount"]);?></h5>
+                <h5>Bastes: <?php echo htmlspecialchars($user["BasteCount"]);?></h5>
                 <h5>Company: <?php echo htmlspecialchars($user["Company"]);?></h5>
                 <h5>Website: <?php echo htmlspecialchars($user["Website"]);?></h5>
                 <h5>Location: <?php echo htmlspecialchars($user["Location"]);?></h5>
