@@ -82,10 +82,10 @@
                 <?php } ?>
             </div>
             <div class="row">
-            <div class="col-12 col-sm-6 h-100 mt-5 align-items-center">
+            <div class="col-12 col-sm-6 mt-5 align-items-center">
                 <pre><code><?php echo htmlspecialchars($baste["BasteContents"]);?></pre></code>
             </div>
-            <div class="col-12 col-sm-6 mt-5 h-100 align-items-center">
+            <div class="col-12 col-sm-6 mt-5 align-items-center">
                 <h4>Details</h4>
                 <div class="row">
                     <div class="col-12">
