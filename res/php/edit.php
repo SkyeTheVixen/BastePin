@@ -32,12 +32,7 @@ $bastePasswordRequired = $_POST['passwordRequired'];
 $userID = $_SESSION['UserID'];
 $bastePassword = $_POST['bastePassword'];
 
-echo json_encode(array('basteID' => $basteID));
-echo json_encode(array('basteName' => $basteName));
-echo json_encode(array('Visibility' => $basteVisibility));
-echo json_encode(array('ExpiresAt' => $basteExpiresAt));
-echo json_encode(array('Password' => $bastePassword));
-echo json_encode(array('passwordRequired' => $bastePasswordRequired));
+echo json_encode(array('basteID' => $basteID, 'Visibility' => $basteVisibility, 'ExpiresAt' => $basteExpiresAt, 'passwordRequired' => $bastePasswordRequired, 'Password' => $bastePassword));
 // //Generate the Template SQL Data
 // $tblUsersSql = "UPDATE `tblUsers` SET `BasteCount` = `BasteCount` + 1 WHERE `UserID` = ?;";
 // $tblBastesSql = "INSERT INTO `tblBastes`(`BasteID`, `BasteName`, `BasteContents`, `Visibility`, `ExpiresAt`, `PasswordRequired`, `Password`, `UserID`) VALUES (?,?,?,?,?,?,?,?);";
