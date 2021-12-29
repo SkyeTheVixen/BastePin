@@ -4,7 +4,7 @@ $(document).ready(function () {
         var password = $("#InputPassword").val();
         var passwordConfirm = $("#InputPasswordConfirm").val();
         var token = $("#token").val();
-        if (email === "" || password === "") {
+        if (password === "" || passwordConfirm === "") {
             return Swal.fire({
                 icon: 'error',
                 title: 'Oops...',

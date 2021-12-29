@@ -32,4 +32,10 @@
     $stmt->close();
     $mysqli->commit();
     $mysqli->close();
+
+    $fullName = $row["FirstName"] . " " . $row["LastName"];
+    $subject = "Bastepin | Password has been Reset";
+    $message = "Hello " . $fullName . ",\n\nYour password has been reset.\n\nIf you did not request this, please contact us immediately.\n\nThank you,\nBastepin";
+    $altMessage = "Hello " . $fullName . ",\n\nYour password has been reset.\n\nIf you did not request this, please contact us immediately.\n\nThank you,\nBastepin";
+    sendMail($email, $fullName, $subject, $message, $altMessage);
     echo json_encode(array("statusCode" => 200));
