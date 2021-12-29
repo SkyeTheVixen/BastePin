@@ -20,6 +20,7 @@
 ?>
 
 <?php
+    $mysqli = $connect;
     $mysqli -> autocommit(FALSE);
     $sql = "SELECT * FROM `tblBastes` WHERE  `tblBastes`.`Visibility` = 2 AND `tblBastes`.`UserID` = ? ORDER BY `tblBastes`.`CreatedAt` DESC";
     $stmt = $mysqli -> prepare($sql);
