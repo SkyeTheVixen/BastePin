@@ -17,5 +17,19 @@
         echo json_encode(array("statusCode" => 202));
         exit();
     }
+    $password = password_hash($password, 1, array('cost' => 10));
 
+    $mysqli->autocommit(false);
     $sql = "UPDATE `tblUsers` SET `Password` = ? WHERE `tblUsers`.`UserID` = (SELECT `tblPasswordResets`.`UserID` FROM `tblPasswordResets` WHERE `tblPasswordResets`.`Token` = ? AND `tblPasswordResets`.`Expiry` > NOW())";
+    $stmt = $mysqli->prepare($sql);
+    $stmt->bind_param("ss", $password, $token);
+    $stmt->execute();
+    $stmt->close();
+    $sql = "DELETE FROM `tblPasswordResets` WHERE `tblPasswordResets`.`Token` = ?";
+    $stmt = $mysqli->prepare($sql);
+    $stmt->bind_param("s", $token);
+    $stmt->execute();
+    $stmt->close();
+    $mysqli->commit();
+    $mysqli->close();
+    echo json_encode(array("statusCode" => 200));
