@@ -23,6 +23,15 @@
         $stmt -> execute();
         $mysqli -> commit();
         $stmt -> close();
+
+        $mysqli -> autocommit(FALSE);
+        $tblUsersSql = "UPDATE `tblUsers` SET `BasteCount` = `BasteCount` - 1 WHERE `UserID` = ?;";
+        $stmt2 = $mysqli->prepare($tblUsersSql);
+        $stmt2->bind_param('s', $user["UserID"]);
+        $stmt2->execute();
+        $mysqli->commit();
+        $stmt2->close();
+        $mysqli->close();
         header("Location: ../index?er=bastedelsuc");
     }
 
