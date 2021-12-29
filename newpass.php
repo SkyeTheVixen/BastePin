@@ -12,13 +12,14 @@
                 </div>
                 <div class="row pb-4">
                     <form id="loginForm" method="POST" autocomplete="off">
+                        <input type="hidden" id="token" value="<?php echo $_GET["token"]; ?>">
                         <div class="form-group pb-2">
                             <label for="InputPassword">Password</label>
                             <input type="password" name="txtPassword" class="form-control" id="InputPassword"
                                 placeholder="P4s5w0Rd">
                         </div>
                         <div class="form-group pb-2">
-                            <label for="InputPasswordConfirm">Password</label>
+                            <label for="InputPasswordConfirm">Password Confirm</label>
                             <input type="password" name="txtPasswordConfirm" class="form-control" id="InputPasswordConfirm"
                                 placeholder="P4s5w0Rd">
                         </div>

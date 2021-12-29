@@ -15,7 +15,7 @@
 <!-- Get all bastes -->
 <?php
     $mysqli -> autocommit(FALSE);
-    $sql = "SELECT * FROM `tblBastes` WHERE `tblBastes`.`Visibility` = 2 OR `tblBastes`.`UserID` = ? ORDER BY `tblBastes`.`CreatedAt` DESC LIMIT 3"; 
+    $sql = "SELECT * FROM `tblBastes` WHERE `tblBastes`.`Visibility` = 2 OR `tblBastes`.`UserID` = ? AND (`tblBastes`.`ExpiresAt` > date('Y-m-d H:i:s') OR `tblBastes`.`ExpiresAt` = '0000-00-00 00:00:00' OR `tblBastes`.`ExpiresAt` = '' OR `tblBastes`.`ExpiresAt` = NULL) ORDER BY `tblBastes`.`CreatedAt` DESC";
     $stmt = $mysqli -> prepare($sql);
     $stmt -> bind_param('s', $_SESSION["UserID"]);
     $stmt -> execute();
