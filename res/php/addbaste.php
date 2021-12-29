@@ -18,7 +18,7 @@ if(!isset($_SESSION['UserID']))
 $basteID = GenerateID();
 $userID = $_SESSION['UserID'];
 $basteName = $mysqli->real_escape_string($_POST['basteName']);
-$basteContents = $mysqli->real_escape_string($_POST['basteContents']);
+$basteContents = $_POST['basteContents'];
 $basteVisibility = $mysqli->real_escape_string($_POST['basteVisibility']);
 $basteExpiresAt = $mysqli->real_escape_string($_POST['expiresAt']);
 $bastePasswordRequired = $mysqli->real_escape_string($_POST['passwordRequired']);
