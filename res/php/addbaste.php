@@ -23,13 +23,13 @@ if(!isset($_POST['basteName']) || !isset($_POST['basteContents']) || !isset($_PO
 
 //Get the Data needed to perform the SQL update
 $basteID = GenerateID();
-$basteName = $_POST['basteName'];
-$basteContents = $_POST['basteContents'];
-$basteVisibility = $_POST['basteVisibility'];
-$basteExpiresAt = $_POST['expiresAt'];
-$bastePasswordRequired = $_POST['passwordRequired'];
+$basteName = mysqli_real_escape_string($connect, $_POST['basteName']);
+$basteContents = mysqli_real_escape_string($connect, $_POST['basteContents']);
+$basteVisibility = mysqli_real_escape_string($connect, $_POST['basteVisibility']);
+$basteExpiresAt = mysqli_real_escape_string($connect, $_POST['expiresAt']);
+$bastePasswordRequired = mysqli_real_escape_string($connect, $_POST['passwordRequired']);
 $userID = $_SESSION['UserID'];
-$bastePassword = $_POST['bastePassword'];
+$bastePassword = mysqli_real_escape_string($connect, $_POST['bastePassword']);
 
 
 //Generate the Template SQL Data
