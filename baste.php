@@ -30,7 +30,7 @@
 ?>
 <?php
     $mysqli -> autocommit(FALSE);
-    $sql = "SELECT * FROM `tblBastes` WHERE `tblBastes`.`Visibility` = 2 OR `tblBastes`.`UserID` = ? AND (`tblBastes`.`ExpiresAt` > date('Y-m-d H:i:s') OR `tblBastes`.`ExpiresAt` = '0000-00-00 00:00:00' OR `tblBastes`.`ExpiresAt` = '' OR `tblBastes`.`ExpiresAt` = NULL) ORDER BY `tblBastes`.`CreatedAt` DESC";
+    $sql = "SELECT * FROM `tblBastes` WHERE `tblBastes`.`Visibility` = 2 OR `tblBastes`.`UserID` = ? AND (`tblBastes`.`ExpiresAt` > NOW() OR `tblBastes`.`ExpiresAt` = '0000-00-00 00:00:00' OR `tblBastes`.`ExpiresAt` = '' OR `tblBastes`.`ExpiresAt` = NULL) ORDER BY `tblBastes`.`CreatedAt` DESC";
     $stmt = $mysqli -> prepare($sql);
     mysqli_stmt_bind_param($stmt, 's', $_SESSION["UserID"]);
     $stmt -> execute();
