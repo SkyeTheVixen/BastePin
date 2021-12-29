@@ -7,7 +7,8 @@ $(document).ready(function () {
         var basteExpiresAt = $("#basteExpiresAt").val();
         var bastePasswordRequired = $("#bastePasswordRequired").val();
         var bastePassword = $("#bastePassword").val();
-        if (basteName === "" || basteContents === "") {
+        var basteID = $("#BasteID").val();
+        if (basteName === "" || basteContents === "" || basteID === "") {
             return Swal.fire({
                 icon: 'warning',
                 title: 'Oops...',
@@ -20,7 +21,6 @@ $(document).ready(function () {
             url: "../res/php/checkpremium.php",
             cache: false,
             success: function (dataResult) {
-                console.log(dataResult);
                 var DataResult = JSON.parse(dataResult);
                 if (DataResult.statusCode === 200) {
                     $.ajax({
@@ -33,39 +33,31 @@ $(document).ready(function () {
                             expiresAt: basteExpiresAt,
                             passwordRequired: bastePasswordRequired,
                             bastePassword: bastePassword,
+                            basteID: basteID
                         },
                         cache: false,
                         success: function (dataResult) {
-                            console.log(dataResult);
                             var DataResult = JSON.parse(dataResult);
                             if (DataResult.statusCode === 200) {
-                                location.href = "index";
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Congratulations!',
+                                    text: 'Baste Modified.',
+                                    heightAuto: false
+                                });
+                                window.location.href = "../baste/" + basteID;
                             } else if (DataResult.statusCode === 201) {
                                 Swal.fire({
                                     icon: 'error',
                                     title: 'Oops...',
-                                    text: 'Your credentials were invalid.',
+                                    text: 'Please fill in all required fields.',
                                     heightAuto: false
                                 });
                             } else if (DataResult.statusCode === 202) {
                                 Swal.fire({
                                     icon: 'error',
                                     title: 'Oops...',
-                                    text: 'No user account was found with this email address',
-                                    heightAuto: false
-                                });
-                            } else if (DataResult.statusCode === 203) {
-                                Swal.fire({
-                                    icon: 'warning',
-                                    title: 'Oops...',
-                                    text: 'Please enter your email address And/Or Password',
-                                    heightAuto: false
-                                });
-                            } else if (DataResult.statusCode === 204) {
-                                Swal.fire({
-                                    icon: 'warning',
-                                    title: 'Oops...',
-                                    text: 'Your Account is Locked. Please contact support.',
+                                    html: 'Something went wrong, you may not have permission to make this request.',
                                     heightAuto: false
                                 });
                             }
@@ -83,37 +75,31 @@ $(document).ready(function () {
                             expiresAt: null,
                             passwordRequired: 0,
                             bastePassword: null,
+                            basteID: basteID
                         },
                         cache: false,
                         success: function (dataResult) {
-                            console.log(dataResult);
                             var DataResult = JSON.parse(dataResult);
                             if (DataResult.statusCode === 200) {
                                 Swal.fire({
                                     icon: 'success',
                                     title: 'Congratulations!',
-                                    text: 'Baste Added.',
+                                    text: 'Baste Modified.',
                                     heightAuto: false
                                 });
+                                window.location.href = "../baste/" + basteID;
                             } else if (DataResult.statusCode === 201) {
                                 Swal.fire({
                                     icon: 'error',
                                     title: 'Oops...',
-                                    text: 'Please enter all required fields.',
+                                    text: 'Please fill in all required fields.',
                                     heightAuto: false
                                 });
                             } else if (DataResult.statusCode === 202) {
                                 Swal.fire({
                                     icon: 'error',
                                     title: 'Oops...',
-                                    html: 'You\'ve run out of bastes for the free account. Upgrade to <a href="premium">premium</a> to add more.',
-                                    heightAuto: false
-                                });
-                            } else if (DataResult.statusCode === 203) {
-                                Swal.fire({
-                                    icon: 'error',
-                                    title: 'Oops...',
-                                    text: 'You don\'t have permission to baste.',
+                                    html: 'Something went wrong, you may not have permission to make this request.',
                                     heightAuto: false
                                 });
                             }

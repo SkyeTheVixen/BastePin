@@ -31,7 +31,7 @@
 
 
     <form class="mt-5" method="POST" id="newBasteForm">
-
+        <input type="hidden" name="basteID" id="BasteID" value="<?php echo $baste["BasteID"]; ?>">
         <div class="form-group">
             <label for="basteName">Baste Name</label>
             <input type="text" required class="form-control" id="basteName" name="basteName" value="<?php echo $baste["BasteName"];?>">
