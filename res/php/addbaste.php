@@ -42,7 +42,7 @@
         exit;
     }
     //If user has reached maximum bastes, return
-    else if($user["BasteCount"] > $user["MaximumBastes"] && $user["MaximumBastes"] =! null) {
+    else if($user["BasteCount"] > $user["MaximumBastes"] && !($user["MaximumBastes"] == null)) {
         echo json_encode(array('statusCode' => 202));
     }
 
