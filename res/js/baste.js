@@ -1,13 +1,13 @@
 $(document).ready(function(){
 
-    $('#fav'+basteID).click(function(event){
+    $('#fav').click(function(event){
         event.preventDefault();
-        if($('#fav'+basteID).hasClass('far')){
+        if($('#fav').hasClass('far')){
             $.ajax({
                 url: '../res/php/addfav.php',
                 type: 'POST',
                 data: {
-                    basteID: basteID,
+                    basteID: $('#fav').attr("data-basteID"),
                     action: 'add'
                 },
                 success: function(data){
@@ -19,12 +19,12 @@ $(document).ready(function(){
                 }
             });
         }
-        if($('#fav'+basteID).hasClass('fas')){
+        else if($('#fav').hasClass('fas')){
             $.ajax({
                 url: '../res/php/addfav.php',
                 type: 'POST',
                 data: {
-                    basteID: basteID,
+                    basteID: $('#fav').attr("data-basteID"),
                     action: 'remove'
                 },
                 success: function(data){
