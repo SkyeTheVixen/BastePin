@@ -8,6 +8,7 @@
     include("res/php/navbar.php");
     include("res/php/functions.inc.php");
     $mysqli = $connect;
+    $mysqli -> autocommit(FALSE);
 ?>
 <!-- If there is an error -->
 <?php
@@ -26,17 +27,23 @@
         if($baste["ExpiresAt"] < date("Y-m-d H:i:s") && $baste["ExpiresAt"] != "0000-00-00 00:00:00" && $baste["ExpiresAt"] != "" && $baste["ExpiresAt"] != NULL) {
             echo "<script>window.location.href=\"../expired\"</script>";
         }
+        $sql = "SELECT * FROM `tblFavourites` WHERE  `tblFavourites`.`BasteID` = ? AND `tblFavourites`.`UserID` = ?";
+        $stmt = $mysqli -> prepare($sql);
+        $stmt->bind_param('ss', $basteID, $_SESSION["UserID"]);
+        $stmt -> execute();
+        $favres = $stmt->get_result();
+        $mysqli -> commit();
+        $stmt -> close();
     }
-?>
-<?php
-    $mysqli -> autocommit(FALSE);
-    $sql = "SELECT * FROM `tblBastes` WHERE  `tblBastes`.`Visibility` = 2 OR `tblBastes`.`UserID` = ? ORDER BY `tblBastes`.`CreatedAt` DESC";
-    $stmt = $mysqli -> prepare($sql);
-    mysqli_stmt_bind_param($stmt, 's', $_SESSION["UserID"]);
-    $stmt -> execute();
-    $result = $stmt->get_result();
-    $mysqli -> commit();
-    $stmt -> close();
+    else{
+        $sql = "SELECT * FROM `tblBastes` WHERE  `tblBastes`.`Visibility` = 2 OR `tblBastes`.`UserID` = ? ORDER BY `tblBastes`.`CreatedAt` DESC";
+        $stmt = $mysqli -> prepare($sql);
+        $stmt->bind_param('s', $_SESSION["UserID"]);
+        $stmt -> execute();
+        $result = $stmt->get_result();
+        $mysqli -> commit();
+        $stmt -> close();
+    }
 ?>
 
 <!-- Main Page Content -->
@@ -78,7 +85,7 @@
                 <div class="col-12 align-items-right text-right">
                     <a href="../editbaste/<?php echo $basteID; ?>"><i class="fas fa-pen"></i></a>
                     <a href="../deletebaste/<?php echo $basteID; ?>"><i class="fas fa-trash"></i></a>
-                    <a id="fav" href="#" data-basteid="<?php echo $basteID;?>"><i id="favouriteIcon" class="far fa-star"></i></a>
+                    <a id="fav" href="#" data-basteid="<?php echo $basteID;?>"><i id="favouriteIcon" <?php if($favres->num_rows > 0){echo "class=\'fas fa-star\'";} else {echo "class=\'far fa-star\'";} ?>></i></a>
                 </div>
                 <?php } ?>
             </div>
