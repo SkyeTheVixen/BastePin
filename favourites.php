@@ -48,7 +48,7 @@
                             <?php $time = strtotime($rows["CreatedAt"]); ?>
                             <h5 class="card-title"><?php echo htmlspecialchars($rows['BasteName']); ?></h5>
                             <p class="card-text"><?php echo date("d M Y @ H:i", $time) ?></p>
-                            <a href="<?php echo $rows['BasteID']; ?>" class="btn btn-primary">View Baste</a>
+                            <a href="baste/<?php echo $rows['BasteID']; ?>" class="btn btn-primary">View Baste</a>
                         </div>
                     </div>
                 </div>
