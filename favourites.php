@@ -31,13 +31,13 @@
 <!-- Main Page Content -->
 <div class="container">
     <div class="row mt-5">
-        <h2 class="text-center">All Bastes</h2>
+        <h2 class="text-center">Favourite Bastes</h2>
         <div class="row">
             <?php 
                 while($rows = $result -> fetch_array(MYSQLI_ASSOC)) {
                     $sql = "SELECT * FROM `tblFavourites` WHERE  `tblFavourites`.`BasteID` = ? AND `tblFavourites`.`UserID` = ?";
                     $stmt = $mysqli -> prepare($sql);
-                    $stmt->bind_param('s', $rows["BasteID"], $_SESSION["UserID"]);
+                    $stmt->bind_param('ss', $rows["BasteID"], $_SESSION["UserID"]);
                     $stmt -> execute();
                     $res = $stmt->get_result();
                     if($res -> num_rows > 0) {
