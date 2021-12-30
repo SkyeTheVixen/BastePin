@@ -9,9 +9,7 @@
     include("res/php/functions.inc.php");
     $mysqli = $connect;
     $mysqli -> autocommit(FALSE);
-?>
-<!-- If there is an error -->
-<?php
+    //If there is an error
     if(isset($_GET["er"])) {
         if($_GET["er"] == "insufperm") {
             echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'You did not have sufficient permission to do that', heightAuto: false });</script>"; 
@@ -81,11 +79,11 @@
         <!-- Code Block and details -->
         <div class="row">
             <div class="row">
-                <?php if($baste["UserID"] == $_SESSION["UserID"]){ ?>
                 <div class="col-12 align-items-right text-right">
-                    <a href="../editbaste/<?php echo $basteID; ?>"><i class="fas fa-pen"></i></a>
-                    <a href="../deletebaste/<?php echo $basteID; ?>"><i class="fas fa-trash"></i></a>
                     <a id="fav" href="#" data-basteid="<?php echo $basteID;?>"><i id="favouriteIcon" <?php if($favres->num_rows > 0){echo "class='fas fa-star'";} else {echo "class='far fa-star'";} ?>></i></a>
+                    <?php if($baste["UserID"] == $_SESSION["UserID"]){ ?>
+                        <a href="../editbaste/<?php echo $basteID; ?>"><i class="fas fa-pen"></i></a>
+                        <a href="../deletebaste/<?php echo $basteID; ?>"><i class="fas fa-trash"></i></a>
                 </div>
                 <?php } ?>
             </div>

@@ -1,5 +1,5 @@
 <?php 
-    if($currentPage == "baste" || $currentPage == "profile" || $currentPage == "account"){
+    if($currentPage == "baste" || $currentPage == "profile" || $currentPage == "account" || $currentPage == "editbaste"){
         $pathHead = "../res/";
     } 
     else {
