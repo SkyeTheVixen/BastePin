@@ -3,9 +3,10 @@
     include_once("res/php/_connect.php");
     include_once("res/php/functions.inc.php");
     $mysqli = $connect;
+    $mysqli -> autocommit(FALSE);
 
     if(isset($_GET["activationCode"])){
-        $activationCode = mysqli_real_escape_string($connect, $_GET["activationCode"]);
+        $activationCode = $_GET["activationCode"];
         $user = GetUserByID($connect, $activationCode);
         if($user["IsLocked"] == 0){
             header("Location: login?er=prevActivation");
@@ -16,6 +17,7 @@
             $stmt = $mysqli -> prepare($sql);
             $stmt -> bind_param('s', $activationCode);
             $stmt -> execute();
+            $mysqli -> commit();
             $stmt -> close();
             header("Location: login?er=activationSuccess");
             exit();
