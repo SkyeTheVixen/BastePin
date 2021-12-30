@@ -1,6 +1,7 @@
 <?php $title="Login | VDBP"; ?>
 <?php $currentPage="login"; ?>
 <?php include_once("res/php/header.php"); ?>
+<body>
 <?php
     if(isset($_GET["er"])) {
         if($_GET["er"] == "noactivcode") {
@@ -12,7 +13,6 @@
         }
     }
 ?>
-<body>
     <!-- Main Page Content -->
     <div class="container-fluid h-100">
         <!-- Login Form -->
