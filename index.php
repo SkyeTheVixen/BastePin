@@ -9,7 +9,8 @@
     include("res/php/navbar.php");
     include("res/php/functions.inc.php");
     $mysqli = $connect;
-    $User = GetUser($connect);
+    $mysqli->autocommit(FALSE);
+    $User = GetUser($mysqli);
 ?>
 
 <!-- Get all bastes -->

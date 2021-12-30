@@ -6,7 +6,9 @@
 <?php include("res/php/_connect.php"); ?>
 <?php include("res/php/navbar.php"); ?>
 <?php include("res/php/functions.inc.php"); ?>
-<?php $user = GetUser($connect); ?>
+<?php $mysqli = $connect;?>
+<?php $mysqli -> autocommit(FALSE);?>
+<?php $user = GetUser($mysqli); ?>
 <!-- If there is an error -->
 <?php
     if(isset($_GET["er"])) {

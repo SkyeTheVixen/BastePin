@@ -22,7 +22,7 @@
 <?php 
     if(isset($_GET["BasteID"])) {
         $basteID = $mysqli -> real_escape_string($_GET["BasteID"]);
-        $baste = getBaste($connect, $basteID);
+        $baste = getBaste($mysqli, $basteID);
         if($baste["ExpiresAt"] < date("Y-m-d H:i:s") && $baste["ExpiresAt"] != "0000-00-00 00:00:00" && $baste["ExpiresAt"] != "" && $baste["ExpiresAt"] != NULL) {
             echo "<script>window.location.href=\"../expired\"</script>";
         }
@@ -48,7 +48,7 @@
             if($baste["Visibility"] == 0 && $baste["UserID"] != $_SESSION["UserID"]) {
                 echo "<script> window.location.href='../index?er=insufperm'</script>";
             }
-            $BasteCreatedBy = GetUserById($connect, $baste["UserID"]);
+            $BasteCreatedBy = GetUserById($mysqli, $baste["UserID"]);
             $BasteCreatedBy = $BasteCreatedBy["FirstName"] . " " . $BasteCreatedBy["LastName"];
             switch($baste["Visibility"]){
                 case 0:

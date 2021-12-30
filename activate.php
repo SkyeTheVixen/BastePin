@@ -7,7 +7,7 @@
 
     if(isset($_GET["activationCode"])){
         $activationCode = $_GET["activationCode"];
-        $user = GetUserByID($connect, $activationCode);
+        $user = GetUserByID($mysqli, $activationCode);
         if($user["IsLocked"] == 0){
             header("Location: login?er=prevActivation");
             exit();
@@ -19,6 +19,12 @@
             $stmt -> execute();
             $mysqli -> commit();
             $stmt -> close();
+            $User = GetUserByID($mysqli, $activationCode);
+            $fullName = $FirstName . " " . $LastName;
+            $subject = "Bastepin | Confirm Your Email Address";
+            $message = "https://skytest.xyz/Bastepin/activate.php?activationCode=" . $UserID;
+            $altMessage = "https://skytest.xyz/Bastepin/activate.php?activationCode=" . $UserID;
+            sendMail($Email, $fullName, $subject, $message, $altMessage);
             header("Location: login?er=activationSuccess");
             exit();
         }
