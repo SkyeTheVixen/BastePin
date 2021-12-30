@@ -3,12 +3,16 @@
     session_start();
     include_once("_connect.php");
     $mysqli = $connect;
+    $mysqli -> autocommit(false);
+
+
 
     //Create ID string based off IP And remote Address
     $id = "{$_SERVER['SERVER_NAME']}~login:{$_SERVER['REMOTE_ADDR']}";
 
+
+
     //SQL Query
-    $mysqli -> autocommit(false);
     $sql = "SELECT * FROM `tblBFA` WHERE `ID` = ?";
     $stmt = $mysqli -> prepare($sql);
     $stmt -> bind_param('s', $id);
@@ -20,7 +24,6 @@
         $row = $result -> fetch_array(MYSQLI_ASSOC);
         $stmt->close();
         if($row["Tries"] >= 3){
-            $mysqli -> autocommit(false);
             $sql = "UPDATE `tblBFA` SET `Tries` = 0, `Blocked` = 1, `BlockedUntil` = (now() + INTERVAL 5 MINUTE) WHERE `ID` = ?";
             $stmt = $mysqli -> prepare($sql);
             $stmt -> bind_param('s', $id);
@@ -33,7 +36,6 @@
         }
         //If user IP has been blocked but the ban has been lifted
         if ($row["Blocked"] == 1 && $row["BlockedUntil"] < date("Y-m-d H:i:s")){
-            $mysqli -> autocommit(false);
             $sql = "DELETE FROM `tblBFA` WHERE `tblBFA`.`ID` = ?";
             $stmt = $mysqli -> prepare($sql);
             $stmt -> bind_param('s', $id);
@@ -52,8 +54,8 @@
     //Check the inputs are filled out
     if(isset($_POST["txtUser"]) && isset($_POST["txtPassword"])){
         //Get data POSTED
-        $email = mysqli_real_escape_string($connect, $_POST["txtUser"]);
-        $password = mysqli_real_escape_string($connect, $_POST["txtPassword"]);
+        $email = $_POST["txtUser"];
+        $password = $_POST["txtPassword"];
         
         //Check email matches format
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
@@ -61,7 +63,6 @@
         }
         
         //SQL Query
-        $mysqli -> autocommit(false);
         $sql = "SELECT * FROM `tblUsers` WHERE `tblUsers`.`Email` = ?";
         $stmt = $mysqli ->prepare($sql);
         $stmt -> bind_param('s', $email);
@@ -84,12 +85,11 @@
                 else{
                     //Return success
                     $_SESSION["UserID"] = $User["UserID"];
-                    echo json_encode(array("UserID" => $User["UserID"], "statusCode" => 200));
+                    echo json_encode(array("statusCode" => 200));
                 }
             }
             else{
                 //Return invalid credentials
-                $mysqli -> autocommit(false);
                 $sql = "INSERT INTO `tblBFA` (`ID`, `Tries`) VALUES(?, 1) ON DUPLICATE KEY UPDATE `Tries` = `Tries` + 1";
                 $stmt = $mysqli -> prepare($sql);
                 $stmt -> bind_param('s', $id);

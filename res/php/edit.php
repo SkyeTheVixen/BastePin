@@ -1,9 +1,10 @@
 <?php
-//Imports
-session_start();
-include_once('_connect.php');
-include_once('functions.inc.php');
-$mysqli = $connect;
+    //Imports
+    session_start();
+    include_once('_connect.php');
+    include_once('functions.inc.php');
+    $mysqli = $connect;
+    $mysqli->autocommit(false);
 
     //If user is not logged in, return to login page
     if(!isset($_SESSION['UserID']))
@@ -45,7 +46,6 @@ $mysqli = $connect;
     }
 
     //Perform the SQL
-    $mysqli->autocommit(false);
     $stmt1 = $mysqli->prepare($tblBastesSql);
     $stmt1->bind_param('ssssssss', $basteName, $basteContents, $basteVisibility, $basteExpiresAt, $bastePasswordRequired, $bastePassword, $basteID, $userID);
     if($stmt1->execute()){

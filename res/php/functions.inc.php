@@ -31,32 +31,40 @@
         }
     }
 
-    function GetUser($connect){
+    function GetUser($mysqli){
+        $mysqli -> autocommit(false);
         $sql = "SELECT * FROM `tblUsers` WHERE `tblUsers`.`UserID` = ?";
-        $stmt = mysqli_prepare($connect, $sql);
-        mysqli_stmt_bind_param($stmt, 's', $_SESSION["UserID"]);
+        $stmt = $mysqli->prepare($sql);
+        $stmt->bind_param('s', $_SESSION["UserID"]);
         $stmt -> execute();
         $result = $stmt->get_result();
         if($result -> num_rows === 1){
             $User = $result->fetch_array(MYSQLI_ASSOC);
+            $mysqli->commit();
+            $stmt->close();
             return $User;
         }
     }
 
-    function GetProfile($connect){
+    function GetProfile($mysqli){
+        $mysqli -> autocommit(false);
         $sql = "SELECT `tblUsers`.`UserID`, `tblUsers`.`FirstName`, `tblUsers`.`LastName`, `tblUsers`.`Email`, `tblUsers`.`CanBaste`, `tblUsers`.`IsAdmin`, `tblUsers`.`IsPremium`, `tblUsers`.`IsLocked`, `tblUsers`.`BasteCount`, `tblUsers`.`MaximumBastes`, `tblProfile`.`Company`, `tblProfile`.`Location`, `tblProfile`.`Website`, `tblProfile`.`Twitter`, `tblProfile`.`Github` FROM `tblUsers` INNER JOIN `tblProfile` ON `tblUsers`.`UserID` = `tblProfile`.`UserID` WHERE `tblUsers`.`UserID` = ?";
-        $stmt = mysqli_prepare($connect, $sql);
-        mysqli_stmt_bind_param($stmt, 's', $_SESSION["UserID"]);
+        $stmt = $mysqli->prepare($sql);
+        $stmt->bind_param('s', $_SESSION["UserID"]);
         $stmt -> execute();
         $result = $stmt->get_result();
         if($result -> num_rows === 1){
             $User = $result->fetch_array(MYSQLI_ASSOC);
+            $mysqli->commit();
+            $stmt->close();
             return $User;
         }
+        $mysqli -> rollback();
+        $stmt->close();
+        return false;
     }
 
     function GetProfileByID($mysqli, $UserID){
-        $UserID = $mysqli->real_escape_string($UserID);
         $mysqli -> autocommit(false);
         $sql = "SELECT `tblUsers`.`UserID`, `tblUsers`.`FirstName`, `tblUsers`.`LastName`, `tblUsers`.`Email`, `tblUsers`.`CanBaste`, `tblUsers`.`IsAdmin`, `tblUsers`.`IsPremium`, `tblUsers`.`IsLocked`, `tblUsers`.`BasteCount`, `tblUsers`.`MaximumBastes`, `tblProfile`.`Company`, `tblProfile`.`Location`, `tblProfile`.`Website`, `tblProfile`.`Twitter`, `tblProfile`.`Github` FROM `tblUsers` INNER JOIN `tblProfile` ON `tblUsers`.`UserID` = `tblProfile`.`UserID` WHERE `tblUsers`.`UserID` = ?";
         $stmt  = $mysqli->prepare($sql);
@@ -71,6 +79,7 @@
         }
         $mysqli -> rollback();
         $stmt->close();
+        return false;
     }
 
     function sendMail($email, $userName,  $subject, $message, $altMessage){
@@ -102,30 +111,41 @@
         }
     }
 
-    function GetUserById($connect, $UserID){
+    function GetUserById($mysqli, $UserID){
+        $mysqli -> autocommit(false);
         $sql = "SELECT * FROM `tblUsers` WHERE `tblUsers`.`UserID` = ?";
-        $stmt = mysqli_prepare($connect, $sql);
-        mysqli_stmt_bind_param($stmt, 's', $UserID);
+        $stmt = $mysqli->prepare($sql);
+        $stmt->bind_param('s', $UserID);
         $stmt -> execute();
         $result = $stmt->get_result();
         if($result -> num_rows === 1){
             $User = $result->fetch_array(MYSQLI_ASSOC);
+            $mysqli->commit();
+            $stmt->close();
             return $User;
         }
+        $mysqli -> rollback();
+        $stmt->close();
+        return false;
     }
 
-    function GetBaste($connect, $basteID){
+    function GetBaste($mysqli, $basteID){
+        $mysqli->autocommit(false);
         $sql = "SELECT * FROM `tblBastes` WHERE `tblBastes`.`BasteID` = ?";
-        $stmt = mysqli_prepare($connect, $sql);
-        mysqli_stmt_bind_param($stmt, 's', $basteID);
+        $stmt = $mysqli->prepare($sql);
+        $stmt->bind_param('s', $basteID);
         $stmt -> execute();
         $result = $stmt->get_result();
         if($result -> num_rows === 1){
             $Baste = $result->fetch_array(MYSQLI_ASSOC);
+            $mysqli->commit();
+            $stmt->close();
             return $Baste;
         }
+        $mysqli -> rollback();
+        $stmt->close();
+        return false;
     }
-
 
     function byteConvert($size, $unit="")
     {

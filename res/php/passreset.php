@@ -3,14 +3,15 @@
     include_once("_connect.php");
     include_once("functions.inc.php");
     $mysqli = $connect;
+    $mysqli -> autocommit(false);
 
     if(!(isset($_POST["email"]))) {
         echo json_encode(array("statusCode" => 201));
         exit();
     }
-    $email = $mysqli -> real_escape_string($_POST["email"]);
+
+    $email = $_POST["email"];
     $token = GenerateID();
-    $mysqli -> autocommit(false);
     $sql = "SELECT * FROM `tblUsers` WHERE `tblUsers`.`Email` = ?";
     $stmt = $mysqli -> prepare($sql);
     $stmt -> bind_param('s', $email);
@@ -20,7 +21,6 @@
     $row = $result->fetch_array(MYSQLI_ASSOC);
     $UserID = $row["UserID"];
     $sql = "INSERT INTO `tblPasswordResets`(`UserID`, `Token`, `Expiry`) VALUES (?,?,(now() + INTERVAL 30 MINUTE))";
-    $mysqli -> autocommit(false);
     $stmt = $mysqli -> prepare($sql);
     $stmt -> bind_param('ss', $UserID, $token);
     $stmt -> execute();

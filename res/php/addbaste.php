@@ -1,62 +1,73 @@
 <?php
-//Imports
-session_start();
-include_once('_connect.php');
-include_once('functions.inc.php');
-$mysqli = $connect;
+    //Imports
+    session_start();
+    include_once('_connect.php');
+    include_once('functions.inc.php');
+    $mysqli = $connect;
 
 
-//If user is not logged in, return to login page
-if(!isset($_SESSION['UserID']))
-{
-    header("Location: ../login");
-    exit;
-}
+    //If user is not logged in, return to login page
+    if(!isset($_SESSION['UserID']))
+    {
+        header("Location: ../login");
+        exit;
+    }
 
 
-//Get the Data needed to perform the SQL update
-$basteID = GenerateID();
-$userID = $_SESSION['UserID'];
-$basteName = $mysqli->real_escape_string($_POST['basteName']);
-$basteContents = $_POST['basteContents'];
-$basteVisibility = $mysqli->real_escape_string($_POST['basteVisibility']);
-$basteExpiresAt = $mysqli->real_escape_string($_POST['expiresAt']);
-$bastePasswordRequired = $mysqli->real_escape_string($_POST['passwordRequired']);
-$bastePassword = $mysqli->real_escape_string($_POST['bastePassword']) ;
+    //If title, contents or visibility are not set, error out
+    if(!isset($_POST['basteName']) || !isset($_POST['basteContents']) || !isset($_POST['basteVisibility']))
+    {
+        echo json_encode(array('statusCode' => 201));
+        exit;
+    }
 
 
-//If title, contents or visibility are not set, error out
-if(!isset($_POST['basteName']) || !isset($_POST['basteContents']) || !isset($_POST['basteVisibility']))
-{
-    echo json_encode(array('statusCode' => 201));
-    exit;
-}
+    //Get the Data needed to perform the SQL update
+    $basteID = GenerateID();
+    $userID = $_SESSION['UserID'];
+    $basteName = $_POST['basteName'];
+    $basteContents = $_POST['basteContents'];
+    $basteVisibility = $_POST['basteVisibility'];
+    $basteExpiresAt = $_POST['expiresAt'] ?? null;
+    $bastePasswordRequired = $_POST['passwordRequired'] == "on" ? 1 : 0;
+    $bastePassword = $_POST['bastePassword'] ?? "";
+    $user = GetUser($connect, $userID);
 
 
-//Generate the Template SQL Data
-$tblUsersSql = "UPDATE `tblUsers` SET `BasteCount` = `BasteCount` + 1 WHERE `UserID` = ?;";
-$tblBastesSql = "INSERT INTO `tblBastes`(`BasteID`, `BasteName`, `BasteContents`, `Visibility`, `ExpiresAt`, `PasswordRequired`, `Password`, `UserID`) VALUES (?,?,?,?,?,?,?,?);";
 
-$user = GetUser($connect, $userID);
+    //If the user cannot baste, return
+    if($user["CanBaste"] == 0)
+    {
+        echo json_encode(array('statusCode' => 203));
+        exit;
+    }
+    //If user has reached maximum bastes, return
+    else if($user["BasteCount"] > $user["MaximumBastes"] && $user["MaximumBastes"] =! null) {
+        echo json_encode(array('statusCode' => 202));
+    }
 
-if($user['IsPremium'] == 1){
-    $basteExpiresAt = ($basteExpiresAt == "")? NULL : date("Y-m-d H:i:s", strtotime($basteExpiresAt));
-    $bastePassword = ($bastePassword == "") ? NULL : password_hash($bastePassword, 1, array('cost' => 10));
-    $bastePasswordRequired = ($bastePassword == "") ? 0 : 1;
-}
-else{
-    $basteExpiresAt = null;
-    $bastePasswordRequired = 0;
-    $bastePassword = null;
-}
 
-if($user["CanBaste"] == 0)
-{
-    echo json_encode(array('statusCode' => 203));
-    exit;
-}
-else if($user["BasteCount"] < $user["MaximumBastes"] || $user["MaximumBastes"] == null)
-{
+
+    //Generate the Template SQL Data
+    $tblUsersSql = "UPDATE `tblUsers` SET `BasteCount` = `BasteCount` + 1 WHERE `UserID` = ?;";
+    $tblBastesSql = "INSERT INTO `tblBastes`(`BasteID`, `BasteName`, `BasteContents`, `Visibility`, `ExpiresAt`, `PasswordRequired`, `Password`, `UserID`) VALUES (?,?,?,?,?,?,?,?);";
+
+
+
+    //Set premium feature values
+    if($user['IsPremium'] == 1){
+        $basteExpiresAt = ($basteExpiresAt == "")? NULL : date("Y-m-d H:i:s", strtotime($basteExpiresAt));
+        $bastePassword = ($bastePassword == "") ? NULL : password_hash($bastePassword, 1, array('cost' => 10));
+        $bastePasswordRequired = ($bastePassword == "") ? 0 : 1;
+    }
+    else{
+        $basteExpiresAt = null;
+        $bastePasswordRequired = 0;
+        $bastePassword = null;
+    }
+
+
+
     //Perform the SQL
     $mysqli->autocommit(false);
     $stmt1 = $mysqli->prepare($tblBastesSql);
@@ -64,17 +75,13 @@ else if($user["BasteCount"] < $user["MaximumBastes"] || $user["MaximumBastes"] =
     $stmt1->execute();
     $mysqli->commit();
     $stmt1->close();
-    
-    $mysqli->autocommit(false);
+
     $stmt2 = $mysqli->prepare($tblUsersSql);
     $stmt2->bind_param('s', $userID);
     $stmt2->execute();
     $mysqli->commit();
     $stmt2->close();
-
     echo json_encode(array('statusCode' => 200));
-} else {
-    echo json_encode(array('statusCode' => 202));
-}
 
+    $mysqli -> close();
 ?>

@@ -1,5 +1,13 @@
-<?php if($currentPage == "baste" || $currentPage == "profile" || $currentPage == "account" || $currentPage == "editbaste"){$pathHead = "../res/";} else {$pathHead = "res/";}?>
-<?php if($currentPage == "baste" || $currentPage == "account" || $currentPage == "profile" || $currentPage == "editbaste"){$pageredirect = "../";} else {$pageredirect = "";}?>
+<?php 
+    if($currentPage == "baste" || $currentPage == "profile" || $currentPage == "account"){
+        $pathHead = "../res/";
+        $pageredirect = "../";
+    } 
+    else {
+        $pathHead = "res/";
+        $pageredirect = "";
+    }
+?>
 
 <body style="min-height: 100%;">
     <!-- Navigation bar -->
