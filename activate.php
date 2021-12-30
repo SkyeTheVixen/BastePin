@@ -20,11 +20,11 @@
             $mysqli -> commit();
             $stmt -> close();
             $User = GetUserByID($mysqli, $activationCode);
-            $fullName = $FirstName . " " . $LastName;
-            $subject = "Bastepin | Confirm Your Email Address";
-            $message = "https://skytest.xyz/Bastepin/activate.php?activationCode=" . $UserID;
-            $altMessage = "https://skytest.xyz/Bastepin/activate.php?activationCode=" . $UserID;
-            sendMail($Email, $fullName, $subject, $message, $altMessage);
+            $fullName = $User["FirstName"] . " " . $User["LastName"];
+            $subject = "Bastepin | Welcome";
+            $message = "Thank you for activating your account $fullName, you can now use Bastepin to save code!";
+            $message = "Thank you for activating your account $fullName, you can now use Bastepin to save code!";
+            sendMail($User["Email"], $fullName, $subject, $message, $altMessage);
             header("Location: login?er=activationSuccess");
             exit();
         }

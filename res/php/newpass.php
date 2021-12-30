@@ -32,6 +32,12 @@
     $stmt->execute();
     $stmt->close();
     $mysqli->commit();
+
+    $sql = "SELECT * FROM `tblUsers` WHERE `tblUsers`.`UserID` = ?";
+    $stmt = $mysqli->prepare($sql);
+    $stmt->bind_param("s", $token);
+    $stmt->execute();
+    $stmt->close();
     $mysqli->close();
 
     $fullName = $row["FirstName"] . " " . $row["LastName"];
