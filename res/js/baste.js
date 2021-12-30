@@ -2,36 +2,36 @@ $(document).ready(function(){
 
     $('#fav').click(function(event){
         event.preventDefault();
-        if($('#fav').hasClass('far')){
+        if($('#favouriteIcon').hasClass('far')){
             $.ajax({
                 url: '../res/php/addfav.php',
                 type: 'POST',
                 data: {
-                    basteID: $('#fav').attr("data-basteID"),
+                    basteID: $('#fav').attr("data-basteid"),
                     action: 'add'
                 },
                 success: function(data){
                     var dataResult = JSON.parse(data);
                     if(dataResult.statusCode == 200){
-                        $('#fav'+basteID).removeClass('far');
-                        $('#fav'+basteID).addClass('fas');
+                        $('#favouriteIcon').removeClass('far');
+                        $('#favouriteIcon').addClass('fas');
                     }
                 }
             });
         }
-        else if($('#fav').hasClass('fas')){
+        else if($('#favouriteIcon').hasClass('fas')){
             $.ajax({
                 url: '../res/php/addfav.php',
                 type: 'POST',
                 data: {
-                    basteID: $('#fav').attr("data-basteID"),
+                    basteID: $('#fav').attr("data-basteid"),
                     action: 'remove'
                 },
                 success: function(data){
                     var dataResult = JSON.parse(data);
                     if(dataResult.statusCode == 200){
-                        $('#fav'+basteID).removeClass('fas');
-                        $('#fav'+basteID).addClass('far');
+                        $('#favouriteIcon').removeClass('fas');
+                        $('#favouriteIcon').addClass('far');
                     }
                 }
             });
