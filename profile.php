@@ -63,21 +63,22 @@
                 <h2 class="text-center">Users Bastes</h2>
                 <div class="row">
                     <?php while($rows = $result -> fetch_array(MYSQLI_ASSOC)) { ?>
-                        <div class="col-12 col-md-6 col-lg-4 mb-1">
-                            <div class="card">
-                                <div class="card-body">
-                                    <?php $time = strtotime($rows["CreatedAt"]); ?>
-                                    <h5 class="card-title"><?php echo htmlspecialchars($rows['BasteName']); ?></h5>
-                                    <p class="card-text"><?php echo date("d M Y @ H:i", $time) ?></p>
-                                    <a href="<?php echo $rows['BasteID']; ?>" class="btn btn-primary">View Baste</a>
-                                </div>
+                    <div class="col-12 col-md-6 col-lg-4 mb-1">
+                        <div class="card">
+                            <div class="card-body">
+                                <?php $time = strtotime($rows["CreatedAt"]); ?>
+                                <h5 class="card-title"><?php echo htmlspecialchars($rows['BasteName']); ?></h5>
+                                <p class="card-text"><?php echo date("d M Y @ H:i", $time) ?></p>
+                                <a href="<?php echo $rows['BasteID']; ?>" class="btn btn-primary">View Baste</a>
                             </div>
                         </div>
+                    </div>
                     <?php } ?>
                 </div>
-        </div>
+            </div>
         </div>
         <!-- End Main Page Content -->
+    </div>
+</div>
 
-
-        <?php include("./res/php/footer.php"); ?>
+<?php include("./res/php/footer.php"); ?>

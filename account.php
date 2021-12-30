@@ -64,4 +64,4 @@
 <!-- End Main Page Content -->
 
 
-<?php include("./res/php/footer.php"); ?>
+<?php include("res/php/footer.php"); ?>
