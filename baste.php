@@ -85,7 +85,7 @@
                 <div class="col-12 align-items-right text-right">
                     <a href="../editbaste/<?php echo $basteID; ?>"><i class="fas fa-pen"></i></a>
                     <a href="../deletebaste/<?php echo $basteID; ?>"><i class="fas fa-trash"></i></a>
-                    <a id="fav" href="#" data-basteid="<?php echo $basteID;?>"><i id="favouriteIcon" <?php if($favres->num_rows > 0){echo "class=\'fas fa-star\'";} else {echo "class=\'far fa-star\'";} ?>></i></a>
+                    <a id="fav" href="#" data-basteid="<?php echo $basteID;?>"><i id="favouriteIcon" <?php if($favres->num_rows > 0){echo "class='fas fa-star'";} else {echo "class='far fa-star'";} ?>></i></a>
                 </div>
                 <?php } ?>
             </div>
