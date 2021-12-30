@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
-    function favourite(basteID){
+    $('#fav'+basteID).click(function(event){
+        event.preventDefault();
         if($('#fav'+basteID).hasClass('far')){
             $.ajax({
                 url: '../res/php/addfav.php',
@@ -35,6 +36,5 @@ $(document).ready(function(){
                 }
             });
         }
-    }
-
+    });
 });

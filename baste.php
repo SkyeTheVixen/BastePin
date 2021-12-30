@@ -78,7 +78,7 @@
                 <div class="col-12 align-items-right text-right">
                     <a href="../editbaste/<?php echo $basteID; ?>"><i class="fas fa-pen"></i></a>
                     <a href="../deletebaste/<?php echo $basteID; ?>"><i class="fas fa-trash"></i></a>
-                    <a id="fav<?php echo $basteID;?>" onclick="favorite(<?php echo $basteID;?>)" href="#"><i id="favouriteIcon" class="far fa-star"></i></a>
+                    <a id="fav<?php echo $basteID;?>" href="#"><i id="favouriteIcon" class="far fa-star"></i></a>
                 </div>
                 <?php } ?>
             </div>
