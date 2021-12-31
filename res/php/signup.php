@@ -24,12 +24,11 @@
         //Check if any records already exist
         $sql = "SELECT * FROM `tblUsers` WHERE `tblUsers`.`Email` = ?";
         $stmt = $mysqli ->prepare($sql);
-        $stmt -> bind_param('s', $email);
+        $stmt -> bind_param('s', $Email);
         $stmt -> execute();
         $result = $stmt->get_result();
         $mysqli->commit();
         $stmt->close();
-        echo $result->num_rows;
         //If the email exists in the db, then error out
         if($result -> num_rows > 0){
             echo json_encode(array("statusCode" => 203));
