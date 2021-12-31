@@ -31,7 +31,7 @@
         $stmt->close();
 
         //If the email exists in the db, then error out
-        if($result -> num_rows === 1){
+        if($result -> num_rows > 0){
             echo json_encode(array("statusCode" => 203));
             exit();
         }
