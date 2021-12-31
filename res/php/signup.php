@@ -29,7 +29,7 @@
         $result = $stmt->get_result();
         $mysqli->commit();
         $stmt->close();
-
+        echo $result->num_rows;
         //If the email exists in the db, then error out
         if($result -> num_rows > 0){
             echo json_encode(array("statusCode" => 203));
