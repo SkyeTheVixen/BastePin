@@ -59,7 +59,6 @@
     $stmt->execute();
     $result = $stmt->get_result();
     $row = $result->fetch_array(MYSQLI_ASSOC);
-    var_dump($row);
     $mysqli->commit();
     $stmt->close();
 
@@ -86,5 +85,5 @@
     $subject = "Bastepin | Password has been Reset";
     $message = "Hello " . $fullName . ",<br><br>Your password has been reset.<br><br>If you did not request this, please contact us immediately.<br><br>Thank you,<br>Bastepin";
     $altMessage = "Hello " . $fullName . ",\n\nYour password has been reset.\n\nIf you did not request this, please contact us immediately.\n\nThank you,\nBastepin";
-    sendMail($email, $fullName, $subject, $message, $altMessage);
+    sendMail($row["Email"], $fullName, $subject, $message, $altMessage);
     echo json_encode(array("statusCode" => 200));
