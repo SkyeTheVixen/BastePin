@@ -59,7 +59,8 @@
         
         //Check email matches format
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-            echo json_encode(array("statusCode" => 202));
+            echo json_encode(array("statusCode" => 206));
+            return;
         }
         
         //SQL Query
@@ -81,11 +82,13 @@
                 if($User["IsLocked"] == 1){
                     //Return locked
                     echo json_encode(array("statusCode" => 204));
+                    return;
                 }
                 else{
                     //Return success
                     $_SESSION["UserID"] = $User["UserID"];
                     echo json_encode(array("statusCode" => 200));
+                    return;
                 }
             }
             else{
@@ -97,15 +100,19 @@
                 $mysqli -> commit();
                 $stmt -> close();
                 echo json_encode(array("statusCode" => 201));
+                return;
             }
         }
         else{
             //Return invalid credentials
             echo json_encode(array("statusCode" => 202));
+            return;
         }
     }
     else{
         echo json_encode(array("statusCode" => 203));
+        return;
+
     }
 
 
