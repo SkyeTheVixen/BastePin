@@ -24,7 +24,7 @@
     }
     $row = $result->fetch_array(MYSQLI_ASSOC);
     $UserID = $row["UserID"];
-    $sql = "INSERT INTO `tblPasswordResets`(`UserID`, `Token`, `Expiry`) VALUES (?,?,(now() + INTERVAL 30 MINUTE)) ON DUPLICATE KEY UPDATE";
+    $sql = "INSERT INTO `tblPasswordResets`(`UserID`, `Token`, `Expiry`) VALUES (?,?,(now() + INTERVAL 30 MINUTE)) ON DUPLICATE KEY UPDATE `Token` = ?, `Expiry` = (now() + INTERVAL 30 MINUTE)";
     $stmt = $mysqli -> prepare($sql);
     $stmt -> bind_param('ss', $UserID, $token);
     $stmt -> execute();
