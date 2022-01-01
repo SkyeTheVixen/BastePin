@@ -4,8 +4,23 @@
     include_once("functions.inc.php");
     $mysqli = $connect;
     $mysqli->autocommit(false);
+    $token = $_POST["token"];
 
 
+    //SQL to check the token is valid
+    $sql = "SELECT * FROM `tblPasswordResets` WHERE `tblPasswordResets`.`Token` = ?";
+    $stmt = $mysqli->prepare($sql);
+    $stmt->bind_param("s", $token);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if($result->num_rows == 0) {
+        echo json_encode(array("statusCode" => 204));
+        exit();
+    }
+    $mysqli->commit();
+    $stmt->close();
+
+    //SQL to check the token is valid
     $sql = "SELECT * FROM `tblPasswordResets` WHERE `tblPasswordResets`.`Token` = ? AND `tblPasswordResets`.`Expiry` > NOW())";
     $stmt = $mysqli->prepare($sql);
     $stmt->bind_param("s", $token);
@@ -16,41 +31,55 @@
         exit();
     }
     $mysqli->commit();
+    $stmt->close();
 
-
+    //Check passwords are set
     if(!(isset($_POST["password"])) || !(isset($_POST["passwordConfirm"]))) {
         echo json_encode(array("statusCode" => 201));
         exit();
     }
 
+    //Get parameters
     $password = $_POST["password"];
     $passwordConfirm = $_POST["passwordConfirm"];
-    $token = $_POST["token"];
 
+    //if passwords don't match
     if($password != $passwordConfirm) {
         echo json_encode(array("statusCode" => 202));
         exit();
     }
+
+    //Encrypt the password
     $password = password_hash($password, 1, array('cost' => 10));
 
+    //SQL to get user
+    $sql = "SELECT * FROM `tblUsers` WHERE `tblUsers`.`UserID` = (SELECT `tblPasswordResets`.`UserID` FROM `tblPasswordResets` WHERE `tblPasswordResets`.`Token` = ? AND `tblPasswordResets`.`Expiry` > NOW())";
+    $stmt = $mysqli->prepare($sql);
+    $stmt->bind_param("s", $token);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_array(MYSQLI_ASSOC);
+    $mysqli->commit();
+    $stmt->close();
+
+    //SQL to update password
     $sql = "UPDATE `tblUsers` SET `Password` = ? WHERE `tblUsers`.`UserID` = (SELECT `tblPasswordResets`.`UserID` FROM `tblPasswordResets` WHERE `tblPasswordResets`.`Token` = ? AND `tblPasswordResets`.`Expiry` > NOW())";
     $stmt = $mysqli->prepare($sql);
     $stmt->bind_param("ss", $password, $token);
     $stmt->execute();
+    $mysqli->commit();
     $stmt->close();
+
+    //SQL to delete token
     $sql = "DELETE FROM `tblPasswordResets` WHERE `tblPasswordResets`.`Token` = ?";
     $stmt = $mysqli->prepare($sql);
     $stmt->bind_param("s", $token);
     $stmt->execute();
-    $stmt->close();
     $mysqli->commit();
-
-    $sql = "SELECT * FROM `tblUsers` WHERE `tblUsers`.`UserID` = ?";
-    $stmt = $mysqli->prepare($sql);
-    $stmt->bind_param("s", $token);
-    $stmt->execute();
     $stmt->close();
+
     $mysqli->close();
+
 
     $fullName = $row["FirstName"] . " " . $row["LastName"];
     $subject = "Bastepin | Password has been Reset";

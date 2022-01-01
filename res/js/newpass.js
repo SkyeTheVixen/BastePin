@@ -46,11 +46,18 @@ $(document).ready(function () {
                         text: 'Please ensure your new passwords match',
                         heightAuto: false
                     });
-                } else if (DataResult.statusCode === 202) {
+                } else if (DataResult.statusCode === 203) {
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
                         text: 'Your token is expired. please request a new one',
+                        heightAuto: false
+                    });
+                } else if (DataResult.statusCode === 204) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Your token wasnt found. Please request a new one',
                         heightAuto: false
                     });
                 }
