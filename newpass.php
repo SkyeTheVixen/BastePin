@@ -8,7 +8,7 @@
         header("Location: login?er=notokensupplied");
         exit();
     }
-    $sql = "SELECT * FROM `tblPasswordResets` WHERE `tblPasswordResets`.`Token` = ? AND `tblPasswordResets`.`Expiry` > NOW())";
+    $sql = "SELECT * FROM `tblPasswordResets` WHERE `tblPasswordResets`.`Token` = ? AND `tblPasswordResets`.`Expiry` > NOW()";
     $stmt = $mysqli->prepare($sql);
     $stmt->bind_param("s", $token);
     $stmt->execute();
