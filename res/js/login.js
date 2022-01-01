@@ -20,6 +20,7 @@ $(document).ready(function () {
             },
             cache: false,
             success: function (dataResult) {
+                console.log(dataResult);
                 var DataResult = JSON.parse(dataResult);
                 if (DataResult.statusCode === 200) {
                     console.log(dataResult);
