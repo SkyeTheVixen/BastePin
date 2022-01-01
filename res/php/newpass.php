@@ -6,6 +6,18 @@
     $mysqli->autocommit(false);
 
 
+    $sql = "SELECT * FROM `tblPasswordResets` WHERE `tblPasswordResets`.`Token` = ? AND `tblPasswordResets`.`Expiry` > NOW())";
+    $stmt = $mysqli->prepare($sql);
+    $stmt->bind_param("s", $token);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if($result->num_rows == 0) {
+        echo json_encode(array("statusCode" => 203));
+        exit();
+    }
+    $mysqli->commit();
+
+
     if(!(isset($_POST["password"])) || !(isset($_POST["passwordConfirm"]))) {
         echo json_encode(array("statusCode" => 201));
         exit();

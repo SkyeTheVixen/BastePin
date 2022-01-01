@@ -1,6 +1,26 @@
-<?php $title="New Password | VDBP"; ?>
-<?php $currentPage="newpass"; ?>
-<?php include_once("res/php/header.php"); ?>
+<?php
+    $title="New Password | VDBP";
+    $currentPage="newpass";
+    include_once("res/php/header.php");
+    include_once("res/php/_connect.php");
+    $mysqli = $connect;
+    if(!(isset($_GET["token"]))) {
+        header("Location: login?er=notokensupplied");
+        exit();
+    }
+    $sql = "SELECT * FROM `tblPasswordResets` WHERE `tblPasswordResets`.`Token` = ? AND `tblPasswordResets`.`Expiry` > NOW())";
+    $stmt = $mysqli->prepare($sql);
+    $stmt->bind_param("s", $token);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if($result->num_rows == 0) {
+        header("Location: login?er=expiredtokensupplied");
+        exit();
+    }
+    $mysqli->commit();
+    $stmt->close();
+
+?>
 <body>
     <!-- Main Page Content -->
     <div class="container-fluid h-100">
