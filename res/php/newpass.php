@@ -59,6 +59,7 @@
     $stmt->execute();
     $result = $stmt->get_result();
     $row = $result->fetch_array(MYSQLI_ASSOC);
+    echo $row;
     $mysqli->commit();
     $stmt->close();
 
