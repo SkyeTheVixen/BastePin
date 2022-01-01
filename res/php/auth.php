@@ -87,6 +87,12 @@
                 else{
                     //Return success
                     $_SESSION["UserID"] = $User["UserID"];
+                    $sql = "DELETE FROM `tblBFA` WHERE `tblBFA`.`ID` = ?";
+                    $stmt = $mysqli -> prepare($sql);
+                    $stmt -> bind_param('s', $id);
+                    $stmt -> execute();
+                    $mysqli -> commit();
+                    $stmt -> close();
                     echo json_encode(array("statusCode" => 200));
                     return;
                 }
