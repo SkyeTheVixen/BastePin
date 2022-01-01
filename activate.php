@@ -8,13 +8,12 @@
     if(isset($_GET["activationCode"])){
         $activationCode = $_GET["activationCode"];
         $user = GetUserByID($mysqli, $activationCode);
-        var_dump($user);
         if($user == false){
             header("Location: login?er=invalidactivcode");
             exit();
         }
         if($user["IsLocked"] == 0){
-            // header("Location: login?er=prevActivation");
+            header("Location: login?er=prevActivation");
             exit();
         }
         else{
@@ -30,12 +29,13 @@
             $message = "Thank you for activating your account $fullName, you can now use Bastepin to save code!";
             $message = "Thank you for activating your account $fullName, you can now use Bastepin to save code!";
             sendMail($User["Email"], $fullName, $subject, $message, $altMessage);
-            // header("Location: login?er=activationSuccess");
+            header("Location: login?er=activationSuccess");
             exit();
         }
     }
     else{
-        // header("Location: login?er=noactivcode");
+        header("Location: login?er=noactivcode");
+        exit();
     }
 
 ?>
