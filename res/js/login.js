@@ -61,6 +61,13 @@ $(document).ready(function () {
                         html: 'You\'ve been IP blocked for 5 minutes due to multiple incorrect login attempts. Please <a href="mailto:webmaster@vixendev.com">contact support</a>.',
                         heightAuto: false
                     });
+                } else if (DataResult.statusCode === 206) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        html: 'That email didnt match the expected format.',
+                        heightAuto: false
+                    });
                 }
             }
         });
