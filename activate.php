@@ -8,6 +8,7 @@
     if(isset($_GET["activationCode"])){
         $activationCode = $_GET["activationCode"];
         $user = GetUserByID($mysqli, $activationCode);
+        var_dump($user);
         if($user == false){
             header("Location: login?er=prevActivation");
             exit();
