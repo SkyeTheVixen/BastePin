@@ -45,7 +45,7 @@
                     </div>
                     <div class="card-footer">
                         <h5 class="card-title">$0.00</h5>
-                        <a href="premium.php" class="btn btn-secondary">Remain Free</a>
+                        <a href="account/" class="btn btn-secondary">Remain Free</a>
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@
                     </div>
                     <div class="card-footer">
                         <h5 class="card-title">$9.99</h5>
-                        <a href="premium.php" class="btn btn-primary">Upgrade to premium</a>
+                        <a href="payment" class="btn btn-primary">Upgrade to premium</a>
                     </div>
                 </div>
             </div>
