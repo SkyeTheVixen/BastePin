@@ -18,6 +18,10 @@
     $stmt -> execute();
     $mysqli -> commit();
     $result = $stmt->get_result();
+    if($result->num_rows == 0) {
+        echo json_encode(array("statusCode" => 202));
+        exit();
+    }
     $row = $result->fetch_array(MYSQLI_ASSOC);
     $UserID = $row["UserID"];
     $sql = "INSERT INTO `tblPasswordResets`(`UserID`, `Token`, `Expiry`) VALUES (?,?,(now() + INTERVAL 30 MINUTE))";

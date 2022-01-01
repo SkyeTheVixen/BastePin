@@ -193,6 +193,13 @@ $(document).ready(function () {
                         text: 'Something went wrong, try again.',
                         heightAuto: false
                     });
+                } else if (DataResult.statusCode === 202) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'No Account was found with this email.',
+                        heightAuto: false
+                    });
                 }
             },
             error: function (jqXHR, textStatus, errorThrown) {
