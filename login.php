@@ -12,6 +12,10 @@
             echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'You have already activated your account. Please login.', heightAuto: false });</script>";
         } else if ($_GET["er"] == "activationSuccess") {
             echo "<script>Swal.fire({ icon: 'success', title: 'Congrats!', text: 'Your Account has been activated! Please log in', heightAuto: false });</script>"; 
+        } else if ($_GET["er"] == "notokensupplied") {
+            echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'No token was supplied, please request one', heightAuto: false });</script>"; 
+        } else if ($_GET["er"] == "expiredtokensupplied") {
+            echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'Your token has expired, please request a new one', heightAuto: false });</script>"; 
         }
     }
 ?>
