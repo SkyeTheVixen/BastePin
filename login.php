@@ -6,6 +6,8 @@
     if(isset($_GET["er"])) {
         if($_GET["er"] == "noactivcode") {
             echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'Something went wrong with the activation link. Please try again.', heightAuto: false });</script>";
+        } else if($_GET["er"] == "invalidactivcode") {
+            echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'That activation code was invalid', heightAuto: false });</script>";
         } else if ($_GET["er"] == "prevActivation") {
             echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'You have already activated your account. Please login.', heightAuto: false });</script>";
         } else if ($_GET["er"] == "activationSuccess") {

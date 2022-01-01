@@ -8,6 +8,10 @@
     if(isset($_GET["activationCode"])){
         $activationCode = $_GET["activationCode"];
         $user = GetUserByID($mysqli, $activationCode);
+        if($user == false){
+            header("Location: login?er=prevActivation");
+            exit();
+        }
         if($user["IsLocked"] == 0){
             header("Location: login?er=prevActivation");
             exit();
