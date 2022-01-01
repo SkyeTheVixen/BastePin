@@ -10,7 +10,7 @@
         $user = GetUserByID($mysqli, $activationCode);
         var_dump($user);
         if($user == false){
-            // header("Location: login?er=prevActivation");
+            header("Location: login?er=invalidactivcode");
             exit();
         }
         if($user["IsLocked"] == 0){
