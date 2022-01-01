@@ -16,6 +16,8 @@
             echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'No token was supplied, please request one', heightAuto: false });</script>"; 
         } else if ($_GET["er"] == "expiredtokensupplied") {
             echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'Your token has expired, please request a new one', heightAuto: false });</script>"; 
+        } else if ($_GET["er"] == "invalidtokensupplied") {
+            echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'Your token was invalid, please request a new one', heightAuto: false });</script>"; 
         }
     }
 ?>
