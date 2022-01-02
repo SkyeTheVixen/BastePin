@@ -58,7 +58,8 @@
                     </h5>
                     <div class="row mt-3">
                         <div class="col-12">
-                            <a href="<?php echo $pageredirect; ?>editaccount" class="btn btn-primary">Edit Profile</a>
+                        <a href="<?php echo $pageredirect; ?>editaccount" class="btn btn-primary">Edit Profile</a>
+                        <a href="<?php echo $pageredirect; ?>profile/<?php echo $user["UserID"];?>" class="btn btn-primary">View Profile</a>
                             <?php if($user["IsPremium"] == 0) {?>
                             <a href="<?php echo $pageredirect; ?>premium" class="btn btn-primary">Upgrade to
                                 premium?</a>
