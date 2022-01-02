@@ -44,7 +44,7 @@
                         <div class="form-group pb-2">
                             <label for="InputCaptcha">Are You Human?</label>
                             <img id="imgCaptcha" src="res/jCaptcha/generate.php" class="card-img-top" alt="jCaptchaText">
-                            <input type="text" name="txtCaptcha" class="form-control" id="InputCaptcha" placeholder="A9F8G7">
+                            <input type="text" name="txtCaptcha" required class="form-control" id="InputCaptcha" placeholder="A9F8G7">
                             <small><a href="#" id="btnNewCaptcha">Regenerate CAPTCHA</a></small>
                         </div>
                         <div class="form-group pt-2 text-center">
