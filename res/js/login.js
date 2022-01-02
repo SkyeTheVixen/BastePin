@@ -90,6 +90,9 @@ $(document).ready(function () {
                         title: 'Oops...',
                         html: 'The captcha was invalid',
                         heightAuto: false
+                    }).then(function () {
+                        $('#imgCaptcha').attr('src', 'res/jCaptcha/generate.php');
+                        $('#InputCaptcha').val('');
                     });
                 }
             }
