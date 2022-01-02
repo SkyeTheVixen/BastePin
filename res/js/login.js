@@ -7,7 +7,7 @@ $(document).ready(function () {
             url: 'res/jCaptcha/backend.php',
             type: 'POST',
             data: {
-                'txtCaptcha': $('#txtCaptcha').val()
+                'txtCaptcha': $('#InputCaptcha').val()
             },
             success: function (res) {
                 if (res == 'true')
