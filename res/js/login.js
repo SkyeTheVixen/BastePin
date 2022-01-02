@@ -20,6 +20,9 @@ $(document).ready(function () {
                             title: 'Oops...',
                             text: 'You may have entered invalid credentials. Please try again',
                             heightAuto: false
+                        }).then(function () {
+                            $('#imgCaptcha').attr('src', 'res/jCaptcha/generate.php');
+                            $('#InputCaptcha').val('');
                         });
                     }
                     $.ajax({
@@ -43,6 +46,9 @@ $(document).ready(function () {
                                     title: 'Oops...',
                                     text: 'Your credentials were invalid.',
                                     heightAuto: false
+                                }).then(function () {
+                                    $('#imgCaptcha').attr('src', 'res/jCaptcha/generate.php');
+                                    $('#InputCaptcha').val('');
                                 });
                             } else if (DataResult.statusCode === 202) {
                                 Swal.fire({
@@ -50,6 +56,9 @@ $(document).ready(function () {
                                     title: 'Oops...',
                                     text: 'No user account was found with this email address',
                                     heightAuto: false
+                                }).then(function () {
+                                    $('#imgCaptcha').attr('src', 'res/jCaptcha/generate.php');
+                                    $('#InputCaptcha').val('');
                                 });
                             } else if (DataResult.statusCode === 203) {
                                 Swal.fire({
@@ -57,6 +66,9 @@ $(document).ready(function () {
                                     title: 'Oops...',
                                     text: 'Please enter your email address And/Or Password',
                                     heightAuto: false
+                                }).then(function () {
+                                    $('#imgCaptcha').attr('src', 'res/jCaptcha/generate.php');
+                                    $('#InputCaptcha').val('');
                                 });
                             } else if (DataResult.statusCode === 204) {
                                 Swal.fire({
@@ -64,6 +76,9 @@ $(document).ready(function () {
                                     title: 'Oops...',
                                     html: 'Your Account is Locked. Please <a href="mailto:webmaster@vixendev.com">contact support</a>.',
                                     heightAuto: false
+                                }).then(function () {
+                                    $('#imgCaptcha').attr('src', 'res/jCaptcha/generate.php');
+                                    $('#InputCaptcha').val('');
                                 });
                             } else if (DataResult.statusCode === 205) {
                                 Swal.fire({
@@ -71,6 +86,9 @@ $(document).ready(function () {
                                     title: 'Oops...',
                                     html: 'You\'ve been IP blocked for 5 minutes due to multiple incorrect login attempts. Please <a href="mailto:webmaster@vixendev.com">contact support</a>.',
                                     heightAuto: false
+                                }).then(function () {
+                                    $('#imgCaptcha').attr('src', 'res/jCaptcha/generate.php');
+                                    $('#InputCaptcha').val('');
                                 });
                             } else if (DataResult.statusCode === 206) {
                                 Swal.fire({
@@ -78,6 +96,9 @@ $(document).ready(function () {
                                     title: 'Oops...',
                                     html: 'That email didnt match the expected format.',
                                     heightAuto: false
+                                }).then(function () {
+                                    $('#imgCaptcha').attr('src', 'res/jCaptcha/generate.php');
+                                    $('#InputCaptcha').val('');
                                 });
                             }
                         }
