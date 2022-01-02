@@ -38,33 +38,26 @@ $(document).ready(function () {
                             console.log(dataResult);
                             var DataResult = JSON.parse(dataResult);
                             if (DataResult.statusCode === 200) {
-                                location.href = "index";
+                                location.href = "baste/" + DataResult.basteId;
                             } else if (DataResult.statusCode === 201) {
                                 Swal.fire({
                                     icon: 'error',
                                     title: 'Oops...',
-                                    text: 'Your credentials were invalid.',
+                                    text: 'Please enter all required fields.',
                                     heightAuto: false
                                 });
                             } else if (DataResult.statusCode === 202) {
                                 Swal.fire({
                                     icon: 'error',
                                     title: 'Oops...',
-                                    text: 'No user account was found with this email address',
+                                    html: 'You\'ve run out of bastes for the free account. Upgrade to <a href="premium">premium</a> to add more.',
                                     heightAuto: false
                                 });
                             } else if (DataResult.statusCode === 203) {
                                 Swal.fire({
-                                    icon: 'warning',
+                                    icon: 'error',
                                     title: 'Oops...',
-                                    text: 'Please enter your email address And/Or Password',
-                                    heightAuto: false
-                                });
-                            } else if (DataResult.statusCode === 204) {
-                                Swal.fire({
-                                    icon: 'warning',
-                                    title: 'Oops...',
-                                    text: 'Your Account is Locked. Please contact support.',
+                                    text: 'You don\'t have permission to baste.',
                                     heightAuto: false
                                 });
                             }
