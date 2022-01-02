@@ -2,6 +2,7 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^account/(.*)$ ./account.php?username=$1
 RewriteRule ^profile/(.*)$ ./profile.php?UserID=$1
+RewriteRule ^baste ./baste.php
 RewriteRule ^baste/(.*)$ ./baste.php?BasteID=$1
 RewriteRule ^editbaste/(.*)$ ./editbaste.php?BasteID=$1
 RewriteRule ^deletebaste/(.*)$ ./deletebaste.php?BasteID=$1
