@@ -19,7 +19,7 @@
     }
 ?>
 <?php 
-    if(isset($_GET["BasteID"]) && $_GET["BasteID"] != "") {
+    if(isset($_GET["BasteID"]) && $_GET["BasteID"] != "" && $_GET["BasteID"] != "0") {
         $basteID = $_GET["BasteID"];
         $baste = getBaste($mysqli, $basteID);
         if($baste["ExpiresAt"] < date("Y-m-d H:i:s") && $baste["ExpiresAt"] != "0000-00-00 00:00:00" && $baste["ExpiresAt"] != "" && $baste["ExpiresAt"] != NULL) {
