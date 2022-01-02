@@ -1,76 +1,102 @@
 $(document).ready(function () {
+    let regenCount = 1;
+
     $("#loginForm").submit(function (event) {
         event.preventDefault();
-        var email = $("#InputEmail").val();
-        var password = $("#InputPassword").val();
-        if (email === "" || password === "") {
-            return Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'You may have entered invalid credentials. Please try again',
-                heightAuto: false
-            });
-        }
         $.ajax({
-            type: "post",
-            url: "res/php/auth.php",
+            url: 'res/jCaptcha/backend.php',
+            type: 'POST',
             data: {
-                txtUser: email,
-                txtPassword: password
+                'txtCaptcha': $('#txtCaptcha').val()
             },
-            cache: false,
-            success: function (dataResult) {
-                console.log(dataResult);
-                var DataResult = JSON.parse(dataResult);
-                if (DataResult.statusCode === 200) {
-                    console.log(dataResult);
-                    location.href = "index";
-
-                } else if (DataResult.statusCode === 201) {
+            success: function (res) {
+                if (res == 'true')
+                {
+                    var email = $("#InputEmail").val();
+                    var password = $("#InputPassword").val();
+                    if (email === "" || password === "") {
+                        return Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'You may have entered invalid credentials. Please try again',
+                            heightAuto: false
+                        });
+                    }
+                    $.ajax({
+                        type: "post",
+                        url: "res/php/auth.php",
+                        data: {
+                            txtUser: email,
+                            txtPassword: password
+                        },
+                        cache: false,
+                        success: function (dataResult) {
+                            console.log(dataResult);
+                            var DataResult = JSON.parse(dataResult);
+                            if (DataResult.statusCode === 200) {
+                                console.log(dataResult);
+                                location.href = "index";
+            
+                            } else if (DataResult.statusCode === 201) {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    text: 'Your credentials were invalid.',
+                                    heightAuto: false
+                                });
+                            } else if (DataResult.statusCode === 202) {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    text: 'No user account was found with this email address',
+                                    heightAuto: false
+                                });
+                            } else if (DataResult.statusCode === 203) {
+                                Swal.fire({
+                                    icon: 'warning',
+                                    title: 'Oops...',
+                                    text: 'Please enter your email address And/Or Password',
+                                    heightAuto: false
+                                });
+                            } else if (DataResult.statusCode === 204) {
+                                Swal.fire({
+                                    icon: 'warning',
+                                    title: 'Oops...',
+                                    html: 'Your Account is Locked. Please <a href="mailto:webmaster@vixendev.com">contact support</a>.',
+                                    heightAuto: false
+                                });
+                            } else if (DataResult.statusCode === 205) {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    html: 'You\'ve been IP blocked for 5 minutes due to multiple incorrect login attempts. Please <a href="mailto:webmaster@vixendev.com">contact support</a>.',
+                                    heightAuto: false
+                                });
+                            } else if (DataResult.statusCode === 206) {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    html: 'That email didnt match the expected format.',
+                                    heightAuto: false
+                                });
+                            }
+                        }
+                    });
+                }
+                else
+                {
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
-                        text: 'Your credentials were invalid.',
-                        heightAuto: false
-                    });
-                } else if (DataResult.statusCode === 202) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'No user account was found with this email address',
-                        heightAuto: false
-                    });
-                } else if (DataResult.statusCode === 203) {
-                    Swal.fire({
-                        icon: 'warning',
-                        title: 'Oops...',
-                        text: 'Please enter your email address And/Or Password',
-                        heightAuto: false
-                    });
-                } else if (DataResult.statusCode === 204) {
-                    Swal.fire({
-                        icon: 'warning',
-                        title: 'Oops...',
-                        html: 'Your Account is Locked. Please <a href="mailto:webmaster@vixendev.com">contact support</a>.',
-                        heightAuto: false
-                    });
-                } else if (DataResult.statusCode === 205) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        html: 'You\'ve been IP blocked for 5 minutes due to multiple incorrect login attempts. Please <a href="mailto:webmaster@vixendev.com">contact support</a>.',
-                        heightAuto: false
-                    });
-                } else if (DataResult.statusCode === 206) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        html: 'That email didnt match the expected format.',
+                        html: 'The captcha was invalid',
                         heightAuto: false
                     });
                 }
             }
         });
+
+
+        
     })
 
     $("#signupForm").submit(function (event) {
@@ -212,5 +238,17 @@ $(document).ready(function () {
                 });
             }
         });
+    });
+
+    $('#btnNewCaptcha').click(function (e) {
+        e.preventDefault();
+
+        if (regenCount > 5)
+            $('#btnNewCaptcha').remove();
+        else
+        {
+            $('#imgCaptcha').attr('src', 'res/jCaptcha/generate.php');
+            regenCount++;
+        }
     });
 })

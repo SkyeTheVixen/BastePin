@@ -41,6 +41,12 @@
                             <input type="password" name="txtPassword" class="form-control" id="InputPassword"
                                 placeholder="P4s5w0Rd">
                         </div>
+                        <div class="form-group pb-2">
+                            <label for="InputCaptcha">Are You Human?</label>
+                            <img id="imgCaptcha" src="./generate.php" class="card-img-top" alt="jCaptchaText">
+                            <input type="text" name="txtCaptcha" class="form-control" id="InputCaptcha" placeholder="A9F8G7">
+                            <small><a href="#" id="btnNewCaptcha">Regenerate CAPTCHA</a></small>
+                        </div>
                         <div class="form-group pt-2 text-center">
                             <button type="submit" id="loginBtn" class="btn btn-primary">Login</button>
                             <button type="button" id="forgotBtn" data-bs-toggle="modal"
