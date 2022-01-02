@@ -48,7 +48,7 @@
 <div class="container">
 
     <!-- If there is a baste -->
-    <?php if(!($_GET["BasteID"] == "")) {?>
+    <?php if(!($_GET["BasteID"] == "") && !($_GET["BasteID"] == "0") && !($_GET["BasteID"] == 0)) {?>
         <?php
             if($baste["Visibility"] == 0 && $baste["UserID"] != $_SESSION["UserID"]) {
                 echo "<script> window.location.href='../index?er=insufperm'</script>";
