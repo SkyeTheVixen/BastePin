@@ -72,7 +72,8 @@
             </div>
         </div>
     </div>
-    <!-- End Main Page Content -->
+</div>
+<!-- End Main Page Content -->
 
 
-    <?php include("./res/php/footer.php"); ?>
+<?php include("./res/php/footer.php"); ?>
