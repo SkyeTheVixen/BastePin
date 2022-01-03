@@ -1,8 +1,9 @@
 <?php $title="Login | VDBP"; ?>
 <?php $currentPage="login"; ?>
 <?php include_once("res/php/header.php"); ?>
+
 <body>
-<?php
+    <?php
     if(isset($_GET["er"])) {
         if($_GET["er"] == "noactivcode") {
             echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'Something went wrong with the activation link. Please try again.', heightAuto: false });</script>";
@@ -43,16 +44,18 @@
                         </div>
                         <div class="form-group pb-2">
                             <label for="InputCaptcha">Are You Human?</label>
-                            <img id="imgCaptcha" src="res/jCaptcha/generate.php" class="card-img-top" alt="jCaptchaText">
-                            <input type="text" name="txtCaptcha" required class="form-control" id="InputCaptcha" placeholder="A9F8G7">
+                            <img id="imgCaptcha" src="res/jCaptcha/generate.php" class="card-img-top h-25"
+                                alt="jCaptchaText">
+                            <input type="text" name="txtCaptcha" required class="form-control" id="InputCaptcha"
+                                placeholder="A9F8G7">
                             <small><a href="#" id="btnNewCaptcha">Regenerate CAPTCHA</a></small>
                         </div>
                         <div class="form-group pt-2 text-center">
                             <button type="submit" id="loginBtn" class="btn btn-primary">Login</button>
                             <button type="button" id="forgotBtn" data-bs-toggle="modal"
                                 data-bs-target="#forgotPassModal" class="btn btn-secondary">Forgot Password?</button>
-                                <button type="button" id="signUpBtn" data-bs-toggle="modal"
-                                data-bs-target="#signUpModal" class="btn btn-secondary">Sign Up</button>
+                            <button type="button" id="signUpBtn" data-bs-toggle="modal" data-bs-target="#signUpModal"
+                                class="btn btn-secondary">Sign Up</button>
                         </div>
                     </form>
                 </div>
@@ -102,6 +105,7 @@
                                 <input type="email" required class="form-control" id="emailInputReset">
                             </div>
                         </div>
+
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                             <button type="submit" class="btn btn-primary" id="sendLinkBtn">Send Link</button>
@@ -115,8 +119,7 @@
 
 
         <!-- Sign Up Modal -->
-        <div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="addUserModalLabel"
-            aria-hidden="true">
+        <div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -136,6 +139,14 @@
                                 <input type="password" required class="form-control" id="signupInputPassword">
                                 <label for="signupInputPassword" class="form-label">Password Confirm</label>
                                 <input type="password" required class="form-control" id="signupInputPasswordConfirm">
+                            </div>
+                            <div class="form-group pb-2">
+                                <label for="suInputCaptcha">Are You Human?</label>
+                                <img id="suimgCaptcha" src="res/jCaptcha/generate.php" class="card-img-top h-25"
+                                    alt="jCaptchaText">
+                                <input type="text" name="sutxtCaptcha" required class="form-control" id="suInputCaptcha"
+                                    placeholder="A9F8G7">
+                                <small><a href="#" id="btnsuNewCaptcha">Regenerate CAPTCHA</a></small>
                             </div>
                         </div>
                         <div class="modal-footer">
