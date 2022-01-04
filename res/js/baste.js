@@ -83,4 +83,9 @@ $(document).ready(function(){
             }
         });
     });
+
+    $('#showcommsbut').click(function(event){
+        event.preventDefault();
+        $('#CommentsModal').modal('toggle');
+    });
 });
