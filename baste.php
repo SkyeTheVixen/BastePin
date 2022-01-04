@@ -226,12 +226,12 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">All Comments</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-dismiss="modal" id="dismisscommsbut" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <?php for($i = 0; $i < $maxCounter; $i++) { ?>
+                    <?php for($i = 0; $i < count($comments); $i++) { ?>
                     <div class="row py-1">
                         <div class="card">
                             <div class="card-body">

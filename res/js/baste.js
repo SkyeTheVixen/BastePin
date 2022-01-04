@@ -88,4 +88,9 @@ $(document).ready(function(){
         event.preventDefault();
         $('#CommentsModal').modal('toggle');
     });
+
+    $('#dismisscommsbut').click(function(event){
+        event.preventDefault();
+        $('#CommentsModal').modal('toggle');
+    });
 });
