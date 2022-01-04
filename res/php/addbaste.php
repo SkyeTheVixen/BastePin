@@ -81,7 +81,7 @@
     $stmt2->execute();
     $mysqli->commit();
     $stmt2->close();
-    echo json_encode(array('statusCode' => 200, 'basteID' => $basteID));
+    echo json_encode(array('statusCode' => 200, 'basteID' => $basteId));
 
     $mysqli -> close();
 ?>

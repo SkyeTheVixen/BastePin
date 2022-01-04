@@ -37,8 +37,16 @@ $(document).ready(function () {
                         success: function (dataResult) {
                             console.log(dataResult);
                             var DataResult = JSON.parse(dataResult);
+                            
                             if (DataResult.statusCode === 200) {
-                                location.href = "baste/" + DataResult.basteId;
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    text: 'Please enter all required fields.',
+                                    heightAuto: false
+                                }).then(function(){
+                                    location.href = "baste/" + DataResult.basteId;
+                                });
                             } else if (DataResult.statusCode === 201) {
                                 Swal.fire({
                                     icon: 'error',
