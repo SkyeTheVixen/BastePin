@@ -221,7 +221,7 @@
     <?php } ?>
 
     <!-- Comments Modal -->
-    <div class="modal" id="CommentsModal" tabindex="-1" role="dialog">
+    <div class="modal fade" id="CommentsModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
