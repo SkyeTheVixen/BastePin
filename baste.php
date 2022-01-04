@@ -133,7 +133,15 @@
         <!-- Comments -->
         <div class="col-12 col-sm-6">
             <h3>Comments</h3>
-            <?php for($i = 0; $i < 3; $i++){ ?>
+            <?php 
+                if(count($comments) <= 3){
+                    $maxCounter = count($comments);
+                }
+                else{
+                    $maxCounter = 3;
+                }
+                for($i = 0; $i < $maxCounter; $i++){
+            ?>
             <div class="row">
                 <div class="card">
                     <div class="card-body">
