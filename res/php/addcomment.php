@@ -9,7 +9,7 @@
     //If user is not logged in, return to login page
     if(!isset($_SESSION['UserID']))
     {
-        header("Location: ../login");
+        header("Location: ../../login");
         exit;
     }
 
