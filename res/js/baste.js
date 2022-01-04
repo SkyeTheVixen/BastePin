@@ -37,4 +37,50 @@ $(document).ready(function(){
             });
         }
     });
+
+    $('#fav').mouseenter(function(){
+        if($('#favouriteIcon').hasClass('far')){
+            $('#fav').attr('title', 'Add to favourites');
+        }
+        else if($('#favouriteIcon').hasClass('fas')){
+            $('#fav').attr('title', 'Remove from favourites');
+        }
+    });
+
+    $('#fav').mouseleave(function(){
+        $('#fav').removeAttr('title');
+    });
+
+    $('#commentForm').submit(function(event){
+        event.preventDefault();
+        $.ajax({
+            url: 'res/php/addcomment.php',
+            type: 'POST',
+            data: {
+                basteID: $('#fav').attr("data-basteid"),
+                comment: $('#comment').val()
+            },
+            success: function(data){
+                var dataResult = JSON.parse(data);
+                if(dataResult.statusCode == 200){
+                    Swal.fire({
+                        title: 'Comment added',
+                        icon: 'success',
+                        heightAuto: false
+                    }).then(function(){
+                        location.reload();
+                    });
+                } else if(dataResult.statusCode == 201){
+                    Swal.fire({
+                        title: 'Oops...',
+                        icon: 'error',
+                        text: 'Something went wrong! Please ensure all fields are filled out',
+                        heightAuto: false 
+                    }).then(function(){
+                        location.reload();
+                    });
+                }
+            }
+        });
+    }
 });
