@@ -145,9 +145,9 @@
                 <div class="row py-1">
                     <div class="card">
                         <div class="card-body">
-                            <?php $time = strtotime($rows["CreatedAt"]); $user = GetUserById($mysqli, $comments[$i]["UserID"]); ?>
+                            <?php $time = time_elapsed_string(strtotime($comments[$i]["CreatedAt"])); $user = GetUserById($mysqli, $comments[$i]["UserID"]); ?>
                             <p class="card-text">
-                                <strong><?php echo htmlspecialchars($user["FirstName"] . " " . $user["LastName"]);?></strong> <?php echo ": " . $comments[$i]["CommentValue"]; echo "<br>" . date("d M Y @ H:i", $comments[$i]["CreatedAt"]) ?></p>
+                                <strong><?php echo htmlspecialchars($user["FirstName"] . " " . $user["LastName"]);?></strong> <?php echo ": " . $comments[$i]["CommentValue"]; echo "<br>" . $time ?></p>
                         </div>
                     </div>
                 </div>
