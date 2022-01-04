@@ -168,7 +168,6 @@
         $result = $stmt->get_result();
         if($result -> num_rows > 0){
             $Comments = $result->fetch_all(MYSQLI_ASSOC);
-            var_dump($Comments[1]["CommentValue"]);
             $mysqli->commit();
             $stmt->close();
             return $Comments;
