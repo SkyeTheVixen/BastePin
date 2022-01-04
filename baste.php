@@ -76,7 +76,8 @@
     <!-- Page Title -->
     <div class="row">
         <div class="col-12 mt-5 align-items-center">
-            <h1 class="text-center"><?php echo htmlspecialchars($baste["BasteName"]);?></h1>
+            <?php $datetimenow = time()-86400;?>
+            <h1 class="text-center"><?php echo htmlspecialchars($baste["BasteName"]);?>  <?php if(strtotime($baste["CreatedAt"]) > $datetimenow){?><span class="badge badge-secondary">New</span><?php } ?></h1>
         </div>
     </div>
     <!-- End Page Title -->
