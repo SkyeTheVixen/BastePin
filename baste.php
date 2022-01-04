@@ -146,7 +146,9 @@
                 <div class="card">
                     <div class="card-body">
                         <?php $time = strtotime($rows["CreatedAt"]); $user = GetUserById($mysqli, $comments[$i]["UserID"]); ?>
-                        <p class="card-text"><?php echo htmlspecialchars($user["FirstName"] . " " . $user["LastName"].": "); echo $comments[$i]["CommentValue"] ?></p>
+                        <p class="card-text">
+                            <?php echo htmlspecialchars($user["FirstName"] . " " . $user["LastName"].": "); echo $comments[$i]["CommentValue"] ?>
+                        </p>
                         <p class="card-text"><?php echo date("d M Y @ H:i", $comments[$i]["CreatedAt"]) ?></p>
                     </div>
                 </div>
@@ -210,7 +212,7 @@
         </div>
     </div>
     <?php } ?>
-
+</div>
 </div>
 <!-- End Main Page Content -->
 
