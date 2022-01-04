@@ -132,14 +132,14 @@
     <div class="row">
         <!-- Comments -->
         <div class="col-12 col-sm-6">
-            <h3>Comments</h3>
             <?php 
                 if(count($comments) <= 3){
+                    echo "<h3>Comments</h3>";
                     $maxCounter = count($comments);
                 }
                 else{
                     $maxCounter = 3;
-                    echo "<button type='button' id='showcommsbut' data-toggle='modal' data-target='#CommentsModal' class='btn btn-primary'>View All</button>";
+                    echo "<h3>Comments</h3> <button type='button' id='showcommsbut' data-toggle='modal' data-target='#CommentsModal' class='btn btn-primary'>View All</button>";
                 }
                 for($i = 0; $i < $maxCounter; $i++){
             ?>
