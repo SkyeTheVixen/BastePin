@@ -220,8 +220,6 @@
     </div>
     <?php } ?>
 </div>
-</div>
-<!-- End Main Page Content -->
 
 <div class="modal" id="CommentsModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -253,6 +251,10 @@
         </div>
     </div>
 </div>
+
+
+<!-- End Main Page Content -->
+
 
 
 <?php include("res/php/footer.php"); ?>
