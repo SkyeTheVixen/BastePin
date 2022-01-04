@@ -25,6 +25,8 @@
         if($baste["ExpiresAt"] < date("Y-m-d H:i:s") && $baste["ExpiresAt"] != "0000-00-00 00:00:00" && $baste["ExpiresAt"] != "" && $baste["ExpiresAt"] != NULL) {
             echo "<script>window.location.href=\"../expired\"</script>";
         }
+
+        //Favourites
         $sql = "SELECT * FROM `tblFavourites` WHERE  `tblFavourites`.`BasteID` = ? AND `tblFavourites`.`UserID` = ?";
         $stmt = $mysqli -> prepare($sql);
         $stmt->bind_param('ss', $basteID, $_SESSION["UserID"]);
@@ -32,6 +34,9 @@
         $favres = $stmt->get_result();
         $mysqli -> commit();
         $stmt -> close();
+
+        //Comments
+        $comments = fetchComments($mysqli, $basteID);
     }
     else{
         $sql = "SELECT * FROM `tblBastes` WHERE  `tblBastes`.`Visibility` = 2 OR `tblBastes`.`UserID` = ? ORDER BY `tblBastes`.`CreatedAt` DESC";

@@ -157,4 +157,24 @@
             return number_format($size/(1<<10),2)."KB";
         return number_format($size)." bytes";
     }
+
+    function fetchComments($mysqli, $basteID)
+    {
+        $mysqli->autocommit(false);
+        $sql = "SELECT * FROM `tblComments` WHERE `tblComments`.`BasteID` = ? ORDER BY `tblComments`.`CreatedAt` DESC";
+        $stmt = $mysqli->prepare($sql);
+        $stmt->bind_param('s', $basteID);
+        $stmt -> execute();
+        $result = $stmt->get_result();
+        if($result -> num_rows > 0){
+            $Comments = $result->fetch_all(MYSQLI_ASSOC);
+            echo $Comments;
+            $mysqli->commit();
+            $stmt->close();
+            return $Comments;
+        }
+        $mysqli -> rollback();
+        $stmt->close();
+        return false;
+    }
 ?>
