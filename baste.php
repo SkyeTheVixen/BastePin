@@ -139,7 +139,7 @@
                 }
                 else{
                     $maxCounter = 3;
-                    echo "<h3>Comments</h3> <button type='button' id='showcommsbut' data-toggle='modal' data-target='#CommentsModal' class='btn btn-primary'>View All</button>";
+                    echo "<h3>Comments <button type='button' id='showcommsbut' data-toggle='modal' data-target='#CommentsModal' class='btn btn-primary'>View All</button></h3>";
                 }
                 for($i = 0; $i < $maxCounter; $i++){
             ?>
