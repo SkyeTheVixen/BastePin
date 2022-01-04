@@ -168,7 +168,7 @@
         $result = $stmt->get_result();
         if($result -> num_rows > 0){
             $Comments = $result->fetch_all(MYSQLI_ASSOC);
-            echo $Comments;
+            var_dump($Comments);
             $mysqli->commit();
             $stmt->close();
             return $Comments;
