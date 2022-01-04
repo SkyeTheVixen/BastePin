@@ -219,38 +219,40 @@
         </div>
     </div>
     <?php } ?>
-</div>
 
-<div class="modal" id="CommentsModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">All Comments</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <?php for($i = 0; $i < $maxCounter; $i++) { ?>
-                <div class="row py-1">
-                    <div class="card">
-                        <div class="card-body">
-                            <?php $time = time_elapsed_string($comments[$i]["CreatedAt"]); $user = GetUserById($mysqli, $comments[$i]["UserID"]); ?>
-                            <p class="card-text">
-                                <strong><?php echo htmlspecialchars($user["FirstName"] . " " . $user["LastName"]);?></strong>
-                                <?php echo ": " . $comments[$i]["CommentValue"]; echo "<br>" . $time ?></p>
+    <!-- Comments Modal -->
+    <div class="modal" id="CommentsModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">All Comments</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <?php for($i = 0; $i < $maxCounter; $i++) { ?>
+                    <div class="row py-1">
+                        <div class="card">
+                            <div class="card-body">
+                                <?php $time = time_elapsed_string($comments[$i]["CreatedAt"]); $user = GetUserById($mysqli, $comments[$i]["UserID"]); ?>
+                                <p class="card-text">
+                                    <strong><?php echo htmlspecialchars($user["FirstName"] . " " . $user["LastName"]);?></strong>
+                                    <?php echo ": " . $comments[$i]["CommentValue"]; echo "<br>" . $time ?></p>
+                            </div>
                         </div>
                     </div>
+                    <?php } ?>
                 </div>
-                <?php } ?>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Save changes</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
+    <!-- End Comments Modal -->
+
+
 </div>
+
+
 
 
 <!-- End Main Page Content -->
