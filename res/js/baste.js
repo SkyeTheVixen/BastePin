@@ -54,7 +54,7 @@ $(document).ready(function(){
     $('#commentForm').submit(function(event){
         event.preventDefault();
         $.ajax({
-            url: 'res/php/addcomment.php',
+            url: '../res/php/addcomment.php',
             type: 'POST',
             data: {
                 basteID: $('#fav').attr("data-basteid"),
