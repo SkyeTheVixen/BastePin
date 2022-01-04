@@ -136,10 +136,10 @@
             <?php 
                 if(count($comments) <= 3){
                     $maxCounter = count($comments);
-                    echo "<a data-toggle='modal' data-target='#CommentsModal' class='btn btn-primary'>View All</a>";
                 }
                 else{
                     $maxCounter = 3;
+                    echo "<a data-toggle='modal' data-target='#CommentsModal' class='btn btn-primary'>View All</a>";
                 }
                 for($i = 0; $i < $maxCounter; $i++){
             ?>
