@@ -142,16 +142,23 @@
                 }
                 for($i = 0; $i < $maxCounter; $i++){
             ?>
-            <div class="row">
-                <div class="card">
-                    <div class="card-body">
-                        <?php $time = strtotime($rows["CreatedAt"]); $user = GetUserById($mysqli, $comments[$i]["UserID"]); ?>
-                        <p class="card-text">
-                            <strong><?php echo htmlspecialchars($user["FirstName"] . " " . $user["LastName"]);?></strong> <?php echo ": " . $comments[$i]["CommentValue"]; echo "<br>" . date("d M Y @ H:i", $comments[$i]["CreatedAt"]) ?></p>
+                <div class="row py-1">
+                    <div class="card">
+                        <div class="card-body">
+                            <?php $time = strtotime($rows["CreatedAt"]); $user = GetUserById($mysqli, $comments[$i]["UserID"]); ?>
+                            <p class="card-text">
+                                <strong><?php echo htmlspecialchars($user["FirstName"] . " " . $user["LastName"]);?></strong> <?php echo ": " . $comments[$i]["CommentValue"]; echo "<br>" . date("d M Y @ H:i", $comments[$i]["CreatedAt"]) ?></p>
+                        </div>
                     </div>
                 </div>
-            </div>
             <?php } ?>
+            <form id="commentForm">
+                <div class="form-group">
+                    <label for="comment">Comment</label>
+                    <textarea class="form-control" id="comment" rows="2"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Comment</button>
+            </form>
         </div>
 
 
