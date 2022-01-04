@@ -147,9 +147,7 @@
                     <div class="card-body">
                         <?php $time = strtotime($rows["CreatedAt"]); $user = GetUserById($mysqli, $comments[$i]["UserID"]); ?>
                         <p class="card-text">
-                            <?php echo htmlspecialchars($user["FirstName"] . " " . $user["LastName"].": "); echo $comments[$i]["CommentValue"] ?>
-                        </p>
-                        <p class="card-text"><?php echo date("d M Y @ H:i", $comments[$i]["CreatedAt"]) ?></p>
+                            <strong><?php echo htmlspecialchars($user["FirstName"] . " " . $user["LastName"]);?></strong> <?php echo ": " . $comments[$i]["CommentValue"]; echo "\n" . date("d M Y @ H:i", $comments[$i]["CreatedAt"]) ?></p>
                     </div>
                 </div>
             </div>
@@ -198,16 +196,16 @@
         <h2 class="text-center">All Bastes</h2>
         <div class="row">
             <?php while($rows = $result -> fetch_array(MYSQLI_ASSOC)) { ?>
-            <div class="col-12 col-md-6 col-lg-4 mb-1">
-                <div class="card">
-                    <div class="card-body">
-                        <?php $time = strtotime($rows["CreatedAt"]); ?>
-                        <h5 class="card-title"><?php echo htmlspecialchars($rows['BasteName']); ?></h5>
-                        <p class="card-text"><?php echo date("d M Y @ H:i", $time) ?></p>
-                        <a href="<?php echo $rows['BasteID']; ?>" class="btn btn-primary">View Baste</a>
+                <div class="col-12 col-md-6 col-lg-4 mb-1">
+                    <div class="card">
+                        <div class="card-body">
+                            <?php $time = strtotime($rows["CreatedAt"]); ?>
+                            <h5 class="card-title"><?php echo htmlspecialchars($rows['BasteName']); ?></h5>
+                            <p class="card-text"><?php echo date("d M Y @ H:i", $time) ?></p>
+                            <a href="<?php echo $rows['BasteID']; ?>" class="btn btn-primary">View Baste</a>
+                        </div>
                     </div>
                 </div>
-            </div>
             <?php } ?>
         </div>
     </div>
