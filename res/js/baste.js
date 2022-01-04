@@ -58,7 +58,7 @@ $(document).ready(function(){
             type: 'POST',
             data: {
                 basteID: $('#fav').attr("data-basteid"),
-                comment: $('#comment').val()
+                commentValue: $('#comment').val()
             },
             success: function(data){
                 var dataResult = JSON.parse(data);
@@ -82,5 +82,5 @@ $(document).ready(function(){
                 }
             }
         });
-    }
+    });
 });
