@@ -65,7 +65,6 @@
                         <p class="card-text">
                             <ul class="list-unstyled">
                                 <li>- Unlimited Bastes</li>
-                                <li>- Password Protection</li>
                                 <li>- Baste Expiration</li>
                                 <li>- Private and Unlisted Bastes</li>
                                 <li>- Priority Support</li>
