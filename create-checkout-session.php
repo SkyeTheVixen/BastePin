@@ -9,9 +9,17 @@
     }else if(file_exists("./vendor/autoload.php")){
         require './vendor/autoload.php';
     }
+
+    include("res/php/_connect.php");
     include("res/php/functions.inc.php");
+    include("res/php/_authcheck.php");
+
     $token = GenerateID();
     $_SESSION["paymenttoken"] = $token;
+
+
+
+
 
     // This is your test secret API key.
     \Stripe\Stripe::setApiKey('sk_test_51K4lnWDflgYeQa2HKOTtwoswPLs0LfGZcnVktV703ByBz5AIoNAsX7cbCqr8ET4LARibQNiZph0MKAmRy2sGyHC000nTrvr4Oe');
