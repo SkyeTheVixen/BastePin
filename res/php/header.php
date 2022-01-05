@@ -1,4 +1,13 @@
 <?php 
+    function endsWith( $inputstr, $checkstr ) {
+        $length = strlen( $checkstr );
+        if( !$length ) {
+            return true;
+        }
+        return substr( $inputstr, -$length ) === $checkstr;
+    }
+
+
     if($currentPage == "baste" || $currentPage == "profile" || $currentPage == "account" || $currentPage == "editbaste"){
         $pathHead = "../res/";
     } 
@@ -6,8 +15,8 @@
         $pathHead = "res/";
     }
 
-    if($currentPage == "account" && str_ends_with($_SERVER['REQUEST_URI'], "/")){
-        $pathHead = "res/";
+    if($currentPage == "account" && endsWith($_SERVER['REQUEST_URI'], "/")){
+        header("Location: account/");
     }
 ?>
 
