@@ -2,6 +2,7 @@
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\SMTP;
     use PHPMailer\PHPMailer\Exception;
+
     if(file_exists("../vendor/autoload.php")){
         require '../vendor/autoload.php';
     }else if(file_exists("../../vendor/autoload.php")){
@@ -11,6 +12,8 @@
     }else if(file_exists("./vendor/autoload.php")){
         require './vendor/autoload.php';
     }
+    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+    $dotenv->load();
 
     function GenerateID() {
         $IDData = $IDData ?? random_bytes(16);
