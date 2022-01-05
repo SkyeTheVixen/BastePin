@@ -15,7 +15,7 @@
         $pathHead = "res/";
     }
 
-    if($currentPage == "account" && endsWith($_SERVER['REQUEST_URI'], "/")){
+    if($currentPage == "account" && !endsWith($_SERVER['REQUEST_URI'], "/")){
         header("Location: account/");
     }
 ?>
