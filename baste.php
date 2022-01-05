@@ -55,6 +55,7 @@
     <!-- If there is a baste -->
     <?php if(!($_GET["BasteID"] == "")) {?>
     <?php
+            if($baste[""])
             if($baste["Visibility"] == 0 && $baste["UserID"] != $_SESSION["UserID"]) {
                 echo "<script> window.location.href='../index?er=insufperm'</script>";
             }
