@@ -18,7 +18,7 @@
         } else if($_GET["er"] == "invaltoken") {
             echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'The payment token was invalid', heightAuto: false });</script>"; 
         } else if($_GET["er"] == "success") {
-            echo "<script>Swal.fire({ icon: 'success', title: 'Congrats!', text: 'You're now premium!', heightAuto: false });</script>"; 
+            echo "<script>Swal.fire({ icon: 'success', title: 'Congrats!', text: 'You\'re now premium!', heightAuto: false });</script>"; 
         }
     }
 ?>
