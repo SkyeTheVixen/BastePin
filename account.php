@@ -14,6 +14,8 @@
             echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'You did not have sufficient permission to do that', heightAuto: false });</script>"; 
         } else if($_GET["er"] == "nobastedel") {
             echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'There was no baste to delete', heightAuto: false });</script>"; 
+        }  else if($_GET["er"] == "success") {
+            echo "<script>Swal.fire({ icon: 'success', title: 'Congrats!', text: 'You\'re now premium!', heightAuto: false });</script>"; 
         }
     } 
 ?>

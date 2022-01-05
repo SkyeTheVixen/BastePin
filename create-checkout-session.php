@@ -28,7 +28,7 @@
         ]],
         'mode' => 'payment',
         'success_url' => $YOUR_DOMAIN . '/paymentSuccess.php?token=' . $token,
-        'cancel_url' => $YOUR_DOMAIN . '/premium.php?er=cancel',
+        'cancel_url' => $YOUR_DOMAIN . '/premium?er=cancel',
     ]);
 
     header("HTTP/1.1 303 See Other");

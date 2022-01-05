@@ -5,12 +5,12 @@
     $mysqli->autocommit(false);
     if(!isset($_SESSION["paymenttoken"]) || !isset($_GET["token"]))
     {
-        header("Location: premium.php?er=invaltoken");
+        header("Location: premium?er=invaltoken");
         exit();
     }
     if($_SESSION["paymenttoken"] != $_GET["token"])
     {
-        header("Location: premium.php?er=invaltoken");
+        header("Location: premium?er=invaltoken");
         exit();
     }
 
@@ -21,5 +21,5 @@
     $stmt->close();
     $mysqli->commit();
     $_SESSION["paymenttoken"] = "";
-    header("Location: premium.php?er=success");
+    header("Location: account?er=success");
 ?>

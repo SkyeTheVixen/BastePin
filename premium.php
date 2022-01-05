@@ -1,13 +1,18 @@
-<?php session_start();?>
-<?php $title="Premium | VDBP"; ?>
-<?php $currentPage="premium"; ?>
-<?php include("res/php/_authcheck.php"); ?>
-<?php include("res/php/_connect.php"); ?>
-<?php include("res/php/header.php"); ?>
-<?php include("res/php/navbar.php"); ?>
-<?php include("res/php/functions.inc.php"); ?>
-<!-- If there is an error -->
-<?php
+<?php 
+    session_start();
+    $title="Premium | VDBP";
+    $currentPage="premium";
+    include("res/php/_authcheck.php");
+    include("res/php/_connect.php");
+    include("res/php/header.php");
+    include("res/php/navbar.php");
+    include("res/php/functions.inc.php");
+
+    $user = GetUser($connect);
+    if($user["IsPremium"]) {
+        echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'You are already premium!', heightAuto: false }).then(function(){window.location.href='account';});</script>"; 
+    }
+
     if(isset($_GET["er"])) {
         if($_GET["er"] == "insufperm") {
             echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'You did not have sufficient permission to do that', heightAuto: false });</script>"; 
@@ -17,8 +22,6 @@
             echo "<script>Swal.fire({ icon: 'warning', title: 'Payment cancelled.', text: 'You can always upgrade later', heightAuto: false });</script>"; 
         } else if($_GET["er"] == "invaltoken") {
             echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'The payment token was invalid', heightAuto: false });</script>"; 
-        } else if($_GET["er"] == "success") {
-            echo "<script>Swal.fire({ icon: 'success', title: 'Congrats!', text: 'You\'re now premium!', heightAuto: false });</script>"; 
         }
     }
 ?>
