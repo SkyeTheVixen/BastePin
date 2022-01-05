@@ -1,7 +1,7 @@
 <?php
 
+    //Require the autoload script
     require("autoload.php");
-
     $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
     $dotenv->load();
 
@@ -14,6 +14,6 @@
     //Connect to Maria Server
     $connect = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
     if(!$connect) {
-        die("Connection failed: " . mysqli_connect_error());
+        die("Connection failed: " . mysqli_connect_error(). "\n" . $_ENV["DB_PASS"]);
     }
 ?>
