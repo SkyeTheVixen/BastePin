@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
     include("res/php/_connect.php");
     $mysqli = $connect;
     $mysqli->autocommit(false);
@@ -20,4 +20,6 @@
     $stmt->execute();
     $stmt->close();
     $mysqli->commit();
+    $_SESSION["paymenttoken"] = "";
+    header("Location: premium.php?er=success");
 ?>
