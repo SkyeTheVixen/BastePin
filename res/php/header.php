@@ -6,8 +6,8 @@
         $pathHead = "res/";
     }
 
-    if($currentPage == "account" && str_ends_with($_SERVER['REQUEST_URI'], '/')){
-        header("Location: account/");
+    if($currentPage == "account" && str_ends_with($_SERVER['REQUEST_URI'], "/")){
+        $pathHead = "res/";
     }
 ?>
 
