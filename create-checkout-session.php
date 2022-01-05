@@ -14,10 +14,10 @@
     include("res/php/functions.inc.php");
     include("res/php/_authcheck.php");
 
+
+    //Generate a payment token
     $token = GenerateID();
     $_SESSION["paymenttoken"] = $token;
-
-
 
 
 
@@ -31,7 +31,7 @@
     $checkout_session = \Stripe\Checkout\Session::create([
         'line_items' => [[
             # Provide the exact Price ID (e.g. pr_1234) of the product you want to sell
-            'price' => 'price_1K9eIdDflgYeQa2HCnJvpWzk',
+            'price' => 'price_1KEYvxDflgYeQa2HcZOdTyEi',
             'quantity' => 1,
         ]],
         'mode' => 'payment',
@@ -39,6 +39,7 @@
         'cancel_url' => $YOUR_DOMAIN . '/premium?er=cancel',
     ]);
 
+    //redirect to checkout page
     header("HTTP/1.1 303 See Other");
     header("Location: " . $checkout_session->url)
 

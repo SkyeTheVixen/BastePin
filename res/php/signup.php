@@ -16,8 +16,8 @@
             exit();
         }
         $UserID = GenerateID();
-        $FirstName = $_POST["FirstName"];
-        $LastName = $_POST["LastName"];
+        $FirstName = ucfirst(strtolower($_POST["FirstName"]));
+        $LastName = ucfirst(strtolower($_POST["LastName"]));
         $Email = $_POST["Email"];
         $Password = password_hash($Password, 1, array('cost' => 10));
         
