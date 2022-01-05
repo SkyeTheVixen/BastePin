@@ -13,6 +13,8 @@
             echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'You did not have sufficient permission to do that', heightAuto: false });</script>"; 
         } else if($_GET["er"] == "nobastedel") {
             echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'There was no baste to delete', heightAuto: false });</script>"; 
+        } else if($_GET["er"] == "cancel") {
+            echo "<script>Swal.fire({ icon: 'warning', title: 'Payment cancelled.', text: 'You can always upgrade later', heightAuto: false });</script>"; 
         }
     }
 ?>
@@ -66,7 +68,9 @@
                     </div>
                     <div class="card-footer">
                         <h5 class="card-title">$9.99</h5>
-                        <a href="payment" class="btn btn-primary">Upgrade to premium</a>
+                        <form action="create-checkout-session.php" method="POST">
+                            <button type="submit" class="btn btn-primary" id="checkout-button">Upgrade to premium</button>
+                        </form>
                     </div>
                 </div>
             </div>
