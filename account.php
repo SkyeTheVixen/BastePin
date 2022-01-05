@@ -1,14 +1,14 @@
-<?php session_start();?>
-<?php $title="Account | VDBP"; ?>
-<?php $currentPage="account"; ?>
-<?php include("res/php/_connect.php"); ?>
-<?php include("res/php/_authcheck.php"); ?>
-<?php include("res/php/header.php"); ?>
-<?php include("res/php/navbar.php"); ?>
-<?php include("res/php/functions.inc.php"); ?>
-<?php $user = getProfile($connect); ?>
-<!-- If there is an error -->
-<?php
+<?php 
+    session_start();
+    $title="Account | VDBP";
+    $currentPage="account";
+    include("res/php/_connect.php"); 
+    include("res/php/_authcheck.php");
+    include("res/php/header.php");
+    include("res/php/navbar.php");
+    include("res/php/functions.inc.php");
+    $user = getProfile($connect);
+    //If there is an error
     if(isset($_GET["er"])) {
         if($_GET["er"] == "insufperm") {
             echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'You did not have sufficient permission to do that', heightAuto: false });</script>"; 

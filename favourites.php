@@ -1,9 +1,10 @@
-<!-- Header stuff -->
 <?php 
+    //Header stuff
     session_start();
     $title="Favourite | VDBP";
     $currentPage="favourites";
     include("res/php/_connect.php");
+    include("res/php/_authcheck.php");
     include("res/php/header.php");
     include("res/php/navbar.php");
     include("res/php/functions.inc.php");

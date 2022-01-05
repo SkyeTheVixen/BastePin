@@ -40,9 +40,9 @@ $(document).ready(function () {
                             
                             if (DataResult.statusCode === 200) {
                                 Swal.fire({
-                                    icon: 'error',
-                                    title: 'Oops...',
-                                    text: 'Please enter all required fields.',
+                                    icon: 'success',
+                                    title: 'Congratulations!',
+                                    text: 'Baste Added.',
                                     heightAuto: false
                                 }).then(function(){
                                     location.href = "baste/" + DataResult.basteId;
@@ -94,6 +94,8 @@ $(document).ready(function () {
                                     title: 'Congratulations!',
                                     text: 'Baste Added.',
                                     heightAuto: false
+                                }).then(function(){
+                                    location.href = "baste/" + DataResult.basteId;
                                 });
                             } else if (DataResult.statusCode === 201) {
                                 Swal.fire({
