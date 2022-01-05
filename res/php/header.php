@@ -1,4 +1,5 @@
 <?php 
+    //Function to get the final character of a string
     function endsWith( $inputstr, $checkstr ) {
         $length = strlen( $checkstr );
         if( !$length ) {
@@ -7,7 +8,7 @@
         return substr( $inputstr, -$length ) === $checkstr;
     }
 
-
+    //Set the right paths
     if($currentPage == "baste" || $currentPage == "profile" || $currentPage == "account" || $currentPage == "editbaste"){
         $pathHead = "../res/";
     } 
@@ -15,6 +16,7 @@
         $pathHead = "res/";
     }
 
+    //If visiting account page with no slash at the end, redirect to account/
     if($currentPage == "account" && !endsWith($_SERVER['REQUEST_URI'], "/")){
         header("Location: account/");
     }
@@ -40,20 +42,18 @@
     <meta name="msapplication-config" content="<?php echo $pathHead;?>favicon/browserconfig.xml">
     <meta name="theme-color" content="#0b2033">
     <title><?php echo($title); ?></title>
-    <!-- End Metadata -->
+
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="<?php echo $pathHead;?>css/<?php echo($currentPage); ?>.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/styles/default.min.css">
     <?php if($currentPage == "baste"){?><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css"><?php }?>
-    <!-- End Stylesheets -->
+
 
     <!-- Important Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/93e867abff.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/highlight.min.js"></script>

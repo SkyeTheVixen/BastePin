@@ -1,4 +1,5 @@
 <?php 
+    //Get the correct file path
     if($currentPage == "baste" || $currentPage == "profile" || $currentPage == "account"){
         $pathHead = "../res/";
         $pageredirect = "../";
@@ -27,6 +28,10 @@
     </ul>
     <p class="text-center text-muted pb-3">© 2021 Vixendev</p>
 </footer>
+
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+
 </body>
 
 
