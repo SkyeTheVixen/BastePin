@@ -83,7 +83,6 @@
     }
 
     function sendMail($email, $userName,  $subject, $message, $altMessage){
-        include_once("_pass.php");
         $mail = new PHPMailer(true);
         try {
             //Server settings
@@ -91,7 +90,7 @@
             $mail->Host       = 'mail.vixendev.com';
             $mail->SMTPAuth   = true;
             $mail->Username   = 'no-reply@vixendev.com';
-            $mail->Password   = $mailPass;
+            $mail->Password   = $_ENV["MAIL_PASS"];
             $mail->Port       = 465;
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
 
