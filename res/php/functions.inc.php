@@ -12,7 +12,7 @@
     }else if(file_exists("./vendor/autoload.php")){
         require './vendor/autoload.php';
     }
-    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+    $dotenv = Dotenv\Dotenv::createImmutable("../../");
     $dotenv->load();
 
     function GenerateID() {
