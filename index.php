@@ -73,7 +73,7 @@
         <div class="row mt-5">
             <div class="col-12 col-md-6 col-lg-6">
                 <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" width=100% height=385 src="https://www.youtube-nocookie.com/embed/OTq6x9EysQ0?controls=1" alloq="encrypted-media;" allowfullscreen></iframe>
+                    <iframe class="embed-responsive-item" width=100% height=385 src="https://www.youtube-nocookie.com/embed/OTq6x9EysQ0?controls=1&origin=https://skytest.xyz/Bastepin" alloq="encrypted-media;" allowfullscreen></iframe>
                 </div>
             </div>
             <div class="col-6 col-sm-12">
