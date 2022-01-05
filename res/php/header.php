@@ -5,6 +5,10 @@
     else {
         $pathHead = "res/";
     }
+
+    if($currentPage == "account"){
+        echo $_SERVER['REQUEST_URI'];
+    }
 ?>
 
 
