@@ -35,9 +35,7 @@ $(document).ready(function () {
                         },
                         cache: false,
                         success: function (dataResult) {
-                            console.log(dataResult);
                             var DataResult = JSON.parse(dataResult);
-                            
                             if (DataResult.statusCode === 200) {
                                 Swal.fire({
                                     icon: 'success',
@@ -95,7 +93,7 @@ $(document).ready(function () {
                                     text: 'Baste Added.',
                                     heightAuto: false
                                 }).then(function(){
-                                    location.href = "baste/" + DataResult.basteId;
+                                    location.href = "baste/" + DataResult.basteID;
                                 });
                             } else if (DataResult.statusCode === 201) {
                                 Swal.fire({
