@@ -10,9 +10,9 @@
         require './vendor/autoload.php';
     }
 
-    include("res/php/_connect.php");
-    include("res/php/functions.inc.php");
-    include("res/php/_authcheck.php");
+    include("_connect.php");
+    include("functions.inc.php");
+    include("_authcheck.php");
 
 
     //Generate a payment token

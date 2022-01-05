@@ -90,7 +90,7 @@
                         <?php if($favres->num_rows > 0){echo "class='fas fa-star'";} else {echo "class='far fa-star'";} ?>></i></a>
                 <?php if($baste["UserID"] == $_SESSION["UserID"]){ ?>
                 <a href="../editbaste/<?php echo $basteID; ?>"><i class="fas fa-pen"></i></a>
-                <a href="../deletebaste/<?php echo $basteID; ?>"><i class="fas fa-trash"></i></a>
+                <a href="..res/php/deletebaste/<?php echo $basteID; ?>"><i class="fas fa-trash"></i></a>
             </div>
             <?php } ?>
         </div>

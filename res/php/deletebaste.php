@@ -33,7 +33,7 @@
         $mysqli->commit();
         $stmt2->close();
         $mysqli->close();
-        header("Location: ../index?er=bastedelsuc");
+        header("Location: ../../index?er=bastedelsuc");
     }
 
 ?>  

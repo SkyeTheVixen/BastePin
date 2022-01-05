@@ -75,7 +75,7 @@
                     </div>
                     <div class="card-footer">
                         <h5 class="card-title">$9.99</h5>
-                        <form action="create-checkout-session.php" method="POST">
+                        <form action="res/php/create-checkout-session.php" method="POST">
                             <button type="submit" class="btn btn-primary" id="checkout-button">Upgrade to premium</button>
                         </form>
                     </div>
