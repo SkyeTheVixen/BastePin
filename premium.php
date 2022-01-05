@@ -15,6 +15,8 @@
             echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'There was no baste to delete', heightAuto: false });</script>"; 
         } else if($_GET["er"] == "cancel") {
             echo "<script>Swal.fire({ icon: 'warning', title: 'Payment cancelled.', text: 'You can always upgrade later', heightAuto: false });</script>"; 
+        } else if($_GET["er"] == "invaltoken") {
+            echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'The payment token was invalid', heightAuto: false });</script>"; 
         }
     }
 ?>
