@@ -9,8 +9,19 @@
     }else if(file_exists("./vendor/autoload.php")){
         require './vendor/autoload.php';
     }
-    $dotenv = Dotenv\Dotenv::createImmutable("../../");
-    $dotenv->load();
+    if(file_exists("../../env.php")){
+        $dotenv = Dotenv\Dotenv::createImmutable("../../.env");
+        $dotenv->load();
+    } else if(file_exists("../.env")){
+        $dotenv = Dotenv\Dotenv::createImmutable("../.env");
+        $dotenv->load();
+    } else if(file_exists(".env")){
+        $dotenv = Dotenv\Dotenv::createImmutable(".env");
+        $dotenv->load();
+    } else if(file_exists("./.env")){
+        $dotenv = Dotenv\Dotenv::createImmutable("./.env");
+        $dotenv->load();
+    }
 
     //Connection Information
     $db_host = "localhost";
