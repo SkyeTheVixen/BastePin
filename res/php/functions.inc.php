@@ -12,19 +12,8 @@
     }else if(file_exists("./vendor/autoload.php")){
         require './vendor/autoload.php';
     }
-    if(file_exists("../../env.php")){
-        $dotenv = Dotenv\Dotenv::createImmutable("../../.env");
-        $dotenv->load();
-    } else if(file_exists("../.env")){
-        $dotenv = Dotenv\Dotenv::createImmutable("../.env");
-        $dotenv->load();
-    } else if(file_exists(".env")){
-        $dotenv = Dotenv\Dotenv::createImmutable(".env");
-        $dotenv->load();
-    } else if(file_exists("./.env")){
-        $dotenv = Dotenv\Dotenv::createImmutable("./.env");
-        $dotenv->load();
-    }
+    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+    $dotenv->load();
     
     function GenerateID() {
         $IDData = $IDData ?? random_bytes(16);
