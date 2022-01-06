@@ -135,7 +135,7 @@
         <!-- Comments -->
         <div class="col-12 col-sm-6">
             <?php 
-                if(!$comments == false){
+                if(!$comments === false){
                     if(count($comments) <= 3){
                         echo "<h3>Comments</h3>";
                         $maxCounter = count($comments);
@@ -157,15 +157,17 @@
                     </div>
                 </div>
             <?php } ?>
-            <?php } ?>
-            <form id="commentForm">
-                <div class="form-group">
-                    <label for="comment">Comment</label>
-                    <textarea class="form-control" id="comment" rows="2"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit Comment</button>
-            </form>
-        </div>
+            <?php } else { ?>
+            <h3>Comments</h3>
+                <form id="commentForm">
+                    <div class="form-group">
+                        <label for="comment">Comment</label>
+                        <textarea class="form-control" id="comment" rows="2"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Comment</button>
+                </form>
+            </div>
+        <?php } ?>
 
 
         <!-- Other Bastes -->
