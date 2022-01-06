@@ -135,26 +135,28 @@
         <!-- Comments -->
         <div class="col-12 col-sm-6">
             <?php 
-                if(count($comments) <= 3){
-                    echo "<h3>Comments</h3>";
-                    $maxCounter = count($comments);
-                }
-                else{
-                    $maxCounter = 3;
-                    echo "<h3>Comments <button type='button' id='showcommsbut' data-toggle='modal' data-target='#CommentsModal' class='btn btn-primary'>View All</button></h3>";
-                }
-                for($i = 0; $i < $maxCounter; $i++){
+                if(!$comments == false){
+                    if(count($comments) <= 3){
+                        echo "<h3>Comments</h3>";
+                        $maxCounter = count($comments);
+                    }
+                    else{
+                        $maxCounter = 3;
+                        echo "<h3>Comments <button type='button' id='showcommsbut' data-toggle='modal' data-target='#CommentsModal' class='btn btn-primary'>View All</button></h3>";
+                    }
+                    for($i = 0; $i < $maxCounter; $i++){
             ?>
-            <div class="row py-1">
-                <div class="card">
-                    <div class="card-body">
-                        <?php $time = time_elapsed_string($comments[$i]["CreatedAt"]); $user = GetUserById($mysqli, $comments[$i]["UserID"]); ?>
-                        <p class="card-text">
-                            <strong><?php echo htmlspecialchars($user["FirstName"] . " " . $user["LastName"]);?></strong>
-                            <?php echo ": " . $comments[$i]["CommentValue"]; echo "<br>" . $time ?></p>
+                <div class="row py-1">
+                    <div class="card">
+                        <div class="card-body">
+                            <?php $time = time_elapsed_string($comments[$i]["CreatedAt"]); $user = GetUserById($mysqli, $comments[$i]["UserID"]); ?>
+                            <p class="card-text">
+                                <strong><?php echo htmlspecialchars($user["FirstName"] . " " . $user["LastName"]);?></strong>
+                                <?php echo ": " . $comments[$i]["CommentValue"]; echo "<br>" . $time ?></p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            <?php } ?>
             <?php } ?>
             <form id="commentForm">
                 <div class="form-group">
