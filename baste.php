@@ -226,6 +226,7 @@
     </div>
     <?php } ?>
 
+    <?php if(!$comments === false){?>
     <!-- Comments Modal -->
     <div class="modal fade" id="CommentsModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -254,6 +255,7 @@
         </div>
     </div>
     <!-- End Comments Modal -->
+    <?php } ?>
 
 
 </div>
