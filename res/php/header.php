@@ -17,7 +17,7 @@
     }
 
     //If visiting account page with no slash at the end, redirect to account/
-    if($currentPage == "account" && (!endsWith($_SERVER['REQUEST_URI'], "/")){
+    if($currentPage == "account" && (!endsWith($_SERVER['REQUEST_URI'], "/"))){
         header("Location: account/");
     }
 ?>
