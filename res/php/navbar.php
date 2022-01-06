@@ -13,7 +13,7 @@
     <!-- Navigation bar -->
     <nav class="navbar navbar-dark navbar-expand-lg">
         <div class="container-fluid">
-            <a class="navbar-brand text-light" href="index">
+            <a class="navbar-brand text-light" href="<?php echo $pageredirect;?>index">
                 <img src="<?php echo $pathHead;?>img/vdLogoFull.png" alt="VD Training Logo" width="30" height="24"
                     class="d-inline-block align-text-top">
                 BastePin
