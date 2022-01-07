@@ -51,8 +51,8 @@
 
         $fullName = $FirstName . " " . $LastName;
         $subject = "Bastepin | Confirm Your Email Address";
-        $message = "https://skytest.xyz/Bastepin/activate.php?activationCode=" . $UserID;
-        $altMessage = "https://skytest.xyz/Bastepin/activate.php?activationCode=" . $UserID;
+        $message = "https://bastepin.vixendev.com/activate.php?activationCode=" . $UserID;
+        $altMessage = "https://bastepin.vixendev.com/activate.php?activationCode=" . $UserID;
         sendMail($Email, $fullName, $subject, $message, $altMessage);
         echo json_encode(array("statusCode" => 200));
 

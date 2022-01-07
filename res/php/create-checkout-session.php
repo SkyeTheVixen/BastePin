@@ -26,7 +26,7 @@
 
     header('Content-Type: application/json');
 
-    $YOUR_DOMAIN = 'https://skytest.xyz/Bastepin';
+    $YOUR_DOMAIN = 'https://bastepin.vixendev.com';
 
     $checkout_session = \Stripe\Checkout\Session::create([
         'line_items' => [[

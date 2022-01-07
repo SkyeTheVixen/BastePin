@@ -33,8 +33,8 @@
     
     $fullName = $row["FirstName"] . " " . $row["LastName"];
     $subject = "Bastepin | Password Reset";
-    $message = "https://skytest.xyz/Bastepin/newpass.php?token=" . $token;
-    $altMessage = "https://skytest.xyz/Bastepin/newpass.php?token=" . $token;
+    $message = "https://bastepin.vixendev.com/newpass.php?token=" . $token;
+    $altMessage = "https://bastepin.vixendev.com/newpass.php?token=" . $token;
     sendMail($email, $fullName, $subject, $message, $altMessage);
     echo json_encode(array("statusCode" => 200));
     $mysqli -> close();
