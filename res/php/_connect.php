@@ -5,13 +5,8 @@
     $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
     $dotenv->load();
 
-    //Connection Information
-    $db_host = "localhost";
-    $db_user = "WS255237_bastepin";
-    $db_name = "WS255237_bastepin";
-
     //Connect to Maria Server
-    $connect = mysqli_connect($db_host, $db_user, $_ENV["DB_PASS"], $db_name);
+    $connect = mysqli_connect($_ENV["DB_HOST"], $_ENV["DB_USER"], $_ENV["DB_PASS"], $_ENV["DB_NAME"]);
     if(!$connect) {
         die("Connection failed: " . mysqli_connect_error());
     }
