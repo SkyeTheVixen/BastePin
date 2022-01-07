@@ -1,4 +1,5 @@
 <?php
+
     session_start();
     
     //If the session isnt set, redirect to the login page
@@ -10,4 +11,5 @@
             header("Location: login");
         }
     }
+    
 ?>

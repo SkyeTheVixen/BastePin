@@ -1,9 +1,8 @@
 <?php
     //Imports
     session_start();
-    include_once('_connect.php');
-    include_once('functions.inc.php');
-    $mysqli = $connect;
+    include('_connect.php');
+    include('functions.inc.php');
     $mysqli->autocommit(false);
 
     //If user is not logged in, return to login page
