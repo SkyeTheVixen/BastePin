@@ -45,11 +45,11 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <h5>Name: <?php echo htmlspecialchars($user["FirstName"]." ".$user["LastName"]);?></h5>
-                    <h5>Bastes: <?php echo htmlspecialchars($user["BasteCount"]);?></h5>
-                    <h5>Company: <?php echo htmlspecialchars($user["Company"]);?></h5>
-                    <h5>Website: <?php echo htmlspecialchars($user["Website"]);?></h5>
-                    <h5>Location: <?php echo htmlspecialchars($user["Location"]);?></h5>
+                    <h5>Name: <?= htmlspecialchars($user["FirstName"]." ".$user["LastName"]);?></h5>
+                    <h5>Bastes: <?= htmlspecialchars($user["BasteCount"]);?></h5>
+                    <h5>Company: <?= $user["Company"] == null ? htmlspecialchars($user["Company"]) : "";?></h5>
+                    <h5>Website: <?= htmlspecialchars($user["Website"]);?></h5>
+                    <h5>Location: <?= htmlspecialchars($user["Location"]);?></h5>
                     <h5>Github: <a
                             href="https://github.com/<?php echo htmlspecialchars($user["Github"]);?>"><?php echo htmlspecialchars($user["Github"]);?></a>
                     </h5>
