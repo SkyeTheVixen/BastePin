@@ -10,11 +10,8 @@
     include("res/php/functions.inc.php");
     $mysqli->autocommit(FALSE);
     $User = GetUser($mysqli);
-?>
 
-<!-- Get all bastes -->
-<?php
-    $mysqli -> autocommit(FALSE);
+    //Get 3 most recent bastes
     $sql = "SELECT * FROM `tblBastes` WHERE `tblBastes`.`Visibility` = 2 OR `tblBastes`.`UserID` = ? AND (`tblBastes`.`ExpiresAt` > date('Y-m-d H:i:s') OR `tblBastes`.`ExpiresAt` = '0000-00-00 00:00:00' OR `tblBastes`.`ExpiresAt` = '' OR `tblBastes`.`ExpiresAt` = NULL) ORDER BY `tblBastes`.`CreatedAt` DESC LIMIT 3";
     $stmt = $mysqli -> prepare($sql);
     $stmt -> bind_param('s', $_SESSION["UserID"]);
@@ -22,10 +19,8 @@
     $result = $stmt->get_result();
     $mysqli -> commit();
     $stmt -> close();
-?>
 
-<!-- If there is an error -->
-<?php
+    //If there is an error
     if(isset($_GET["er"])) {
         if($_GET["er"] == "insufperm") {
             echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'You did not have sufficient permission to do that', heightAuto: false });</script>"; 
@@ -33,6 +28,8 @@
             echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'There was no baste to delete', heightAuto: false });</script>"; 
         }else if($_GET["er"] == "bastedelsuc") {
             echo "<script>Swal.fire({ icon: 'success', title: 'Deleted!', text: 'Baste has been deleted!', heightAuto: false });</script>"; 
+        } else if($_GET["er"] == "nobastefound") {
+            echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'There was no baste found with that ID, it may have been deleted', heightAuto: false });</script>"; 
         }
     }
 ?>

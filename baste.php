@@ -1,5 +1,5 @@
-    <!-- Header stuff -->
-<?php 
+<?php
+    //Header section
     session_start();
     $title="Baste | VDBP";
     $currentPage="baste";
@@ -7,8 +7,8 @@
     include("res/php/header.php");
     include("res/php/navbar.php");
     include("res/php/functions.inc.php");
-    $mysqli = $mysqli;
     $mysqli -> autocommit(FALSE);
+
     //If there is an error
     if(isset($_GET["er"])) {
         if($_GET["er"] == "insufperm") {
@@ -17,16 +17,28 @@
             echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'There was no baste to delete', heightAuto: false });</script>"; 
         }
     }
-?>
-<?php 
+
+    //If there is a baste ID, fetch it and check if its expired
     if(isset($_GET["BasteID"]) && $_GET["BasteID"] != "") {
         $basteID = $_GET["BasteID"];
         $baste = getBaste($mysqli, $basteID);
+
+        //If no baste is found
+        if($baste == null){
+            echo "<script>window.location.href='index?er=nobastefound'</script>";
+        }
+
+        //If the baste is private and the user is not the author
+        if($baste["Visibility"] == 0 && $baste["UserID"] != $_SESSION["UserID"]) {
+            echo "<script> window.location.href='../index?er=insufperm'</script>";
+        }
+
+        //If the baste is expired
         if($baste["ExpiresAt"] < date("Y-m-d H:i:s") && $baste["ExpiresAt"] != "0000-00-00 00:00:00" && $baste["ExpiresAt"] != "" && $baste["ExpiresAt"] != NULL) {
             echo "<script>window.location.href=\"../expired\"</script>";
         }
 
-        //Favourites
+        //Fetch User Favourite for this baste
         $sql = "SELECT * FROM `tblFavourites` WHERE  `tblFavourites`.`BasteID` = ? AND `tblFavourites`.`UserID` = ?";
         $stmt = $mysqli -> prepare($sql);
         $stmt->bind_param('ss', $basteID, $_SESSION["UserID"]);
@@ -53,24 +65,19 @@
 <div class="container">
 
     <!-- If there is a baste -->
-    <?php if(!($_GET["BasteID"] == "")) {?>
-    <?php
-            if($baste[""])
-            if($baste["Visibility"] == 0 && $baste["UserID"] != $_SESSION["UserID"]) {
-                echo "<script> window.location.href='../index?er=insufperm'</script>";
-            }
-            $BasteCreatedBy = GetUserById($mysqli, $baste["UserID"]);
-            $BasteCreatedBy = $BasteCreatedBy["FirstName"] . " " . $BasteCreatedBy["LastName"];
-            switch($baste["Visibility"]){
-                case 0:
-                    $visibility = "Private";
-                    break;
-                case 1:
-                    $visibility = "Unlisted";
-                    break;
-                case 2:
-                    $visibility = "Public";
-                    break;
+    <?php if(!($_GET["BasteID"] == "")) {
+        $BasteCreatedBy = GetUserById($mysqli, $baste["UserID"]);
+        $BasteCreatedBy = $BasteCreatedBy["FirstName"] . " " . $BasteCreatedBy["LastName"];
+        switch($baste["Visibility"]){
+            case 0:
+                $visibility = "Private";
+                break;
+            case 1:
+                $visibility = "Unlisted";
+                break;
+            case 2:
+                $visibility = "Public";
+                break;
             }
             $basteSize = byteConvert(mb_strlen($baste["BasteContents"]));
         ?>
@@ -166,9 +173,8 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Submit Comment</button>
                 </form>
-            </div>
-        <?php } ?>
-
+            <?php } ?>
+        </div>
 
         <!-- Other Bastes -->
         <div class="col-12 col-sm-6">
