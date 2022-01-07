@@ -4,7 +4,6 @@
     session_start();
     include_once('_connect.php');
     include_once('functions.inc.php');
-    $mysqli = $connect;
 
     //If user is not logged in, return to login page
     if(!isset($_SESSION['UserID']))

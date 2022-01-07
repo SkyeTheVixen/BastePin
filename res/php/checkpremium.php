@@ -1,7 +1,6 @@
 <?php
     session_start();
     include_once("_connect.php");
-    $mysqli = $connect;
     $mysqli->autocommit(false);
 
     $sql = "SELECT * FROM `tblUsers` WHERE `tblUsers`.`UserID` = ?";

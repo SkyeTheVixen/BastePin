@@ -31,7 +31,7 @@
 
     //Generate the Template SQL Data
     $tblBastesSql = "UPDATE `tblBastes` SET `BasteName`=?,`BasteContents`=?,`Visibility`=?,`ExpiresAt`=?,`PasswordRequired`=?,`Password`=? WHERE `tblBastes`.`BasteID` = ? AND `tblBastes`.`UserID` = ?;";
-    $user = GetUser($connect, $userID);
+    $user = GetUser($mysqli, $userID);
 
     if($user['IsPremium'] == 1){
         $basteExpiresAt = ($basteExpiresAt == "")? NULL : date("Y-m-d H:i:s", strtotime($basteExpiresAt));

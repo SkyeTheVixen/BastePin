@@ -2,7 +2,6 @@
     //imports
     include_once("_connect.php");
     include_once("functions.inc.php");
-    $mysqli = $connect;
     $mysqli->autocommit(false);
     $token = $_POST["token"];
 

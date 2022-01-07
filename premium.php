@@ -8,7 +8,7 @@
     include("res/php/navbar.php");
     include("res/php/functions.inc.php");
 
-    $user = GetUser($connect);
+    $user = GetUser($mysqli);
     if($user["IsPremium"]) {
         echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'You are already premium!', heightAuto: false }).then(function(){window.location.href='account';});</script>"; 
     }

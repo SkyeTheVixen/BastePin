@@ -7,7 +7,6 @@
     include("res/php/header.php");
     include("res/php/navbar.php");
     include("res/php/functions.inc.php");
-    $mysqli = $connect;
     $mysqli -> autocommit(FALSE);
     $userID = $_GET["UserID"];
     $user = getProfileById($mysqli, $userID);

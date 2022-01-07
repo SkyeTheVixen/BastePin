@@ -2,7 +2,6 @@
     session_start();
     include("res/php/_connect.php");
     include("res/php/_authcheck.php");
-    $mysqli = $connect;
     $mysqli->autocommit(false);
     if(!isset($_SESSION["paymenttoken"]) || !isset($_GET["token"]))
     {

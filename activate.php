@@ -2,7 +2,6 @@
     session_start();
     include_once("res/php/_connect.php");
     include_once("res/php/functions.inc.php");
-    $mysqli = $connect;
     $mysqli -> autocommit(FALSE);
 
     if(isset($_GET["activationCode"])){

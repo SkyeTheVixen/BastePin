@@ -2,7 +2,6 @@
 
     session_start();
     include_once("_connect.php");
-    $mysqli = $connect;
     $mysqli -> autocommit(FALSE);
     if (!isset($_SESSION['UserID'])){
         header("Location: ../../login");

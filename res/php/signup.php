@@ -1,7 +1,6 @@
 <?php
     include_once("_connect.php");
     include_once("functions.inc.php");
-    $mysqli = $connect;
     $mysqli->autocommit(false);
 
     if(!(isset($_POST["FirstName"]) || isset($_POST["LastName"]) || isset($_POST["Email"]) || isset($_POST["Password"]) || isset($_POST["PasswordConfirm"]))) {

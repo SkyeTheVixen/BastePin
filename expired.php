@@ -1,12 +1,13 @@
-<?php session_start();?>
-<?php $title="Expired Baste | VDBP"; ?>
-<?php $currentPage="expired"; ?>
-<?php include("res/php/_connect.php"); ?>
-<?php include("res/php/header.php"); ?>
-<?php include("res/php/navbar.php"); ?>
-<?php include("res/php/functions.inc.php"); ?>
-<!-- If there is an error -->
 <?php
+    session_start();
+    $title="Expired Baste | VDBP";
+    $currentPage="expired";
+    include("res/php/_connect.php");
+    include("res/php/header.php");
+    include("res/php/navbar.php");
+    include("res/php/functions.inc.php");
+
+    // If there is an error
     if(isset($_GET["er"])) {
         if($_GET["er"] == "insufperm") {
             echo "<script>Swal.fire({ icon: 'warning', title: 'Oops...', text: 'You did not have sufficient permission to do that', heightAuto: false });</script>"; 

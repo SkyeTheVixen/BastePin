@@ -2,7 +2,6 @@
     //Set up PHP File
     session_start();
     include_once("_connect.php");
-    $mysqli = $connect;
     $mysqli -> autocommit(false);
 
 

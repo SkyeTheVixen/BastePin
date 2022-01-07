@@ -7,7 +7,6 @@
     include("res/php/_connect.php");
     include("res/php/navbar.php");
     include("res/php/functions.inc.php");
-    $mysqli = $connect;
     $mysqli -> autocommit(FALSE);
     $user = GetUser($mysqli);
     $baste = GetBaste($mysqli, $_GET["BasteID"]);

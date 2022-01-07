@@ -2,7 +2,6 @@
     include_once("res/php/_connect.php");
     include_once("res/php/_authcheck.php");
     include_once("res/php/functions.inc.php");
-    $mysqli = $connect;
     $mysqli -> autocommit(FALSE);
 
     $referrer = $_SERVER['HTTP_REFERER'] ?? "index.php";

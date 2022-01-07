@@ -7,7 +7,7 @@
     include("res/php/header.php");
     include("res/php/navbar.php");
     include("res/php/functions.inc.php");
-    $mysqli = $connect;
+    $mysqli = $mysqli;
     $mysqli -> autocommit(FALSE);
     //If there is an error
     if(isset($_GET["er"])) {

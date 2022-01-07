@@ -7,7 +7,7 @@
     include("res/php/header.php");
     include("res/php/navbar.php");
     include("res/php/functions.inc.php");
-    $user = getProfile($connect);
+    $user = getProfile($mysqli);
     //If there is an error
     if(isset($_GET["er"])) {
         if($_GET["er"] == "insufperm") {

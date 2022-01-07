@@ -8,7 +8,6 @@
     include("res/php/header.php");
     include("res/php/navbar.php");
     include("res/php/functions.inc.php");
-    $mysqli = $connect;
     $mysqli->autocommit(FALSE);
     $User = GetUser($mysqli);
 ?>

@@ -3,7 +3,6 @@
     session_start();
     include_once('_connect.php');
     include_once('functions.inc.php');
-    $mysqli = $connect;
 
 
     //If user is not logged in, return to login page
@@ -31,7 +30,7 @@
     $basteExpiresAt = $_POST['expiresAt'] ?? null;
     $bastePasswordRequired = $_POST['passwordRequired'] == "on" ? 1 : 0;
     $bastePassword = $_POST['bastePassword'] ?? "";
-    $user = GetUser($connect, $userID);
+    $user = GetUser($mysqli, $userID);
 
 
 

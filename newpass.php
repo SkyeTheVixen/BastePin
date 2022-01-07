@@ -3,7 +3,6 @@
     $currentPage="newpass";
     include_once("res/php/header.php");
     include_once("res/php/_connect.php");
-    $mysqli = $connect;
     if(!(isset($_GET["token"]))) {
         header("Location: login?er=notokensupplied");
         exit();
