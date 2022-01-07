@@ -47,7 +47,7 @@
                 <div class="col-12">
                     <h5>Name: <?= htmlspecialchars($user["FirstName"]." ".$user["LastName"]);?></h5>
                     <h5>Bastes: <?= htmlspecialchars($user["BasteCount"]);?></h5>
-                    <h5>Company: <?= $user["Company"] == null ? htmlspecialchars($user["Company"]) : "";?></h5>
+                    <h5>Company: <?= $user["Company"] != null ? htmlspecialchars($user["Company"]) : "";?></h5>
                     <h5>Website: <?= htmlspecialchars($user["Website"]);?></h5>
                     <h5>Location: <?= htmlspecialchars($user["Location"]);?></h5>
                     <h5>Github: <a
