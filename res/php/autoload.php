@@ -11,5 +11,5 @@
         require '../../vendor/autoload.php';
     }
 
-    return Dotenv\Dotenv::createImmutable("../../".__DIR__);
+    return Dotenv\Dotenv::createImmutable(__DIR__);
 ?>
