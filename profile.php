@@ -48,10 +48,10 @@
                     <h5>Name: <?= htmlspecialchars($user["FirstName"]." ".$user["LastName"]);?></h5>
                     <h5>Bastes: <?= htmlspecialchars($user["BasteCount"]);?></h5>
                     <?= $user["Company"] != NULL ? "<h5>Company: " . htmlspecialchars($user["Company"]) . "</h5>": "";?>
-                    <?= $user["Website"] != NULL ? "<h5>Website: <a href='" . htmlspecialchars($user["Website"]) . "'>".htmlspecialchars($user["Website"]) . "</h5>": "";?>
+                    <?= $user["Website"] != NULL ? "<h5>Website: <a href='" . htmlspecialchars($user["Website"]) . "'>".htmlspecialchars($user["Website"]) . "</a></h5>": "";?>
                     <?= $user["Location"] != NULL ? "<h5>Location: " . htmlspecialchars($user["Location"]) . "</h5>": "";?>
-                    <?= $user["Github"] != NULL ? "<h5>Github: <a href='https://github.com/" . htmlspecialchars($user["Github"]) . "'>".htmlspecialchars($user["Github"]) . "</h5>": "";?>
-                    <?= $user["Twitter"] != NULL ? "<h5>Twitter: @<a href='https://twitter.com/" . htmlspecialchars($user["Twitter"]) . "'>".htmlspecialchars($user["Twitter"]) . "</h5>": "";?>
+                    <?= $user["Github"] != NULL ? "<h5>Github: <a href='https://github.com/" . htmlspecialchars($user["Github"]) . "'>".htmlspecialchars($user["Github"]) . "</a></h5>": "";?>
+                    <?= $user["Twitter"] != NULL ? "<h5>Twitter: @<a href='https://twitter.com/" . htmlspecialchars($user["Twitter"]) . "'>".htmlspecialchars($user["Twitter"]) . "</a></h5>": "";?>
                 </div>
             </div>
             <div class="row mt-5">
