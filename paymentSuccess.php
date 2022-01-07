@@ -22,5 +22,5 @@
     $stmt->close();
     $mysqli->commit();
     $_SESSION["paymenttoken"] = "";
-    header("Location: account/?er=success");
+    header("Location: account/");
 ?>

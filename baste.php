@@ -1,4 +1,4 @@
-<!-- Header stuff -->
+    <!-- Header stuff -->
 <?php 
     session_start();
     $title="Baste | VDBP";
