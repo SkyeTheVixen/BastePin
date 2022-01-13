@@ -81,6 +81,9 @@
             }
             $basteSize = byteConvert(mb_strlen($baste["BasteContents"]));
         ?>
+    
+    
+    
     <!-- Page Title -->
     <div class="row">
         <div class="col-12 mt-5 align-items-center">
