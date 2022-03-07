@@ -100,7 +100,7 @@ $(document).ready(function(){
                     $('#copyicon').removeClass('fa-clipboard-check');
                     $('#copyicon').addClass('fa-clipboard');
                     $('#copybut').removeClass('text-success');
-                }, 3000);
+                }, 1500);
         });
     });
 
