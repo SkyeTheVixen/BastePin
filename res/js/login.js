@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    function login() {
+    function login(token) {
         var email = $("#InputEmail").val();
         var password = $("#InputPassword").val();
         if (email === "" || password === "") {
@@ -16,7 +16,8 @@ $(document).ready(function () {
             url: "res/php/auth.php",
             data: {
                 txtUser: email,
-                txtPassword: password
+                txtPassword: password,
+                token: token
             },
             cache: false,
             success: function (dataResult) {
@@ -81,7 +82,7 @@ $(document).ready(function () {
     }
 
 
-    function signup(){
+    function signup(token){
         var Email = $("#signupInputEmail").val();
         var Password = $("#signupInputPassword").val();
         var PasswordConfirm = $("#signupInputPasswordConfirm").val();
@@ -126,7 +127,8 @@ $(document).ready(function () {
                 LastName: LastName,
                 Email: Email,
                 Password: Password,
-                PasswordConfirm: PasswordConfirm
+                PasswordConfirm: PasswordConfirm,
+                token: token
             },
             cache: false,
             success: function (dataResult) {
@@ -180,7 +182,7 @@ $(document).ready(function () {
             grecaptcha.execute('6LdvS8AeAAAAAN5SGsRA9MdxgpPCpeGh1zwPL2VG', {
                 action: 'create_comment'
             }).then(function (token) {
-                login();
+                login(token);
             });
         });
     });
@@ -192,7 +194,7 @@ $(document).ready(function () {
             grecaptcha.execute('6LdvS8AeAAAAAN5SGsRA9MdxgpPCpeGh1zwPL2VG', {
                 action: 'create_comment'
             }).then(function (token) {
-                signup();
+                signup(token);
             });
         });
     });
