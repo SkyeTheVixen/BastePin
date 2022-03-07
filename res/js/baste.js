@@ -91,7 +91,7 @@ $(document).ready(function(){
 
     $('#copybut').click(function(event){
         event.preventDefault();
-        var copyText = document.getElementById("basteLink");
+        var copyText = document.getElementById("basteContents");
         copyText.select();
         copyText.setSelectionRange(0, 99999);
         navigator.clipboard.writeText(copyText.value).then(function() {
