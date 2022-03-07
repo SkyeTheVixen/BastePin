@@ -91,10 +91,8 @@ $(document).ready(function(){
 
     $('#copybut').click(function(event){
         event.preventDefault();
-        var copyText = document.getElementById("basteContents");
-        copyText.select();
-        copyText.setSelectionRange(0, 99999);
-        navigator.clipboard.writeText(copyText.value).then(function() {
+        var copyText = $('#basteContents').val();
+        navigator.clipboard.writeText(copyText).then(function() {
             $('#copyicon').removeClass('fa-clipboard');
             $('#copyicon').addClass('fa-clipboard-check').then(function(){
                 setTimeout(function(){
