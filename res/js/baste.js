@@ -91,7 +91,7 @@ $(document).ready(function(){
 
     $('#copybut').click(function(event){
         event.preventDefault();
-        var copyText = $('#basteContents').val();
+        var copyText = $('#basteContents').text();
         navigator.clipboard.writeText(copyText).then(function() {
             $('#copyicon').removeClass('fa-clipboard');
             $('#copyicon').addClass('fa-clipboard-check');
