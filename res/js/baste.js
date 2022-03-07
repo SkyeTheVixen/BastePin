@@ -94,12 +94,13 @@ $(document).ready(function(){
         var copyText = $('#basteContents').val();
         navigator.clipboard.writeText(copyText).then(function() {
             $('#copyicon').removeClass('fa-clipboard');
-            $('#copyicon').addClass('fa-clipboard-check').then(function(){
+            $('#copyicon').addClass('fa-clipboard-check');
+            $('#copybut').addClass('text-success');
                 setTimeout(function(){
                     $('#copyicon').removeClass('fa-clipboard-check');
                     $('#copyicon').addClass('fa-clipboard');
+                    $('#copybut').removeClass('text-success');
                 }, 3000);
-            })
         });
     });
 
