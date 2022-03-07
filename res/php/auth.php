@@ -9,9 +9,8 @@
 
     $captcha = $_POST['token'];
     $secretKey = $_ENV["GRECAPTCHA_SECRET"];
-    echo $secretKey;
     $reCAPTCHA = json_decode(file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($secretKey) .  '&response=' . urlencode($captcha)));
-    echo $reCAPTCHA->score;
+    echo $reCAPTCHA->success;
     if ($reCAPTCHA->score <= 0.5){
         echo json_encode(array("statusCode" => 207));
         return;
