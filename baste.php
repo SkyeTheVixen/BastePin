@@ -108,7 +108,7 @@
         </div>
         <div class="row">
             <div class="col-12 col-sm-6 mt-5 align-items-center">
-                <pre><code id="basteContents"><?php echo htmlspecialchars($baste["BasteContents"]);?></pre></code>
+                <pre id="basteContents"><code><?php echo htmlspecialchars($baste["BasteContents"]);?></pre></code>
             </div>
             <div class="col-12 col-sm-6 mt-5 align-items-center">
                 <h4>Details</h4>
