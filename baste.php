@@ -97,14 +97,14 @@
     <div class="row">
         <div class="row">
             <div class="col-12 align-items-right text-right">
-                <a id="fav" href="#" data-basteid="<?php echo $basteID;?>"><i id="favouriteIcon"
-                        <?php if($favres->num_rows > 0){echo "class='fas fa-star'";} else {echo "class='far fa-star'";} ?>></i></a>
-                <?php if($baste["UserID"] == $_SESSION["UserID"]){ ?>
-                <a href="../editbaste/<?php echo $basteID; ?>"><i class="fas fa-pen"></i></a>
-                <a href="..res/php/deletebaste/<?php echo $basteID; ?>"><i class="fas fa-trash"></i></a>
+                <a id="fav" href="#" data-basteid="<?php echo $basteID;?>"><h4><i id="favouriteIcon" <?php if($favres->num_rows > 0){echo "class='fas fa-star'";} else {echo "class='far fa-star'";} ?>></i></h4></a>
                 <a href="#" id="copybut"><i id="copyicon" class="fas fa-clipboard"></i></a>
+
+                <?php if($baste["UserID"] == $_SESSION["UserID"]){ ?>                    
+                    <a href="../editbaste/<?php echo $basteID; ?>"><i class="fas fa-pen"></i></a>
+                    <a href="..res/php/deletebaste/<?php echo $basteID; ?>"><i class="fas fa-trash"></i></a>
+                <?php } ?>
             </div>
-            <?php } ?>
         </div>
         <div class="row">
             <div class="col-12 col-sm-6 mt-5 align-items-center">
