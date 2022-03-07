@@ -34,7 +34,7 @@
                     <form id="loginForm" method="POST" autocomplete="off">
                         <div class="form-group py-2">
                             <label for="InputEmail">Email address</label>
-                            <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp"
+                            <input type="email" autocomplete="username" class="form-control" id="InputEmail" aria-describedby="emailHelp"
                                 placeholder="joe@somedomain.com" name="txtUser">
                         </div>
                         <div class="form-group pb-2">
@@ -126,7 +126,7 @@
                                 <input type="text" required class="form-control" id="signupInputFirstName">
                                 <label for="signupInputLastName" class="form-label">Last Name</label>
                                 <input type="text" required class="form-control" id="signupInputLastName">
-                                <label for="signupInputEmail" class="form-label">Email address</label>
+                                <label for="signupInputEmail" autocomplete="username" class="form-label">Email address</label>
                                 <input type="email" required class="form-control" id="signupInputEmail">
                                 <label for="signupInputPassword" class="form-label">Password</label>
                                 <input type="password" required autocomplete="new-password" class="form-control" id="signupInputPassword">
