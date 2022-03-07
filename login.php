@@ -42,14 +42,7 @@
                             <input type="password" name="txtPassword" class="form-control" id="InputPassword"
                                 placeholder="P4s5w0Rd">
                         </div>
-                        <div class="form-group pb-2">
-                            <label for="InputCaptcha">Are You Human?</label>
-                            <img id="imgCaptcha" src="res/jCaptcha/generate.php" class="card-img-top h-25"
-                                alt="jCaptchaText">
-                            <input type="text" name="txtCaptcha" required class="form-control" id="InputCaptcha"
-                                placeholder="A9F8G7">
-                            <small><a href="#" id="btnNewCaptcha">Regenerate CAPTCHA</a></small>
-                        </div>
+
                         <div class="form-group pt-2 text-center">
                             <button type="submit" id="loginBtn" class="btn btn-primary">Login</button>
                             <button type="button" id="forgotBtn" data-bs-toggle="modal"
@@ -140,14 +133,7 @@
                                 <label for="signupInputPassword" class="form-label">Password Confirm</label>
                                 <input type="password" required class="form-control" id="signupInputPasswordConfirm">
                             </div>
-                            <div class="form-group pb-2">
-                                <label for="suInputCaptcha">Are You Human?</label>
-                                <img id="suimgCaptcha" src="res/jCaptcha/generate.php" class="card-img-top h-25"
-                                    alt="jCaptchaText">
-                                <input type="text" name="sutxtCaptcha" required class="form-control" id="suInputCaptcha"
-                                    placeholder="A9F8G7">
-                                <small><a href="#" id="btnsuNewCaptcha">Regenerate CAPTCHA</a></small>
-                            </div>
+
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
