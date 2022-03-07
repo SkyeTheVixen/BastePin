@@ -98,11 +98,11 @@
         <div class="row">
             <div class="col-12 align-items-right text-right">
                 <a id="fav" href="#" data-basteid="<?php echo $basteID;?>"><h4><i id="favouriteIcon" <?php if($favres->num_rows > 0){echo "class='fas fa-star'";} else {echo "class='far fa-star'";} ?>></i></h4></a>
-                <a href="#" id="copybut"><i id="copyicon" class="fas fa-clipboard"></i></a>
+                <a href="#" id="copybut"><h4><i id="copyicon" class="fas fa-clipboard"></i></h4></a>
 
                 <?php if($baste["UserID"] == $_SESSION["UserID"]){ ?>                    
-                    <a href="../editbaste/<?php echo $basteID; ?>"><i class="fas fa-pen"></i></a>
-                    <a href="..res/php/deletebaste/<?php echo $basteID; ?>"><i class="fas fa-trash"></i></a>
+                    <a href="../editbaste/<?php echo $basteID; ?>"><h4><i class="fas fa-pen"></i></h4></a>
+                    <a href="..res/php/deletebaste/<?php echo $basteID; ?>"><h4><i class="fas fa-trash"></i></h4></a>
                 <?php } ?>
             </div>
         </div>
