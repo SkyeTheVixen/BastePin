@@ -1,7 +1,18 @@
 <?php
+    $dotenv = require("autoload.php");
+    $dotenv->load();
     include_once("_connect.php");
-    include_once("functions.inc.php");
-    $mysqli->autocommit(false);
+    include("functions.inc.php");
+    $mysqli -> autocommit(false);
+
+
+    $captcha = $_POST['token'];
+    $secretKey = $_ENV["GRECAPTCHA_SECRET"];
+    $reCAPTCHA = json_decode(file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($secretKey) .  '&response=' . urlencode($captcha)));
+    if ($reCAPTCHA->score <= 0.5){
+        echo json_encode(array("statusCode" => 204));
+        return;
+    }
 
     if(!(isset($_POST["FirstName"]) || isset($_POST["LastName"]) || isset($_POST["Email"]) || isset($_POST["Password"]) || isset($_POST["PasswordConfirm"]))) {
         echo json_encode(array("statusCode" => 201));

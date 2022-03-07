@@ -59,6 +59,7 @@
     <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/highlight.min.js"></script>
     <?php if($currentPage == "baste"){?><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script><?php }?>
     <?php if($currentPage == "baste"){?><script>hljs.highlightAll();</script><?php }?>
+    <?php if($currentPage == "login"){?><script src="https://www.google.com/recaptcha/api.js?render=6LdvS8AeAAAAAN5SGsRA9MdxgpPCpeGh1zwPL2VG"></script><?php }?>
     <script type="text/javascript" src='<?php echo $pathHead;?>js/<?php echo($currentPage); ?>.js'></script>
     <?php if($currentPage == "premium"){?>
         <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>

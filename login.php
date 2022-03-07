@@ -164,9 +164,8 @@
     </div>
     <!-- End Main Page Content -->
 
-
-
-
+    <script src="https://www.google.com/recaptcha/api.js?render=reCAPTCHA_site_key"></script>
+    
 </body>
 
 </html>
