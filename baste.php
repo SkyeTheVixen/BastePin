@@ -99,6 +99,9 @@
             <div class="col-12 align-items-right text-right">
                 <div class="row">
                     <div class="col-1">
+                        <p>Tools</p>
+                    </div>
+                    <div class="col-1">
                         <a id="fav" href="#" data-basteid="<?php echo $basteID;?>"><h4><i id="favouriteIcon" <?php if($favres->num_rows > 0){echo "class='fas fa-star'";} else {echo "class='far fa-star'";} ?>></i></h4></a>
                     </div>
                     <div class="col-1">
@@ -114,7 +117,7 @@
                             <a href="..res/php/deletebaste/<?php echo $basteID; ?>"><h4><i class="fas fa-trash"></i></h4></a>
                         <?php } ?>
                     </div>      
-                    <div class="col-8"></div>              
+                    <div class="col-7"></div>              
                 </div>
             </div>
         </div>
