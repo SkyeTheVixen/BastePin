@@ -102,6 +102,7 @@
                 <?php if($baste["UserID"] == $_SESSION["UserID"]){ ?>
                 <a href="../editbaste/<?php echo $basteID; ?>"><i class="fas fa-pen"></i></a>
                 <a href="..res/php/deletebaste/<?php echo $basteID; ?>"><i class="fas fa-trash"></i></a>
+                <a href="#" id="copybut"><i id="copyicon" class="fas fa-clipboard"></i></a>
             </div>
             <?php } ?>
         </div>

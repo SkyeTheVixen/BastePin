@@ -89,6 +89,22 @@ $(document).ready(function(){
         $('#CommentsModal').modal('toggle');
     });
 
+    $('#copybut').click(function(event){
+        event.preventDefault();
+        var copyText = document.getElementById("basteLink");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999);
+        navigator.clipboard.writeText(copyText.value).then(function() {
+            $('#copyicon').removeClass('fa-clipboard');
+            $('#copyicon').addClass('fa-clipboard-check').then(function(){
+                setTimeout(function(){
+                    $('#copyicon').removeClass('fa-clipboard-check');
+                    $('#copyicon').addClass('fa-clipboard');
+                }, 3000);
+            })
+        });
+    });
+
     $('#dismisscommsbut').click(function(event){
         event.preventDefault();
         $('#CommentsModal').modal('toggle');
