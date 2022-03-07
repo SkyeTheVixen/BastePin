@@ -39,7 +39,7 @@
                         </div>
                         <div class="form-group pb-2">
                             <label for="InputPassword">Password</label>
-                            <input type="password" aria-autocomplete="current-password" name="txtPassword" class="form-control" id="InputPassword"
+                            <input type="password" autocomplete="current-password" name="txtPassword" class="form-control" id="InputPassword"
                                 placeholder="P4s5w0Rd">
                         </div>
 
@@ -129,9 +129,9 @@
                                 <label for="signupInputEmail" class="form-label">Email address</label>
                                 <input type="email" required class="form-control" id="signupInputEmail">
                                 <label for="signupInputPassword" class="form-label">Password</label>
-                                <input type="password" required aria-autocomplete="new-password" class="form-control" id="signupInputPassword">
+                                <input type="password" required autocomplete="new-password" class="form-control" id="signupInputPassword">
                                 <label for="signupInputPassword"  class="form-label">Password Confirm</label>
-                                <input type="password" required aria-autocomplete="new-password" class="form-control" id="signupInputPasswordConfirm">
+                                <input type="password" required autocomplete="new-password" class="form-control" id="signupInputPasswordConfirm">
                             </div>
 
                         </div>
