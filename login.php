@@ -150,7 +150,7 @@
     </div>
     <!-- End Main Page Content -->
 
-    <script src="https://www.google.com/recaptcha/api.js?render=reCAPTCHA_site_key"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LdvS8AeAAAAAN5SGsRA9MdxgpPCpeGh1zwPL2VG"></script>
     
 </body>
 

@@ -101,6 +101,7 @@
                     $stmt -> execute();
                     $mysqli -> commit();
                     $stmt -> close();
+                    $mysqli -> close();
                     echo json_encode(array("statusCode" => 200));
                     return;
                 }
