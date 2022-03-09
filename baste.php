@@ -81,14 +81,16 @@
             }
             $basteSize = byteConvert(mb_strlen($baste["BasteContents"]));
         ?>
-    
-    
-    
+
+
+
     <!-- Page Title -->
     <div class="row">
         <div class="col-12 mt-5 align-items-center">
             <?php $datetimenow = time()-86400;?>
-            <h1 class="text-center"><?php echo htmlspecialchars($baste["BasteName"]);?>  <?php if(strtotime($baste["CreatedAt"]) > $datetimenow){?><span class="badge badge-secondary">New</span><?php } ?></h1>
+            <h1 class="text-center"><?php echo htmlspecialchars($baste["BasteName"]);?>
+                <?php if(strtotime($baste["CreatedAt"]) > $datetimenow){?><span
+                    class="badge badge-secondary">New</span><?php } ?></h1>
         </div>
     </div>
     <!-- End Page Title -->
@@ -102,22 +104,32 @@
                         <p>Tools</p>
                     </div>
                     <div class="col-1">
-                        <a id="fav" href="#" data-basteid="<?php echo $basteID;?>"><h4><i id="favouriteIcon" <?php if($favres->num_rows > 0){echo "class='fas fa-star'";} else {echo "class='far fa-star'";} ?>></i></h4></a>
+                        <a id="fav" href="#" data-basteid="<?php echo $basteID;?>">
+                            <h4><i id="favouriteIcon"
+                                    <?php if($favres->num_rows > 0){echo "class='fas fa-star'";} else {echo "class='far fa-star'";} ?>></i>
+                            </h4>
+                        </a>
                     </div>
                     <div class="col-1">
-                        <a href="#" id="copybut"><h4><i id="copyicon" class="fas fa-clipboard"></i></h4></a>
+                        <a href="#" id="copybut">
+                            <h4><i id="copyicon" class="fas fa-clipboard"></i></h4>
+                        </a>
                     </div>
                     <div class="col-1">
-                        <?php if($baste["UserID"] == $_SESSION["UserID"]){ ?>                    
-                            <a href="../editbaste/<?php echo $basteID; ?>"><h4><i class="fas fa-pen"></i></h4></a>
+                        <?php if($baste["UserID"] == $_SESSION["UserID"]){ ?>
+                        <a href="../editbaste/<?php echo $basteID; ?>">
+                            <h4><i class="fas fa-pen"></i></h4>
+                        </a>
                         <?php } ?>
                     </div>
                     <div class="col-1">
-                        <?php if($baste["UserID"] == $_SESSION["UserID"]){ ?>                    
-                            <a href="..res/php/deletebaste/<?php echo $basteID; ?>"><h4><i class="fas fa-trash"></i></h4></a>
+                        <?php if($baste["UserID"] == $_SESSION["UserID"]){ ?>
+                        <a href="..res/php/deletebaste/<?php echo $basteID; ?>">
+                            <h4><i class="fas fa-trash"></i></h4>
+                        </a>
                         <?php } ?>
-                    </div>      
-                    <div class="col-7"></div>              
+                    </div>
+                    <div class="col-7"></div>
                 </div>
             </div>
         </div>
@@ -172,26 +184,26 @@
                     }
                     for($i = 0; $i < $maxCounter; $i++){
             ?>
-                <div class="row py-1">
-                    <div class="card">
-                        <div class="card-body">
-                            <?php $time = time_elapsed_string($comments[$i]["CreatedAt"]); $user = GetUserById($mysqli, $comments[$i]["UserID"]); ?>
-                            <p class="card-text">
-                                <strong><?php echo htmlspecialchars($user["FirstName"] . " " . $user["LastName"]);?></strong>
-                                <?php echo ": " . $comments[$i]["CommentValue"]; echo "<br>" . $time ?></p>
-                        </div>
+            <div class="row py-1">
+                <div class="card">
+                    <div class="card-body">
+                        <?php $time = time_elapsed_string($comments[$i]["CreatedAt"]); $user = GetUserById($mysqli, $comments[$i]["UserID"]); ?>
+                        <p class="card-text">
+                            <strong><?php echo htmlspecialchars($user["FirstName"] . " " . $user["LastName"]);?></strong>
+                            <?php echo ": " . $comments[$i]["CommentValue"]; echo "<br>" . $time ?></p>
                     </div>
                 </div>
+            </div>
             <?php } ?>
             <?php } else { ?>
             <h3>Comments</h3>
-                <form id="commentForm">
-                    <div class="form-group">
-                        <label for="comment">Comment</label>
-                        <textarea class="form-control" id="comment" rows="2"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit Comment</button>
-                </form>
+            <form id="commentForm">
+                <div class="form-group">
+                    <label for="comment">Comment</label>
+                    <textarea class="form-control" id="comment" rows="2"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Comment</button>
+            </form>
             <?php } ?>
         </div>
 
@@ -226,31 +238,6 @@
     </div>
     <!-- End Comments and other bastes -->
 
-    <?php } ?>
-
-
-
-    <!-- If there is not a baste -->
-    <?php if ($_GET["BasteID"] == "") { ?>
-    <div class="row mt-5">
-        <h2 class="text-center">All Bastes</h2>
-        <div class="row">
-            <?php while($rows = $result -> fetch_array(MYSQLI_ASSOC)) { ?>
-            <div class="col-12 col-md-6 col-lg-4 mb-1">
-                <div class="card">
-                    <div class="card-body">
-                        <?php $time = strtotime($rows["CreatedAt"]); ?>
-                        <h5 class="card-title"><?php echo htmlspecialchars($rows['BasteName']); ?></h5>
-                        <p class="card-text"><?php echo date("d M Y @ H:i", $time) ?></p>
-                        <a href="<?php echo $rows['BasteID']; ?>" class="btn btn-primary">View Baste</a>
-                    </div>
-                </div>
-            </div>
-            <?php } ?>
-        </div>
-    </div>
-    <?php } ?>
-
     <?php if(!$comments === false){?>
     <!-- Comments Modal -->
     <div class="modal fade" id="CommentsModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -281,6 +268,32 @@
     </div>
     <!-- End Comments Modal -->
     <?php } ?>
+    <?php } ?>
+
+
+
+    <!-- If there is not a baste -->
+    <?php if ($_GET["BasteID"] == "") { ?>
+    <div class="row mt-5">
+        <h2 class="text-center">All Bastes</h2>
+        <div class="row">
+            <?php while($rows = $result -> fetch_array(MYSQLI_ASSOC)) { ?>
+            <div class="col-12 col-md-6 col-lg-4 mb-1">
+                <div class="card">
+                    <div class="card-body">
+                        <?php $time = strtotime($rows["CreatedAt"]); ?>
+                        <h5 class="card-title"><?php echo htmlspecialchars($rows['BasteName']); ?></h5>
+                        <p class="card-text"><?php echo date("d M Y @ H:i", $time) ?></p>
+                        <a href="<?php echo $rows['BasteID']; ?>" class="btn btn-primary">View Baste</a>
+                    </div>
+                </div>
+            </div>
+            <?php } ?>
+        </div>
+    </div>
+    <?php } ?>
+
+
 
 
 </div>
