@@ -115,7 +115,7 @@
                     <div class="col-1">
                         <a id="fav" href="#" data-basteid="<?php echo $basteID;?>">
                             <h4><i id="favouriteIcon"
-                                    <?php if($favres->num_rows > 0){echo "class='fas fa-star'";} else {echo "class='far fa-star'";} ?>></i> <span class="text-muted"><?= $favcountres->FavouriteCount; ?></span>
+                                    <?php if($favres->num_rows > 0){echo "class='fas fa-star'";} else {echo "class='far fa-star'";} ?>></i> <span class="text-muted"><?= $favcountres; ?></span>
                             </h4>
                         </a>
                     </div>
