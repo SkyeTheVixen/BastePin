@@ -1,4 +1,6 @@
 <?php 
+
+    session_start();
     if($currentPage == "baste" || $currentPage == "profile" || $currentPage == "account" || $currentPage == "editbaste"){
         $pathHead = "../res/";
         $pageredirect = "../";
@@ -40,9 +42,11 @@
                     <li class="nav-item">
                         <a href="<?php echo $pageredirect;?>favourites" <?php if($currentPage=="favourites"){ echo "class=\"nav-link link-light active\" aria-current=\"page\""; } else { echo "class=\"nav-link link-light\""; } ?>><i class="far fa-star"></i> Favourites</a>
                     </li>
+                    <?php if(isset($_SESSION['UserID'])){ ?>
                     <li class="nav-item right" id="logoutBtn">
                         <a href="<?php echo $pathHead;?>php/logout" class="nav-link link-light"><i class="fas fa-door-open"></i>Logout</a>
                     </li>
+                    <?php } ?>
                 </ul>
             </div>
         </div>
