@@ -48,7 +48,7 @@
         $stmt -> close();
 
         //FavouriteCount
-        $sql = "SELECT COUNT(*) AS `FavouriteCount` FROM `tblFavourites` WHERE `BasteID` = ?";
+        $sql = "SELECT * FROM `tblFavourites` WHERE `BasteID` = ?";
         $stmt = $mysqli -> prepare($sql);
         $stmt->bind_param('s', $basteID);
         $stmt -> execute();
@@ -115,7 +115,7 @@
                     <div class="col-1">
                         <a id="fav" href="#" data-basteid="<?php echo $basteID;?>">
                             <h4><i id="favouriteIcon"
-                                    <?php if($favres->num_rows > 0){echo "class='fas fa-star'";} else {echo "class='far fa-star'";} ?>></i> <span class="text-muted"><?= $favcountres; ?></span>
+                                    <?php if($favres->num_rows > 0){echo "class='fas fa-star'";} else {echo "class='far fa-star'";} ?>></i> <span class="text-muted"><?= $favcountres->num_rows; ?></span>
                             </h4>
                         </a>
                     </div>
