@@ -15,7 +15,8 @@ $(document).ready(function(){
                     if(dataResult.statusCode == 200){
                         $('#favouriteIcon').removeClass('far');
                         $('#favouriteIcon').addClass('fas');
-                        
+                        $('#favCount').text(parseInt($('#favCount').text()) + 1);
+
                     }
                 }
             });
@@ -33,6 +34,7 @@ $(document).ready(function(){
                     if(dataResult.statusCode == 200){
                         $('#favouriteIcon').removeClass('fas');
                         $('#favouriteIcon').addClass('far');
+                        $('#favCount').text(parseInt($('#favCount').text()) - 1);
                     }
                 }
             });
