@@ -15,6 +15,7 @@ $(document).ready(function(){
                     if(dataResult.statusCode == 200){
                         $('#favouriteIcon').removeClass('far');
                         $('#favouriteIcon').addClass('fas');
+                        
                     }
                 }
             });
